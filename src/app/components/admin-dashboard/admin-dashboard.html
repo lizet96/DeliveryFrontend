@@ -1,0 +1,129 @@
+<div class="admin-dashboard">
+  <!-- Navbar Simple y Profesional -->
+  <div class="simple-navbar">
+    <div class="navbar-content">
+      <h1 class="app-title">DeliveryApp</h1>
+      <p-button 
+        icon="pi pi-sign-out" 
+        label="Cerrar Sesión" 
+        severity="secondary" 
+        size="small"
+        (click)="logout()">
+      </p-button>
+    </div>
+  </div>
+
+  <!-- Contenido Principal -->
+  <div class="dashboard-content">
+    <!-- Tarjetas de Estadísticas -->
+    <div class="stats-grid">
+      <p-card header="Paquetes Totales" class="stat-card">
+        <div class="stat-content">
+          <i class="pi pi-box stat-icon"></i>
+          <div class="stat-number">156</div>
+        </div>
+      </p-card>
+      
+      <p-card header="En Tránsito" class="stat-card">
+        <div class="stat-content">
+          <i class="pi pi-truck stat-icon"></i>
+          <div class="stat-number">23</div>
+        </div>
+      </p-card>
+      
+      <p-card header="Entregados Hoy" class="stat-card">
+        <div class="stat-content">
+          <i class="pi pi-check-circle stat-icon"></i>
+          <div class="stat-number">45</div>
+        </div>
+      </p-card>
+      
+      <p-card header="Delivery Activos" class="stat-card">
+        <div class="stat-content">
+          <i class="pi pi-users stat-icon"></i>
+          <div class="stat-number">8</div>
+        </div>
+      </p-card>
+    </div>
+
+    <!-- Mapa arriba -->
+    <div class="map-section">
+      <p-card header="Mapa de Entregas" class="map-card">
+        <div id="map" class="delivery-map"></div>
+      </p-card>
+    </div>
+
+    <!-- Tabla de Paquetes Detallada -->
+    <div class="packages-section">
+      <div class="table-header">
+        <h2 class="table-title">Seguimiento de Paquetes</h2>
+        <p-button 
+          icon="pi pi-plus" 
+          label="Nuevo Envío" 
+          severity="success" 
+          size="small"
+          class="new-shipment-btn"
+          (click)="createNewShipment()">
+        </p-button>
+      </div>
+      <p-card class="packages-card">
+        <p-table [value]="packages" [tableStyle]="{'min-width': '70rem'}" [scrollable]="true" scrollHeight="500px">
+          <ng-template pTemplate="header">
+            <tr>
+              <th>ID Paquete</th>
+              <th>Delivery</th>
+              <th>Cliente</th>
+              <th>Dirección</th>
+              <th>Estado</th>
+              <th>Prioridad</th>
+              <th>Hora Asignada</th>
+              <th>Entrega Estimada</th>
+              <th>Teléfono</th>
+            </tr>
+          </ng-template>
+          <ng-template pTemplate="body" let-package>
+            <tr>
+              <td>
+                <span class="package-id">{{ package.id }}</span>
+              </td>
+              <td>
+                <div class="delivery-info">
+                  <strong>{{ package.deliveryPerson }}</strong>
+                  <br>
+                  <small class="delivery-id">{{ package.deliveryId }}</small>
+                </div>
+              </td>
+              <td>
+                <strong>{{ package.customerName }}</strong>
+              </td>
+              <td>
+                <span class="address">{{ package.address }}</span>
+              </td>
+              <td>
+                <span class="status-badge status-{{ package.status }}">
+                  <i class="pi {{ getStatusIcon(package.status) }}"></i>
+                  {{ getStatusLabel(package.status) }}
+                </span>
+              </td>
+              <td>
+                <span class="priority-badge priority-{{ package.priority }}">
+                  <i class="pi {{ getPriorityIcon(package.priority) }}"></i>
+                  {{ getPriorityLabel(package.priority) }}
+                </span>
+              </td>
+              <td>
+                <span class="time">{{ package.assignedTime }}</span>
+              </td>
+              <td>
+                <span class="time estimated">{{ package.estimatedDelivery }}</span>
+              </td>
+              <td>
+                <span class="phone">{{ package.phone }}</span>
+              </td>
+            </tr>
+          </ng-template>
+        </p-table>
+      </p-card>
+    </div>
+  </div>
+</div>

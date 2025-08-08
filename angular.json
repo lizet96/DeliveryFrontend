@@ -82,11 +82,16 @@
               }
             ],
             "styles": [
-              "src/styles.css"
+          
+                "src/styles.css"
+              
             ]
           }
         }
       }
     }
+  },
+  "cli": {
+    "analytics": false
   }
 }

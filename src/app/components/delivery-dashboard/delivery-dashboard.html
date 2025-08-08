@@ -1,0 +1,128 @@
+<div class="delivery-dashboard">
+  <!-- Navbar Simple y Profesional -->
+  <div class="simple-navbar">
+    <div class="navbar-content">
+      <h1 class="app-title">DeliveryApp</h1>
+      <p-button 
+        icon="pi pi-lock" 
+        label="Cerrar Sesión" 
+        severity="secondary" 
+        size="small"
+        class="logout-btn"
+        (click)="logout()">
+      </p-button>
+    </div>
+  </div>
+
+  <!-- Contenido Principal -->
+  <div class="dashboard-content">
+    <!-- Tarjetas de Estadísticas -->
+    <div class="stats-grid">
+      <p-card header="Entregas Pendientes" class="stat-card">
+        <div class="stat-content">
+          <i class="pi pi-clock stat-icon pending"></i>
+          <div class="stat-number">2</div>
+        </div>
+      </p-card>
+      
+      <p-card header="En Tránsito" class="stat-card">
+        <div class="stat-content">
+          <i class="pi pi-truck stat-icon transit"></i>
+          <div class="stat-number">2</div>
+        </div>
+      </p-card>
+      
+      <p-card header="Entregadas Hoy" class="stat-card">
+        <div class="stat-content">
+          <i class="pi pi-check-circle stat-icon delivered"></i>
+          <div class="stat-number">1</div>
+        </div>
+      </p-card>
+      
+      <p-card header="Total Asignadas" class="stat-card">
+        <div class="stat-content">
+          <i class="pi pi-box stat-icon total"></i>
+          <div class="stat-number">5</div>
+        </div>
+      </p-card>
+    </div>
+
+    <!-- Mapa de Entregas -->
+    <div class="map-section">
+      <p-card header="Mapa de Entregas" class="map-card">
+        <div id="deliveryMap" class="delivery-map"></div>
+      </p-card>
+    </div>
+
+    <!-- Tabla de Paquetes -->
+    <div class="packages-section">
+      <div class="table-header">
+        <h2 class="table-title">Mis Entregas Asignadas</h2>
+      </div>
+      <p-card class="packages-card">
+        <p-table [value]="packages" [tableStyle]="{'min-width': '50rem'}" styleClass="custom-table">
+          <ng-template pTemplate="header">
+            <tr>
+              <th>ID Paquete</th>
+              <th>Cliente</th>
+              <th>Dirección</th>
+              <th>Estado</th>
+              <th>Prioridad</th>
+              <th>Hora Asignada</th>
+              <th>Hora Estimada</th>
+              <th>Teléfono</th>
+              <th>Acciones</th>
+            </tr>
+          </ng-template>
+          <ng-template pTemplate="body" let-package>
+            <tr>
+              <td>
+                <span class="package-id">{{ package.id }}</span>
+              </td>
+              <td>
+                <div class="customer-info">
+                  <strong>{{ package.customer }}</strong>
+                </div>
+              </td>
+              <td>
+                <span class="address">{{ package.address }}</span>
+              </td>
+              <td>
+                <span class="status-badge" [ngClass]="'status-' + package.status">
+                  <i class="pi" [ngClass]="getStatusIcon(package.status)"></i>
+                  {{ getStatusLabel(package.status) }}
+                </span>
+              </td>
+              <td>
+                <span class="priority-badge" [ngClass]="'priority-' + package.priority">
+                  <i class="pi" [ngClass]="getPriorityIcon(package.priority)"></i>
+                  {{ getPriorityLabel(package.priority) }}
+                </span>
+              </td>
+              <td>
+                <span class="time">{{ package.assignedTime }}</span>
+              </td>
+              <td>
+                <span class="time estimated">{{ package.estimatedTime }}</span>
+              </td>
+              <td>
+                <span class="phone">{{ package.phone }}</span>
+              </td>
+              <td>
+                <p-button 
+                  icon="pi pi-pencil" 
+                  label="Editar Estatus" 
+                  severity="info" 
+                  size="small"
+                  class="edit-status-btn"
+                  (click)="editPackageStatus(package)">
+                </p-button>
+              </td>
+            </tr>
+          </ng-template>
+        </p-table>
+      </p-card>
+    </div>
+  </div>
+</div>
+<p>delivery-dashboard works!</p>
