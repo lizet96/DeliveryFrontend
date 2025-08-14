@@ -1,43 +1,44 @@
 import {
-  BaseModelHolder,
-  InputText,
-  InputTextModule
-} from "./chunk-FPOP3P3G.js";
-import {
-  ObjectUtils,
-  Tooltip,
-  UniqueComponentId,
-  zindexutils
-} from "./chunk-RALQ2U2N.js";
-import {
-  Scroller,
-  ScrollerModule
-} from "./chunk-GAP7QYSQ.js";
-import {
-  FormsModule,
-  NG_VALUE_ACCESSOR,
-  NgControl,
-  NgControlStatus,
-  NgModel,
-  RequiredValidator
-} from "./chunk-NJLSGDFT.js";
-import {
-  AutoFocus,
-  Button,
-  ButtonModule
-} from "./chunk-CPMPZKX4.js";
-import {
-  Fluid
-} from "./chunk-4U7ETZTD.js";
-import {
   Badge,
   BadgeModule,
+  Button,
+  ButtonModule
+} from "./chunk-V557MW3E.js";
+import {
+  BaseEditableHolder,
+  BaseInput,
+  Select,
+  SelectModule
+} from "./chunk-GQOZBK4F.js";
+import {
+  InputText,
+  InputTextModule
+} from "./chunk-WK7N7HQ7.js";
+import {
+  AutoFocus,
   ConnectedOverlayScrollHandler,
   DomHandler,
   Ripple,
   blockBodyScroll,
   unblockBodyScroll
-} from "./chunk-CDYHAYYD.js";
+} from "./chunk-ISSEBOBL.js";
+import "./chunk-APUB4KET.js";
+import {
+  Scroller,
+  ScrollerModule
+} from "./chunk-XYDXP2LB.js";
+import {
+  ObjectUtils,
+  UniqueComponentId,
+  zindexutils
+} from "./chunk-I3AKSG3T.js";
+import {
+  animate,
+  state,
+  style,
+  transition,
+  trigger
+} from "./chunk-FIT3ROIU.js";
 import {
   AngleDoubleLeftIcon,
   AngleDoubleRightIcon,
@@ -48,7 +49,6 @@ import {
   ArrowDownIcon,
   ArrowUpIcon,
   BaseIcon,
-  BlankIcon,
   CalendarIcon,
   CheckIcon,
   ChevronDownIcon,
@@ -58,18 +58,17 @@ import {
   FilterIcon,
   FilterSlashIcon,
   PlusIcon,
-  SearchIcon,
   SortAltIcon,
   SortAmountDownIcon,
   SortAmountUpAltIcon,
   SpinnerIcon,
   TimesIcon,
   TrashIcon
-} from "./chunk-CII5YEJK.js";
+} from "./chunk-4POC4QGQ.js";
 import {
   BaseComponent,
   BaseStyle
-} from "./chunk-MKYWZWVQ.js";
+} from "./chunk-6PGTOORR.js";
 import {
   B,
   D,
@@ -78,12 +77,8 @@ import {
   FilterService,
   Ht,
   I,
-  Jt,
   Kt,
-  Lt,
-  M,
   Mt,
-  O,
   OverlayService,
   PrimeTemplate,
   R,
@@ -94,21 +89,23 @@ import {
   W,
   Y,
   Yt,
-  a,
   b,
-  bt,
   c,
-  j,
-  j2,
   k2 as k,
   s2 as s,
   s3 as s2,
   ut,
   v,
-  vt,
-  y,
   z
-} from "./chunk-D4IGDOBM.js";
+} from "./chunk-ZS6XTMWU.js";
+import {
+  FormsModule,
+  NG_VALUE_ACCESSOR,
+  NgControl,
+  NgControlStatus,
+  NgModel,
+  RequiredValidator
+} from "./chunk-JSU6WXKO.js";
 import {
   CommonModule,
   NgClass,
@@ -119,22 +116,19 @@ import {
   NgSwitchCase,
   NgTemplateOutlet,
   isPlatformBrowser
-} from "./chunk-4XHXVNBQ.js";
+} from "./chunk-M7ANLDTA.js";
 import "./chunk-NDZIWK7R.js";
 import {
-  ANIMATION_MODULE_TYPE,
   ChangeDetectionStrategy,
   ChangeDetectorRef,
   Component,
   ContentChild,
   ContentChildren,
-  DOCUMENT,
   Directive,
   ElementRef,
   EventEmitter,
   HostBinding,
   HostListener,
-  Inject,
   Injectable,
   Injector,
   Input,
@@ -143,13 +137,10 @@ import {
   Optional,
   Output,
   Renderer2,
-  RendererFactory2,
-  RuntimeError,
   ViewChild,
   ViewEncapsulation,
   booleanAttribute,
   computed,
-  effect,
   forwardRef,
   inject,
   input,
@@ -183,7 +174,6 @@ import {
   ɵɵelementStart,
   ɵɵgetCurrentView,
   ɵɵgetInheritedFactory,
-  ɵɵinject,
   ɵɵlistener,
   ɵɵloadQuery,
   ɵɵnamespaceSVG,
@@ -191,10 +181,8 @@ import {
   ɵɵprojection,
   ɵɵprojectionDef,
   ɵɵproperty,
-  ɵɵpureFunction0,
   ɵɵpureFunction1,
   ɵɵpureFunction2,
-  ɵɵpureFunction3,
   ɵɵpureFunction4,
   ɵɵpureFunction5,
   ɵɵpureFunction6,
@@ -219,7 +207,7 @@ import {
   ɵɵtwoWayListener,
   ɵɵtwoWayProperty,
   ɵɵviewQuery
-} from "./chunk-2AA5DO45.js";
+} from "./chunk-4U5U4IAX.js";
 import "./chunk-G6ECYYJH.js";
 import "./chunk-YVXMBCE5.js";
 import {
@@ -228,312 +216,7 @@ import {
 import {
   __spreadProps,
   __spreadValues
-} from "./chunk-WDMUDEB6.js";
-
-// node_modules/@angular/animations/fesm2022/private_export.mjs
-var AnimationMetadataType;
-(function(AnimationMetadataType2) {
-  AnimationMetadataType2[AnimationMetadataType2["State"] = 0] = "State";
-  AnimationMetadataType2[AnimationMetadataType2["Transition"] = 1] = "Transition";
-  AnimationMetadataType2[AnimationMetadataType2["Sequence"] = 2] = "Sequence";
-  AnimationMetadataType2[AnimationMetadataType2["Group"] = 3] = "Group";
-  AnimationMetadataType2[AnimationMetadataType2["Animate"] = 4] = "Animate";
-  AnimationMetadataType2[AnimationMetadataType2["Keyframes"] = 5] = "Keyframes";
-  AnimationMetadataType2[AnimationMetadataType2["Style"] = 6] = "Style";
-  AnimationMetadataType2[AnimationMetadataType2["Trigger"] = 7] = "Trigger";
-  AnimationMetadataType2[AnimationMetadataType2["Reference"] = 8] = "Reference";
-  AnimationMetadataType2[AnimationMetadataType2["AnimateChild"] = 9] = "AnimateChild";
-  AnimationMetadataType2[AnimationMetadataType2["AnimateRef"] = 10] = "AnimateRef";
-  AnimationMetadataType2[AnimationMetadataType2["Query"] = 11] = "Query";
-  AnimationMetadataType2[AnimationMetadataType2["Stagger"] = 12] = "Stagger";
-})(AnimationMetadataType || (AnimationMetadataType = {}));
-function trigger(name, definitions) {
-  return { type: AnimationMetadataType.Trigger, name, definitions, options: {} };
-}
-function animate(timings, styles = null) {
-  return { type: AnimationMetadataType.Animate, styles, timings };
-}
-function sequence(steps, options = null) {
-  return { type: AnimationMetadataType.Sequence, steps, options };
-}
-function style(tokens) {
-  return { type: AnimationMetadataType.Style, styles: tokens, offset: null };
-}
-function state(name, styles, options) {
-  return { type: AnimationMetadataType.State, name, styles, options };
-}
-function transition(stateChangeExpr, steps, options = null) {
-  return { type: AnimationMetadataType.Transition, expr: stateChangeExpr, animation: steps, options };
-}
-function animation(steps, options = null) {
-  return { type: AnimationMetadataType.Reference, animation: steps, options };
-}
-function useAnimation(animation2, options = null) {
-  return { type: AnimationMetadataType.AnimateRef, animation: animation2, options };
-}
-
-// node_modules/@angular/animations/fesm2022/animations.mjs
-var AnimationBuilder = class _AnimationBuilder {
-  static ɵfac = function AnimationBuilder_Factory(__ngFactoryType__) {
-    return new (__ngFactoryType__ || _AnimationBuilder)();
-  };
-  static ɵprov = ɵɵdefineInjectable({
-    token: _AnimationBuilder,
-    factory: () => (() => inject(BrowserAnimationBuilder))(),
-    providedIn: "root"
-  });
-};
-(() => {
-  (typeof ngDevMode === "undefined" || ngDevMode) && setClassMetadata(AnimationBuilder, [{
-    type: Injectable,
-    args: [{
-      providedIn: "root",
-      useFactory: () => inject(BrowserAnimationBuilder)
-    }]
-  }], null, null);
-})();
-var AnimationFactory = class {
-};
-var BrowserAnimationBuilder = class _BrowserAnimationBuilder extends AnimationBuilder {
-  animationModuleType = inject(ANIMATION_MODULE_TYPE, {
-    optional: true
-  });
-  _nextAnimationId = 0;
-  _renderer;
-  constructor(rootRenderer, doc) {
-    super();
-    const typeData = {
-      id: "0",
-      encapsulation: ViewEncapsulation.None,
-      styles: [],
-      data: {
-        animation: []
-      }
-    };
-    this._renderer = rootRenderer.createRenderer(doc.body, typeData);
-    if (this.animationModuleType === null && !isAnimationRenderer(this._renderer)) {
-      throw new RuntimeError(3600, (typeof ngDevMode === "undefined" || ngDevMode) && "Angular detected that the `AnimationBuilder` was injected, but animation support was not enabled. Please make sure that you enable animations in your application by calling `provideAnimations()` or `provideAnimationsAsync()` function.");
-    }
-  }
-  build(animation2) {
-    const id = this._nextAnimationId;
-    this._nextAnimationId++;
-    const entry = Array.isArray(animation2) ? sequence(animation2) : animation2;
-    issueAnimationCommand(this._renderer, null, id, "register", [entry]);
-    return new BrowserAnimationFactory(id, this._renderer);
-  }
-  static ɵfac = function BrowserAnimationBuilder_Factory(__ngFactoryType__) {
-    return new (__ngFactoryType__ || _BrowserAnimationBuilder)(ɵɵinject(RendererFactory2), ɵɵinject(DOCUMENT));
-  };
-  static ɵprov = ɵɵdefineInjectable({
-    token: _BrowserAnimationBuilder,
-    factory: _BrowserAnimationBuilder.ɵfac,
-    providedIn: "root"
-  });
-};
-(() => {
-  (typeof ngDevMode === "undefined" || ngDevMode) && setClassMetadata(BrowserAnimationBuilder, [{
-    type: Injectable,
-    args: [{
-      providedIn: "root"
-    }]
-  }], () => [{
-    type: RendererFactory2
-  }, {
-    type: Document,
-    decorators: [{
-      type: Inject,
-      args: [DOCUMENT]
-    }]
-  }], null);
-})();
-var BrowserAnimationFactory = class extends AnimationFactory {
-  _id;
-  _renderer;
-  constructor(_id, _renderer) {
-    super();
-    this._id = _id;
-    this._renderer = _renderer;
-  }
-  create(element, options) {
-    return new RendererAnimationPlayer(this._id, element, options || {}, this._renderer);
-  }
-};
-var RendererAnimationPlayer = class {
-  id;
-  element;
-  _renderer;
-  parentPlayer = null;
-  _started = false;
-  constructor(id, element, options, _renderer) {
-    this.id = id;
-    this.element = element;
-    this._renderer = _renderer;
-    this._command("create", options);
-  }
-  _listen(eventName, callback) {
-    return this._renderer.listen(this.element, `@@${this.id}:${eventName}`, callback);
-  }
-  _command(command, ...args) {
-    issueAnimationCommand(this._renderer, this.element, this.id, command, args);
-  }
-  onDone(fn) {
-    this._listen("done", fn);
-  }
-  onStart(fn) {
-    this._listen("start", fn);
-  }
-  onDestroy(fn) {
-    this._listen("destroy", fn);
-  }
-  init() {
-    this._command("init");
-  }
-  hasStarted() {
-    return this._started;
-  }
-  play() {
-    this._command("play");
-    this._started = true;
-  }
-  pause() {
-    this._command("pause");
-  }
-  restart() {
-    this._command("restart");
-  }
-  finish() {
-    this._command("finish");
-  }
-  destroy() {
-    this._command("destroy");
-  }
-  reset() {
-    this._command("reset");
-    this._started = false;
-  }
-  setPosition(p) {
-    this._command("setPosition", p);
-  }
-  getPosition() {
-    return unwrapAnimationRenderer(this._renderer)?.engine?.players[this.id]?.getPosition() ?? 0;
-  }
-  totalTime = 0;
-};
-function issueAnimationCommand(renderer, element, id, command, args) {
-  renderer.setProperty(element, `@@${id}:${command}`, args);
-}
-function unwrapAnimationRenderer(renderer) {
-  const type = renderer.ɵtype;
-  if (type === 0) {
-    return renderer;
-  } else if (type === 1) {
-    return renderer.animationRenderer;
-  }
-  return null;
-}
-function isAnimationRenderer(renderer) {
-  const type = renderer.ɵtype;
-  return type === 0 || type === 1;
-}
-
-// node_modules/primeng/fesm2022/primeng-baseeditableholder.mjs
-var BaseEditableHolder = class _BaseEditableHolder extends BaseModelHolder {
-  /**
-   * There must be a value (if set).
-   * @defaultValue false
-   * @group Props
-   */
-  required = input(void 0, ...ngDevMode ? [{
-    debugName: "required",
-    transform: booleanAttribute
-  }] : [{
-    transform: booleanAttribute
-  }]);
-  /**
-   * When present, it specifies that the component should have invalid state style.
-   * @defaultValue false
-   * @group Props
-   */
-  invalid = input(void 0, ...ngDevMode ? [{
-    debugName: "invalid",
-    transform: booleanAttribute
-  }] : [{
-    transform: booleanAttribute
-  }]);
-  /**
-   * When present, it specifies that the component should have disabled state style.
-   * @defaultValue false
-   * @group Props
-   */
-  disabled = input(void 0, ...ngDevMode ? [{
-    debugName: "disabled",
-    transform: booleanAttribute
-  }] : [{
-    transform: booleanAttribute
-  }]);
-  /**
-   * When present, it specifies that the name of the input.
-   * @defaultValue undefined
-   * @group Props
-   */
-  name = input(...ngDevMode ? [void 0, {
-    debugName: "name"
-  }] : []);
-  _disabled = signal(false, ...ngDevMode ? [{
-    debugName: "_disabled"
-  }] : []);
-  $disabled = computed(() => this.disabled() || this._disabled(), ...ngDevMode ? [{
-    debugName: "$disabled"
-  }] : []);
-  onModelChange = () => {
-  };
-  onModelTouched = () => {
-  };
-  writeDisabledState(value) {
-    this._disabled.set(value);
-  }
-  writeControlValue(value, setModelValue) {
-  }
-  /**** Angular ControlValueAccessors ****/
-  writeValue(value) {
-    this.writeControlValue(value, this.writeModelValue.bind(this));
-  }
-  registerOnChange(fn) {
-    this.onModelChange = fn;
-  }
-  registerOnTouched(fn) {
-    this.onModelTouched = fn;
-  }
-  setDisabledState(val) {
-    this.writeDisabledState(val);
-    this.cd.markForCheck();
-  }
-  static ɵfac = /* @__PURE__ */ (() => {
-    let ɵBaseEditableHolder_BaseFactory;
-    return function BaseEditableHolder_Factory(__ngFactoryType__) {
-      return (ɵBaseEditableHolder_BaseFactory || (ɵBaseEditableHolder_BaseFactory = ɵɵgetInheritedFactory(_BaseEditableHolder)))(__ngFactoryType__ || _BaseEditableHolder);
-    };
-  })();
-  static ɵdir = ɵɵdefineDirective({
-    type: _BaseEditableHolder,
-    inputs: {
-      required: [1, "required"],
-      invalid: [1, "invalid"],
-      disabled: [1, "disabled"],
-      name: [1, "name"]
-    },
-    features: [ɵɵInheritDefinitionFeature]
-  });
-};
-(() => {
-  (typeof ngDevMode === "undefined" || ngDevMode) && setClassMetadata(BaseEditableHolder, [{
-    type: Directive,
-    args: [{
-      standalone: true
-    }]
-  }], null, null);
-})();
+} from "./chunk-XWLXMCJQ.js";
 
 // node_modules/@primeuix/styles/dist/checkbox/index.mjs
 var style2 = "\n    .p-checkbox {\n        position: relative;\n        display: inline-flex;\n        user-select: none;\n        vertical-align: bottom;\n        width: dt('checkbox.width');\n        height: dt('checkbox.height');\n    }\n\n    .p-checkbox-input {\n        cursor: pointer;\n        appearance: none;\n        position: absolute;\n        inset-block-start: 0;\n        inset-inline-start: 0;\n        width: 100%;\n        height: 100%;\n        padding: 0;\n        margin: 0;\n        opacity: 0;\n        z-index: 1;\n        outline: 0 none;\n        border: 1px solid transparent;\n        border-radius: dt('checkbox.border.radius');\n    }\n\n    .p-checkbox-box {\n        display: flex;\n        justify-content: center;\n        align-items: center;\n        border-radius: dt('checkbox.border.radius');\n        border: 1px solid dt('checkbox.border.color');\n        background: dt('checkbox.background');\n        width: dt('checkbox.width');\n        height: dt('checkbox.height');\n        transition:\n            background dt('checkbox.transition.duration'),\n            color dt('checkbox.transition.duration'),\n            border-color dt('checkbox.transition.duration'),\n            box-shadow dt('checkbox.transition.duration'),\n            outline-color dt('checkbox.transition.duration');\n        outline-color: transparent;\n        box-shadow: dt('checkbox.shadow');\n    }\n\n    .p-checkbox-icon {\n        transition-duration: dt('checkbox.transition.duration');\n        color: dt('checkbox.icon.color');\n        font-size: dt('checkbox.icon.size');\n        width: dt('checkbox.icon.size');\n        height: dt('checkbox.icon.size');\n    }\n\n    .p-checkbox:not(.p-disabled):has(.p-checkbox-input:hover) .p-checkbox-box {\n        border-color: dt('checkbox.hover.border.color');\n    }\n\n    .p-checkbox-checked .p-checkbox-box {\n        border-color: dt('checkbox.checked.border.color');\n        background: dt('checkbox.checked.background');\n    }\n\n    .p-checkbox-checked .p-checkbox-icon {\n        color: dt('checkbox.icon.checked.color');\n    }\n\n    .p-checkbox-checked:not(.p-disabled):has(.p-checkbox-input:hover) .p-checkbox-box {\n        background: dt('checkbox.checked.hover.background');\n        border-color: dt('checkbox.checked.hover.border.color');\n    }\n\n    .p-checkbox-checked:not(.p-disabled):has(.p-checkbox-input:hover) .p-checkbox-icon {\n        color: dt('checkbox.icon.checked.hover.color');\n    }\n\n    .p-checkbox:not(.p-disabled):has(.p-checkbox-input:focus-visible) .p-checkbox-box {\n        border-color: dt('checkbox.focus.border.color');\n        box-shadow: dt('checkbox.focus.ring.shadow');\n        outline: dt('checkbox.focus.ring.width') dt('checkbox.focus.ring.style') dt('checkbox.focus.ring.color');\n        outline-offset: dt('checkbox.focus.ring.offset');\n    }\n\n    .p-checkbox-checked:not(.p-disabled):has(.p-checkbox-input:focus-visible) .p-checkbox-box {\n        border-color: dt('checkbox.checked.focus.border.color');\n    }\n\n    .p-checkbox.p-invalid > .p-checkbox-box {\n        border-color: dt('checkbox.invalid.border.color');\n    }\n\n    .p-checkbox.p-variant-filled .p-checkbox-box {\n        background: dt('checkbox.filled.background');\n    }\n\n    .p-checkbox-checked.p-variant-filled .p-checkbox-box {\n        background: dt('checkbox.checked.background');\n    }\n\n    .p-checkbox-checked.p-variant-filled:not(.p-disabled):has(.p-checkbox-input:hover) .p-checkbox-box {\n        background: dt('checkbox.checked.hover.background');\n    }\n\n    .p-checkbox.p-disabled {\n        opacity: 1;\n    }\n\n    .p-checkbox.p-disabled .p-checkbox-box {\n        background: dt('checkbox.disabled.background');\n        border-color: dt('checkbox.checked.disabled.border.color');\n    }\n\n    .p-checkbox.p-disabled .p-checkbox-box .p-checkbox-icon {\n        color: dt('checkbox.icon.disabled.color');\n    }\n\n    .p-checkbox-sm,\n    .p-checkbox-sm .p-checkbox-box {\n        width: dt('checkbox.sm.width');\n        height: dt('checkbox.sm.height');\n    }\n\n    .p-checkbox-sm .p-checkbox-icon {\n        font-size: dt('checkbox.icon.sm.size');\n        width: dt('checkbox.icon.sm.size');\n        height: dt('checkbox.icon.sm.size');\n    }\n\n    .p-checkbox-lg,\n    .p-checkbox-lg .p-checkbox-box {\n        width: dt('checkbox.lg.width');\n        height: dt('checkbox.lg.height');\n    }\n\n    .p-checkbox-lg .p-checkbox-icon {\n        font-size: dt('checkbox.icon.lg.size');\n        width: dt('checkbox.icon.lg.size');\n        height: dt('checkbox.icon.lg.size');\n    }\n";
@@ -1139,134 +822,6 @@ var CheckboxModule = class _CheckboxModule {
     args: [{
       imports: [Checkbox, SharedModule],
       exports: [Checkbox, SharedModule]
-    }]
-  }], null, null);
-})();
-
-// node_modules/primeng/fesm2022/primeng-baseinput.mjs
-var BaseInput = class _BaseInput extends BaseEditableHolder {
-  pcFluid = inject(Fluid, {
-    optional: true,
-    host: true,
-    skipSelf: true
-  });
-  /**
-   * Spans 100% width of the container when enabled.
-   * @defaultValue false
-   * @group Props
-   */
-  fluid = input(void 0, ...ngDevMode ? [{
-    debugName: "fluid",
-    transform: booleanAttribute
-  }] : [{
-    transform: booleanAttribute
-  }]);
-  /**
-   * Specifies the input variant of the component.
-   * @defaultValue 'outlined'
-   * @group Props
-   */
-  variant = input(...ngDevMode ? [void 0, {
-    debugName: "variant"
-  }] : []);
-  /**
-   * Specifies the size of the component.
-   * @defaultValue undefined
-   * @group Props
-   */
-  size = input(...ngDevMode ? [void 0, {
-    debugName: "size"
-  }] : []);
-  /**
-   * Specifies the visible width of the input element in characters.
-   * @defaultValue undefined
-   * @group Props
-   */
-  inputSize = input(...ngDevMode ? [void 0, {
-    debugName: "inputSize"
-  }] : []);
-  /**
-   * Specifies the value must match the pattern.
-   * @defaultValue undefined
-   * @group Props
-   */
-  pattern = input(...ngDevMode ? [void 0, {
-    debugName: "pattern"
-  }] : []);
-  /**
-   * The value must be greater than or equal to the value.
-   * @defaultValue undefined
-   * @group Props
-   */
-  min = input(...ngDevMode ? [void 0, {
-    debugName: "min"
-  }] : []);
-  /**
-   * The value must be less than or equal to the value.
-   * @defaultValue undefined
-   * @group Props
-   */
-  max = input(...ngDevMode ? [void 0, {
-    debugName: "max"
-  }] : []);
-  /**
-   * Unless the step is set to the any literal, the value must be min + an integral multiple of the step.
-   * @defaultValue undefined
-   * @group Props
-   */
-  step = input(...ngDevMode ? [void 0, {
-    debugName: "step"
-  }] : []);
-  /**
-   * The number of characters (code points) must not be less than the value of the attribute, if non-empty.
-   * @defaultValue undefined
-   * @group Props
-   */
-  minlength = input(...ngDevMode ? [void 0, {
-    debugName: "minlength"
-  }] : []);
-  /**
-   * The number of characters (code points) must not exceed the value of the attribute.
-   * @defaultValue undefined
-   * @group Props
-   */
-  maxlength = input(...ngDevMode ? [void 0, {
-    debugName: "maxlength"
-  }] : []);
-  $variant = computed(() => this.variant() || this.config.inputStyle() || this.config.inputVariant(), ...ngDevMode ? [{
-    debugName: "$variant"
-  }] : []);
-  get hasFluid() {
-    return this.fluid() ?? !!this.pcFluid;
-  }
-  static ɵfac = /* @__PURE__ */ (() => {
-    let ɵBaseInput_BaseFactory;
-    return function BaseInput_Factory(__ngFactoryType__) {
-      return (ɵBaseInput_BaseFactory || (ɵBaseInput_BaseFactory = ɵɵgetInheritedFactory(_BaseInput)))(__ngFactoryType__ || _BaseInput);
-    };
-  })();
-  static ɵdir = ɵɵdefineDirective({
-    type: _BaseInput,
-    inputs: {
-      fluid: [1, "fluid"],
-      variant: [1, "variant"],
-      size: [1, "size"],
-      inputSize: [1, "inputSize"],
-      pattern: [1, "pattern"],
-      min: [1, "min"],
-      max: [1, "max"],
-      step: [1, "step"],
-      minlength: [1, "minlength"],
-      maxlength: [1, "maxlength"]
-    },
-    features: [ɵɵInheritDefinitionFeature]
-  });
-};
-(() => {
-  (typeof ngDevMode === "undefined" || ngDevMode) && setClassMetadata(BaseInput, [{
-    type: Directive,
-    args: [{
-      standalone: true
     }]
   }], null, null);
 })();
@@ -3644,12 +3199,12 @@ var DatePicker = class _DatePicker extends BaseInput {
     this.months = this.months = [];
     for (let i = 0; i < this.numberOfMonths; i++) {
       let m = month + i;
-      let y2 = year;
+      let y = year;
       if (m > 11) {
         m = m % 12;
-        y2 = year + Math.floor((month + i) / 12);
+        y = year + Math.floor((month + i) / 12);
       }
-      this.months.push(this.createMonth(m, y2));
+      this.months.push(this.createMonth(m, y));
     }
   }
   getWeekNumber(date) {
@@ -3677,19 +3232,19 @@ var DatePicker = class _DatePicker extends BaseInput {
     for (let i = 0; i < monthRows; i++) {
       let week = [];
       if (i == 0) {
-        for (let j3 = prevMonthDaysLength - firstDay + 1; j3 <= prevMonthDaysLength; j3++) {
+        for (let j = prevMonthDaysLength - firstDay + 1; j <= prevMonthDaysLength; j++) {
           let prev = this.getPreviousMonthAndYear(month, year);
           week.push({
-            day: j3,
+            day: j,
             month: prev.month,
             year: prev.year,
             otherMonth: true,
-            today: this.isToday(today, j3, prev.month, prev.year),
-            selectable: this.isSelectable(j3, prev.month, prev.year, true)
+            today: this.isToday(today, j, prev.month, prev.year),
+            selectable: this.isSelectable(j, prev.month, prev.year, true)
           });
         }
         let remainingDaysLength = 7 - week.length;
-        for (let j3 = 0; j3 < remainingDaysLength; j3++) {
+        for (let j = 0; j < remainingDaysLength; j++) {
           week.push({
             day: dayNo,
             month,
@@ -3700,7 +3255,7 @@ var DatePicker = class _DatePicker extends BaseInput {
           dayNo++;
         }
       } else {
-        for (let j3 = 0; j3 < 7; j3++) {
+        for (let j = 0; j < 7; j++) {
           if (dayNo > daysLength) {
             let next = this.getNextMonthAndYear(month, year);
             week.push({
@@ -4058,31 +3613,31 @@ var DatePicker = class _DatePicker extends BaseInput {
     return this.getDaysCountInMonth(prev.month, prev.year);
   }
   getPreviousMonthAndYear(month, year) {
-    let m, y2;
+    let m, y;
     if (month === 0) {
       m = 11;
-      y2 = year - 1;
+      y = year - 1;
     } else {
       m = month - 1;
-      y2 = year;
+      y = year;
     }
     return {
       month: m,
-      year: y2
+      year: y
     };
   }
   getNextMonthAndYear(month, year) {
-    let m, y2;
+    let m, y;
     if (month === 11) {
       m = 0;
-      y2 = year + 1;
+      y = year + 1;
     } else {
       m = month + 1;
-      y2 = year;
+      y = year;
     }
     return {
       month: m,
-      year: y2
+      year: y
     };
   }
   getSundayIndex() {
@@ -4830,8 +4385,8 @@ var DatePicker = class _DatePicker extends BaseInput {
     });
     this.createMonths(this.currentMonth, this.currentYear);
   }
-  onYearDropdownChange(y2) {
-    this.currentYear = parseInt(y2);
+  onYearDropdownChange(y) {
+    this.currentYear = parseInt(y);
     this.onYearChange.emit({
       month: this.currentMonth + 1,
       year: this.currentYear
@@ -5480,8 +5035,8 @@ var DatePicker = class _DatePicker extends BaseInput {
       for (let i = 0; i < arr.length; i++) {
         names.push([i, arr[i]]);
       }
-      names.sort((a2, b2) => {
-        return -(a2[1].length - b2[1].length);
+      names.sort((a, b2) => {
+        return -(a[1].length - b2[1].length);
       });
       for (let i = 0; i < names.length; i++) {
         let name = names[i][1];
@@ -5644,9 +5199,9 @@ var DatePicker = class _DatePicker extends BaseInput {
                             display: inline-flex !important;
                         }
                     `;
-          for (let j3 = numMonths; j3 < this.numberOfMonths; j3++) {
+          for (let j = numMonths; j < this.numberOfMonths; j++) {
             styles += `
-                            .p-datepicker[${this.attributeSelector}] .p-datepicker-group:nth-child(${j3 + 1}) {
+                            .p-datepicker[${this.attributeSelector}] .p-datepicker-group:nth-child(${j + 1}) {
                                 display: none !important;
                             }
                         `;
@@ -8847,4397 +8402,19 @@ var InputNumberModule = class _InputNumberModule {
   }], null, null);
 })();
 
-// node_modules/@primeuix/styles/dist/iconfield/index.mjs
-var style5 = "\n    .p-iconfield {\n        position: relative;\n        display: block;\n    }\n\n    .p-inputicon {\n        position: absolute;\n        top: 50%;\n        margin-top: calc(-1 * (dt('icon.size') / 2));\n        color: dt('iconfield.icon.color');\n        line-height: 1;\n        z-index: 1;\n    }\n\n    .p-iconfield .p-inputicon:first-child {\n        inset-inline-start: dt('form.field.padding.x');\n    }\n\n    .p-iconfield .p-inputicon:last-child {\n        inset-inline-end: dt('form.field.padding.x');\n    }\n\n    .p-iconfield .p-inputtext:not(:first-child),\n    .p-iconfield .p-inputwrapper:not(:first-child) .p-inputtext {\n        padding-inline-start: calc((dt('form.field.padding.x') * 2) + dt('icon.size'));\n    }\n\n    .p-iconfield .p-inputtext:not(:last-child) {\n        padding-inline-end: calc((dt('form.field.padding.x') * 2) + dt('icon.size'));\n    }\n\n    .p-iconfield:has(.p-inputfield-sm) .p-inputicon {\n        font-size: dt('form.field.sm.font.size');\n        width: dt('form.field.sm.font.size');\n        height: dt('form.field.sm.font.size');\n        margin-top: calc(-1 * (dt('form.field.sm.font.size') / 2));\n    }\n\n    .p-iconfield:has(.p-inputfield-lg) .p-inputicon {\n        font-size: dt('form.field.lg.font.size');\n        width: dt('form.field.lg.font.size');\n        height: dt('form.field.lg.font.size');\n        margin-top: calc(-1 * (dt('form.field.lg.font.size') / 2));\n    }\n";
-
-// node_modules/primeng/fesm2022/primeng-iconfield.mjs
-var _c05 = ["*"];
-var classes4 = {
-  root: ({
-    instance
-  }) => ["p-iconfield", {
-    "p-iconfield-left": instance.iconPosition == "left",
-    "p-iconfield-right": instance.iconPosition == "right"
-  }]
-};
-var IconFieldStyle = class _IconFieldStyle extends BaseStyle {
-  name = "iconfield";
-  theme = style5;
-  classes = classes4;
-  static ɵfac = /* @__PURE__ */ (() => {
-    let ɵIconFieldStyle_BaseFactory;
-    return function IconFieldStyle_Factory(__ngFactoryType__) {
-      return (ɵIconFieldStyle_BaseFactory || (ɵIconFieldStyle_BaseFactory = ɵɵgetInheritedFactory(_IconFieldStyle)))(__ngFactoryType__ || _IconFieldStyle);
-    };
-  })();
-  static ɵprov = ɵɵdefineInjectable({
-    token: _IconFieldStyle,
-    factory: _IconFieldStyle.ɵfac
-  });
-};
-(() => {
-  (typeof ngDevMode === "undefined" || ngDevMode) && setClassMetadata(IconFieldStyle, [{
-    type: Injectable
-  }], null, null);
-})();
-var IconFieldClasses;
-(function(IconFieldClasses2) {
-  IconFieldClasses2["root"] = "p-iconfield";
-})(IconFieldClasses || (IconFieldClasses = {}));
-var IconField = class _IconField extends BaseComponent {
-  /**
-   * Position of the icon.
-   * @group Props
-   */
-  iconPosition = "left";
-  /**
-   * Style class of the component.
-   * @deprecated since v20.0.0, use `class` instead.
-   * @group Props
-   */
-  styleClass;
-  _componentStyle = inject(IconFieldStyle);
-  static ɵfac = /* @__PURE__ */ (() => {
-    let ɵIconField_BaseFactory;
-    return function IconField_Factory(__ngFactoryType__) {
-      return (ɵIconField_BaseFactory || (ɵIconField_BaseFactory = ɵɵgetInheritedFactory(_IconField)))(__ngFactoryType__ || _IconField);
-    };
-  })();
-  static ɵcmp = ɵɵdefineComponent({
-    type: _IconField,
-    selectors: [["p-iconfield"], ["p-iconField"], ["p-icon-field"]],
-    hostVars: 2,
-    hostBindings: function IconField_HostBindings(rf, ctx) {
-      if (rf & 2) {
-        ɵɵclassMap(ctx.cn(ctx.cx("root"), ctx.styleClass));
-      }
-    },
-    inputs: {
-      iconPosition: "iconPosition",
-      styleClass: "styleClass"
-    },
-    features: [ɵɵProvidersFeature([IconFieldStyle]), ɵɵInheritDefinitionFeature],
-    ngContentSelectors: _c05,
-    decls: 1,
-    vars: 0,
-    template: function IconField_Template(rf, ctx) {
-      if (rf & 1) {
-        ɵɵprojectionDef();
-        ɵɵprojection(0);
-      }
-    },
-    dependencies: [CommonModule],
-    encapsulation: 2,
-    changeDetection: 0
-  });
-};
-(() => {
-  (typeof ngDevMode === "undefined" || ngDevMode) && setClassMetadata(IconField, [{
-    type: Component,
-    args: [{
-      selector: "p-iconfield, p-iconField, p-icon-field",
-      standalone: true,
-      imports: [CommonModule],
-      template: ` <ng-content></ng-content>`,
-      providers: [IconFieldStyle],
-      encapsulation: ViewEncapsulation.None,
-      changeDetection: ChangeDetectionStrategy.OnPush,
-      host: {
-        "[class]": "cn(cx('root'), styleClass)"
-      }
-    }]
-  }], null, {
-    iconPosition: [{
-      type: Input
-    }],
-    styleClass: [{
-      type: Input
-    }]
-  });
-})();
-var IconFieldModule = class _IconFieldModule {
-  static ɵfac = function IconFieldModule_Factory(__ngFactoryType__) {
-    return new (__ngFactoryType__ || _IconFieldModule)();
-  };
-  static ɵmod = ɵɵdefineNgModule({
-    type: _IconFieldModule,
-    imports: [IconField],
-    exports: [IconField]
-  });
-  static ɵinj = ɵɵdefineInjector({
-    imports: [IconField]
-  });
-};
-(() => {
-  (typeof ngDevMode === "undefined" || ngDevMode) && setClassMetadata(IconFieldModule, [{
-    type: NgModule,
-    args: [{
-      imports: [IconField],
-      exports: [IconField]
-    }]
-  }], null, null);
-})();
-
-// node_modules/primeng/fesm2022/primeng-inputicon.mjs
-var _c06 = ["*"];
-var classes5 = {
-  root: "p-inputicon"
-};
-var InputIconStyle = class _InputIconStyle extends BaseStyle {
-  name = "inputicon";
-  classes = classes5;
-  static ɵfac = /* @__PURE__ */ (() => {
-    let ɵInputIconStyle_BaseFactory;
-    return function InputIconStyle_Factory(__ngFactoryType__) {
-      return (ɵInputIconStyle_BaseFactory || (ɵInputIconStyle_BaseFactory = ɵɵgetInheritedFactory(_InputIconStyle)))(__ngFactoryType__ || _InputIconStyle);
-    };
-  })();
-  static ɵprov = ɵɵdefineInjectable({
-    token: _InputIconStyle,
-    factory: _InputIconStyle.ɵfac
-  });
-};
-(() => {
-  (typeof ngDevMode === "undefined" || ngDevMode) && setClassMetadata(InputIconStyle, [{
-    type: Injectable
-  }], null, null);
-})();
-var InputIcon = class _InputIcon extends BaseComponent {
-  /**
-   * Style class of the element.
-   * @deprecated since v20.0.0, use `class` instead.
-   * @group Props
-   */
-  styleClass;
-  _componentStyle = inject(InputIconStyle);
-  static ɵfac = /* @__PURE__ */ (() => {
-    let ɵInputIcon_BaseFactory;
-    return function InputIcon_Factory(__ngFactoryType__) {
-      return (ɵInputIcon_BaseFactory || (ɵInputIcon_BaseFactory = ɵɵgetInheritedFactory(_InputIcon)))(__ngFactoryType__ || _InputIcon);
-    };
-  })();
-  static ɵcmp = ɵɵdefineComponent({
-    type: _InputIcon,
-    selectors: [["p-inputicon"], ["p-inputIcon"]],
-    hostVars: 2,
-    hostBindings: function InputIcon_HostBindings(rf, ctx) {
-      if (rf & 2) {
-        ɵɵclassMap(ctx.cn(ctx.cx("root"), ctx.styleClass));
-      }
-    },
-    inputs: {
-      styleClass: "styleClass"
-    },
-    features: [ɵɵProvidersFeature([InputIconStyle]), ɵɵInheritDefinitionFeature],
-    ngContentSelectors: _c06,
-    decls: 1,
-    vars: 0,
-    template: function InputIcon_Template(rf, ctx) {
-      if (rf & 1) {
-        ɵɵprojectionDef();
-        ɵɵprojection(0);
-      }
-    },
-    dependencies: [CommonModule, SharedModule],
-    encapsulation: 2,
-    changeDetection: 0
-  });
-};
-(() => {
-  (typeof ngDevMode === "undefined" || ngDevMode) && setClassMetadata(InputIcon, [{
-    type: Component,
-    args: [{
-      selector: "p-inputicon, p-inputIcon",
-      standalone: true,
-      imports: [CommonModule, SharedModule],
-      template: `<ng-content></ng-content>`,
-      encapsulation: ViewEncapsulation.None,
-      changeDetection: ChangeDetectionStrategy.OnPush,
-      providers: [InputIconStyle],
-      host: {
-        "[class]": "cn(cx('root'), styleClass)"
-      }
-    }]
-  }], null, {
-    styleClass: [{
-      type: Input
-    }]
-  });
-})();
-var InputIconModule = class _InputIconModule {
-  static ɵfac = function InputIconModule_Factory(__ngFactoryType__) {
-    return new (__ngFactoryType__ || _InputIconModule)();
-  };
-  static ɵmod = ɵɵdefineNgModule({
-    type: _InputIconModule,
-    imports: [InputIcon, SharedModule],
-    exports: [InputIcon, SharedModule]
-  });
-  static ɵinj = ɵɵdefineInjector({
-    imports: [InputIcon, SharedModule, SharedModule]
-  });
-};
-(() => {
-  (typeof ngDevMode === "undefined" || ngDevMode) && setClassMetadata(InputIconModule, [{
-    type: NgModule,
-    args: [{
-      imports: [InputIcon, SharedModule],
-      exports: [InputIcon, SharedModule]
-    }]
-  }], null, null);
-})();
-
-// node_modules/primeng/fesm2022/primeng-overlay.mjs
-var _c07 = ["content"];
-var _c111 = ["overlay"];
-var _c25 = ["*"];
-var _c33 = (a0, a1, a2, a3, a4, a5, a6, a7, a8, a9, a10, a11, a12, a13) => ({
-  "p-overlay p-component": true,
-  "p-overlay-modal p-overlay-mask p-overlay-mask-enter": a0,
-  "p-overlay-center": a1,
-  "p-overlay-top": a2,
-  "p-overlay-top-start": a3,
-  "p-overlay-top-end": a4,
-  "p-overlay-bottom": a5,
-  "p-overlay-bottom-start": a6,
-  "p-overlay-bottom-end": a7,
-  "p-overlay-left": a8,
-  "p-overlay-left-start": a9,
-  "p-overlay-left-end": a10,
-  "p-overlay-right": a11,
-  "p-overlay-right-start": a12,
-  "p-overlay-right-end": a13
-});
-var _c42 = (a0, a1, a2) => ({
-  showTransitionParams: a0,
-  hideTransitionParams: a1,
-  transform: a2
-});
-var _c52 = (a0) => ({
-  value: "visible",
-  params: a0
-});
-var _c62 = (a0) => ({
-  mode: a0
-});
-var _c72 = (a0) => ({
-  $implicit: a0
-});
-function Overlay_div_0_div_2_ng_container_3_Template(rf, ctx) {
-  if (rf & 1) {
-    ɵɵelementContainer(0);
-  }
-}
-function Overlay_div_0_div_2_Template(rf, ctx) {
-  if (rf & 1) {
-    const _r3 = ɵɵgetCurrentView();
-    ɵɵelementStart(0, "div", 3, 1);
-    ɵɵlistener("click", function Overlay_div_0_div_2_Template_div_click_0_listener($event) {
-      ɵɵrestoreView(_r3);
-      const ctx_r1 = ɵɵnextContext(2);
-      return ɵɵresetView(ctx_r1.onOverlayContentClick($event));
-    })("@overlayContentAnimation.start", function Overlay_div_0_div_2_Template_div_animation_overlayContentAnimation_start_0_listener($event) {
-      ɵɵrestoreView(_r3);
-      const ctx_r1 = ɵɵnextContext(2);
-      return ɵɵresetView(ctx_r1.onOverlayContentAnimationStart($event));
-    })("@overlayContentAnimation.done", function Overlay_div_0_div_2_Template_div_animation_overlayContentAnimation_done_0_listener($event) {
-      ɵɵrestoreView(_r3);
-      const ctx_r1 = ɵɵnextContext(2);
-      return ɵɵresetView(ctx_r1.onOverlayContentAnimationDone($event));
-    });
-    ɵɵprojection(2);
-    ɵɵtemplate(3, Overlay_div_0_div_2_ng_container_3_Template, 1, 0, "ng-container", 4);
-    ɵɵelementEnd();
-  }
-  if (rf & 2) {
-    const ctx_r1 = ɵɵnextContext(2);
-    ɵɵclassMap(ctx_r1.contentStyleClass);
-    ɵɵproperty("ngStyle", ctx_r1.contentStyle)("ngClass", "p-overlay-content")("@overlayContentAnimation", ɵɵpureFunction1(11, _c52, ɵɵpureFunction3(7, _c42, ctx_r1.showTransitionOptions, ctx_r1.hideTransitionOptions, ctx_r1.transformOptions[ctx_r1.modal ? ctx_r1.overlayResponsiveDirection : "default"])));
-    ɵɵadvance(3);
-    ɵɵproperty("ngTemplateOutlet", ctx_r1.contentTemplate || ctx_r1._contentTemplate)("ngTemplateOutletContext", ɵɵpureFunction1(15, _c72, ɵɵpureFunction1(13, _c62, ctx_r1.overlayMode)));
-  }
-}
-function Overlay_div_0_Template(rf, ctx) {
-  if (rf & 1) {
-    const _r1 = ɵɵgetCurrentView();
-    ɵɵelementStart(0, "div", 3, 0);
-    ɵɵlistener("click", function Overlay_div_0_Template_div_click_0_listener() {
-      ɵɵrestoreView(_r1);
-      const ctx_r1 = ɵɵnextContext();
-      return ɵɵresetView(ctx_r1.onOverlayClick());
-    });
-    ɵɵtemplate(2, Overlay_div_0_div_2_Template, 4, 17, "div", 2);
-    ɵɵelementEnd();
-  }
-  if (rf & 2) {
-    const ctx_r1 = ɵɵnextContext();
-    ɵɵclassMap(ctx_r1.styleClass);
-    ɵɵproperty("ngStyle", ctx_r1.style)("ngClass", ɵɵpureFunctionV(5, _c33, [ctx_r1.modal, ctx_r1.modal && ctx_r1.overlayResponsiveDirection === "center", ctx_r1.modal && ctx_r1.overlayResponsiveDirection === "top", ctx_r1.modal && ctx_r1.overlayResponsiveDirection === "top-start", ctx_r1.modal && ctx_r1.overlayResponsiveDirection === "top-end", ctx_r1.modal && ctx_r1.overlayResponsiveDirection === "bottom", ctx_r1.modal && ctx_r1.overlayResponsiveDirection === "bottom-start", ctx_r1.modal && ctx_r1.overlayResponsiveDirection === "bottom-end", ctx_r1.modal && ctx_r1.overlayResponsiveDirection === "left", ctx_r1.modal && ctx_r1.overlayResponsiveDirection === "left-start", ctx_r1.modal && ctx_r1.overlayResponsiveDirection === "left-end", ctx_r1.modal && ctx_r1.overlayResponsiveDirection === "right", ctx_r1.modal && ctx_r1.overlayResponsiveDirection === "right-start", ctx_r1.modal && ctx_r1.overlayResponsiveDirection === "right-end"]));
-    ɵɵadvance(2);
-    ɵɵproperty("ngIf", ctx_r1.visible);
-  }
-}
-var theme4 = (
-  /*css*/
-  `
-.p-overlay {
-    position: absolute;
-    top: 0;
-}
-
-.p-overlay-modal {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-}
-
-.p-overlay-content {
-    transform-origin: inherit;
-}
-
-/* Github Issue #18560 */
-.p-component-overlay.p-component {
-    position: relative;
-}
-
-.p-overlay-modal > .p-overlay-content {
-    z-index: 1;
-    width: 90%;
-}
-
-/* Position */
-/* top */
-.p-overlay-top {
-    align-items: flex-start;
-}
-.p-overlay-top-start {
-    align-items: flex-start;
-    justify-content: flex-start;
-}
-.p-overlay-top-end {
-    align-items: flex-start;
-    justify-content: flex-end;
-}
-
-/* bottom */
-.p-overlay-bottom {
-    align-items: flex-end;
-}
-.p-overlay-bottom-start {
-    align-items: flex-end;
-    justify-content: flex-start;
-}
-.p-overlay-bottom-end {
-    align-items: flex-end;
-    justify-content: flex-end;
-}
-
-/* left */
-.p-overlay-left {
-    justify-content: flex-start;
-}
-.p-overlay-left-start {
-    justify-content: flex-start;
-    align-items: flex-start;
-}
-.p-overlay-left-end {
-    justify-content: flex-start;
-    align-items: flex-end;
-}
-
-/* right */
-.p-overlay-right {
-    justify-content: flex-end;
-}
-.p-overlay-right-start {
-    justify-content: flex-end;
-    align-items: flex-start;
-}
-.p-overlay-right-end {
-    justify-content: flex-end;
-    align-items: flex-end;
-}
-`
-);
-var OverlayStyle = class _OverlayStyle extends BaseStyle {
-  name = "overlay";
-  theme = theme4;
-  static ɵfac = /* @__PURE__ */ (() => {
-    let ɵOverlayStyle_BaseFactory;
-    return function OverlayStyle_Factory(__ngFactoryType__) {
-      return (ɵOverlayStyle_BaseFactory || (ɵOverlayStyle_BaseFactory = ɵɵgetInheritedFactory(_OverlayStyle)))(__ngFactoryType__ || _OverlayStyle);
-    };
-  })();
-  static ɵprov = ɵɵdefineInjectable({
-    token: _OverlayStyle,
-    factory: _OverlayStyle.ɵfac
-  });
-};
-(() => {
-  (typeof ngDevMode === "undefined" || ngDevMode) && setClassMetadata(OverlayStyle, [{
-    type: Injectable
-  }], null, null);
-})();
-var showOverlayContentAnimation = animation([style({
-  transform: "{{transform}}",
-  opacity: 0
-}), animate("{{showTransitionParams}}")]);
-var hideOverlayContentAnimation = animation([animate("{{hideTransitionParams}}", style({
-  transform: "{{transform}}",
-  opacity: 0
-}))]);
-var Overlay = class _Overlay extends BaseComponent {
-  overlayService;
-  zone;
-  /**
-   * The visible property is an input that determines the visibility of the component.
-   * @defaultValue false
-   * @group Props
-   */
-  get visible() {
-    return this._visible;
-  }
-  set visible(value) {
-    this._visible = value;
-    if (this._visible && !this.modalVisible) {
-      this.modalVisible = true;
-    }
-  }
-  /**
-   * The mode property is an input that determines the overlay mode type or string.
-   * @defaultValue null
-   * @group Props
-   */
-  get mode() {
-    return this._mode || this.overlayOptions?.mode;
-  }
-  set mode(value) {
-    this._mode = value;
-  }
-  /**
-   * The style property is an input that determines the style object for the component.
-   * @defaultValue null
-   * @group Props
-   */
-  get style() {
-    return ObjectUtils.merge(this._style, this.modal ? this.overlayResponsiveOptions?.style : this.overlayOptions?.style);
-  }
-  set style(value) {
-    this._style = value;
-  }
-  /**
-   * The styleClass property is an input that determines the CSS class(es) for the component.
-   * @defaultValue null
-   * @group Props
-   */
-  get styleClass() {
-    return ObjectUtils.merge(this._styleClass, this.modal ? this.overlayResponsiveOptions?.styleClass : this.overlayOptions?.styleClass);
-  }
-  set styleClass(value) {
-    this._styleClass = value;
-  }
-  /**
-   * The contentStyle property is an input that determines the style object for the content of the component.
-   * @defaultValue null
-   * @group Props
-   */
-  get contentStyle() {
-    return ObjectUtils.merge(this._contentStyle, this.modal ? this.overlayResponsiveOptions?.contentStyle : this.overlayOptions?.contentStyle);
-  }
-  set contentStyle(value) {
-    this._contentStyle = value;
-  }
-  /**
-   * The contentStyleClass property is an input that determines the CSS class(es) for the content of the component.
-   * @defaultValue null
-   * @group Props
-   */
-  get contentStyleClass() {
-    return ObjectUtils.merge(this._contentStyleClass, this.modal ? this.overlayResponsiveOptions?.contentStyleClass : this.overlayOptions?.contentStyleClass);
-  }
-  set contentStyleClass(value) {
-    this._contentStyleClass = value;
-  }
-  /**
-   * The target property is an input that specifies the target element or selector for the component.
-   * @defaultValue null
-   * @group Props
-   */
-  get target() {
-    const value = this._target || this.overlayOptions?.target;
-    return value === void 0 ? "@prev" : value;
-  }
-  set target(value) {
-    this._target = value;
-  }
-  /**
-   * The autoZIndex determines whether to automatically manage layering. Its default value is 'false'.
-   * @defaultValue false
-   * @group Props
-   */
-  get autoZIndex() {
-    const value = this._autoZIndex || this.overlayOptions?.autoZIndex;
-    return value === void 0 ? true : value;
-  }
-  set autoZIndex(value) {
-    this._autoZIndex = value;
-  }
-  /**
-   * The baseZIndex is base zIndex value to use in layering.
-   * @defaultValue null
-   * @group Props
-   */
-  get baseZIndex() {
-    const value = this._baseZIndex || this.overlayOptions?.baseZIndex;
-    return value === void 0 ? 0 : value;
-  }
-  set baseZIndex(value) {
-    this._baseZIndex = value;
-  }
-  /**
-   * Transition options of the show or hide animation.
-   * @defaultValue .12s cubic-bezier(0, 0, 0.2, 1)
-   * @group Props
-   */
-  get showTransitionOptions() {
-    const value = this._showTransitionOptions || this.overlayOptions?.showTransitionOptions;
-    return value === void 0 ? ".12s cubic-bezier(0, 0, 0.2, 1)" : value;
-  }
-  set showTransitionOptions(value) {
-    this._showTransitionOptions = value;
-  }
-  /**
-   * The hideTransitionOptions property is an input that determines the CSS transition options for hiding the component.
-   * @defaultValue .1s linear
-   * @group Props
-   */
-  get hideTransitionOptions() {
-    const value = this._hideTransitionOptions || this.overlayOptions?.hideTransitionOptions;
-    return value === void 0 ? ".1s linear" : value;
-  }
-  set hideTransitionOptions(value) {
-    this._hideTransitionOptions = value;
-  }
-  /**
-   * The listener property is an input that specifies the listener object for the component.
-   * @defaultValue null
-   * @group Props
-   */
-  get listener() {
-    return this._listener || this.overlayOptions?.listener;
-  }
-  set listener(value) {
-    this._listener = value;
-  }
-  /**
-   * It is the option used to determine in which mode it should appear according to the given media or breakpoint.
-   * @defaultValue null
-   * @group Props
-   */
-  get responsive() {
-    return this._responsive || this.overlayOptions?.responsive;
-  }
-  set responsive(val) {
-    this._responsive = val;
-  }
-  /**
-   * The options property is an input that specifies the overlay options for the component.
-   * @defaultValue null
-   * @group Props
-   */
-  get options() {
-    return this._options;
-  }
-  set options(val) {
-    this._options = val;
-  }
-  /**
-   * Target element to attach the overlay, valid values are "body" or a local ng-template variable of another element (note: use binding with brackets for template variables, e.g. [appendTo]="mydiv" for a div element having #mydiv as variable name).
-   * @defaultValue 'self'
-   * @group Props
-   */
-  appendTo = input(void 0, ...ngDevMode ? [{
-    debugName: "appendTo"
-  }] : []);
-  /**
-   * This EventEmitter is used to notify changes in the visibility state of a component.
-   * @param {Boolean} boolean - Value of visibility as boolean.
-   * @group Emits
-   */
-  visibleChange = new EventEmitter();
-  /**
-   * Callback to invoke before the overlay is shown.
-   * @param {OverlayOnBeforeShowEvent} event - Custom overlay before show event.
-   * @group Emits
-   */
-  onBeforeShow = new EventEmitter();
-  /**
-   * Callback to invoke when the overlay is shown.
-   * @param {OverlayOnShowEvent} event - Custom overlay show event.
-   * @group Emits
-   */
-  onShow = new EventEmitter();
-  /**
-   * Callback to invoke before the overlay is hidden.
-   * @param {OverlayOnBeforeHideEvent} event - Custom overlay before hide event.
-   * @group Emits
-   */
-  onBeforeHide = new EventEmitter();
-  /**
-   * Callback to invoke when the overlay is hidden
-   * @param {OverlayOnHideEvent} event - Custom hide event.
-   * @group Emits
-   */
-  onHide = new EventEmitter();
-  /**
-   * Callback to invoke when the animation is started.
-   * @param {AnimationEvent} event - Animation event.
-   * @group Emits
-   */
-  onAnimationStart = new EventEmitter();
-  /**
-   * Callback to invoke when the animation is done.
-   * @param {AnimationEvent} event - Animation event.
-   * @group Emits
-   */
-  onAnimationDone = new EventEmitter();
-  overlayViewChild;
-  contentViewChild;
-  /**
-   * Content template of the component.
-   * @group Templates
-   */
-  contentTemplate;
-  templates;
-  hostAttrSelector = input(...ngDevMode ? [void 0, {
-    debugName: "hostAttrSelector"
-  }] : []);
-  $appendTo = computed(() => this.appendTo() || this.config.overlayAppendTo(), ...ngDevMode ? [{
-    debugName: "$appendTo"
-  }] : []);
-  _contentTemplate;
-  _visible = false;
-  _mode;
-  _style;
-  _styleClass;
-  _contentStyle;
-  _contentStyleClass;
-  _target;
-  _autoZIndex;
-  _baseZIndex;
-  _showTransitionOptions;
-  _hideTransitionOptions;
-  _listener;
-  _responsive;
-  _options;
-  modalVisible = false;
-  isOverlayClicked = false;
-  isOverlayContentClicked = false;
-  scrollHandler;
-  documentClickListener;
-  documentResizeListener;
-  _componentStyle = inject(OverlayStyle);
-  documentKeyboardListener;
-  window;
-  transformOptions = {
-    default: "scaleY(0.8)",
-    center: "scale(0.7)",
-    top: "translate3d(0px, -100%, 0px)",
-    "top-start": "translate3d(0px, -100%, 0px)",
-    "top-end": "translate3d(0px, -100%, 0px)",
-    bottom: "translate3d(0px, 100%, 0px)",
-    "bottom-start": "translate3d(0px, 100%, 0px)",
-    "bottom-end": "translate3d(0px, 100%, 0px)",
-    left: "translate3d(-100%, 0px, 0px)",
-    "left-start": "translate3d(-100%, 0px, 0px)",
-    "left-end": "translate3d(-100%, 0px, 0px)",
-    right: "translate3d(100%, 0px, 0px)",
-    "right-start": "translate3d(100%, 0px, 0px)",
-    "right-end": "translate3d(100%, 0px, 0px)"
-  };
-  get modal() {
-    if (isPlatformBrowser(this.platformId)) {
-      return this.mode === "modal" || this.overlayResponsiveOptions && this.document.defaultView?.matchMedia(this.overlayResponsiveOptions.media?.replace("@media", "") || `(max-width: ${this.overlayResponsiveOptions.breakpoint})`).matches;
-    }
-  }
-  get overlayMode() {
-    return this.mode || (this.modal ? "modal" : "overlay");
-  }
-  get overlayOptions() {
-    return __spreadValues(__spreadValues({}, this.config?.overlayOptions), this.options);
-  }
-  get overlayResponsiveOptions() {
-    return __spreadValues(__spreadValues({}, this.overlayOptions?.responsive), this.responsive);
-  }
-  get overlayResponsiveDirection() {
-    return this.overlayResponsiveOptions?.direction || "center";
-  }
-  get overlayEl() {
-    return this.overlayViewChild?.nativeElement;
-  }
-  get contentEl() {
-    return this.contentViewChild?.nativeElement;
-  }
-  get targetEl() {
-    return j(this.target, this.el?.nativeElement);
-  }
-  constructor(overlayService, zone) {
-    super();
-    this.overlayService = overlayService;
-    this.zone = zone;
-  }
-  ngAfterContentInit() {
-    this.templates?.forEach((item) => {
-      switch (item.getType()) {
-        case "content":
-          this._contentTemplate = item.template;
-          break;
-        // TODO: new template types may be added.
-        default:
-          this._contentTemplate = item.template;
-          break;
-      }
-    });
-  }
-  show(overlay, isFocus = false) {
-    this.onVisibleChange(true);
-    this.handleEvents("onShow", {
-      overlay: overlay || this.overlayEl,
-      target: this.targetEl,
-      mode: this.overlayMode
-    });
-    isFocus && bt(this.targetEl);
-    this.modal && W(this.document?.body, "p-overflow-hidden");
-  }
-  hide(overlay, isFocus = false) {
-    if (!this.visible) {
-      return;
-    } else {
-      this.onVisibleChange(false);
-      this.handleEvents("onHide", {
-        overlay: overlay || this.overlayEl,
-        target: this.targetEl,
-        mode: this.overlayMode
-      });
-      isFocus && bt(this.targetEl);
-      this.modal && O(this.document?.body, "p-overflow-hidden");
-    }
-  }
-  alignOverlay() {
-    !this.modal && DomHandler.alignOverlay(this.overlayEl, this.targetEl, this.$appendTo());
-  }
-  onVisibleChange(visible) {
-    this._visible = visible;
-    this.visibleChange.emit(visible);
-  }
-  onOverlayClick() {
-    this.isOverlayClicked = true;
-  }
-  onOverlayContentClick(event2) {
-    this.overlayService.add({
-      originalEvent: event2,
-      target: this.targetEl
-    });
-    this.isOverlayContentClicked = true;
-  }
-  onOverlayContentAnimationStart(event2) {
-    switch (event2.toState) {
-      case "visible":
-        this.handleEvents("onBeforeShow", {
-          overlay: this.overlayEl,
-          target: this.targetEl,
-          mode: this.overlayMode
-        });
-        if (this.autoZIndex) {
-          zindexutils.set(this.overlayMode, this.overlayEl, this.baseZIndex + this.config?.zIndex[this.overlayMode]);
-        }
-        this.hostAttrSelector() && this.overlayEl.setAttribute(this.hostAttrSelector(), "");
-        DomHandler.appendOverlay(this.overlayEl, this.$appendTo() === "body" ? this.document.body : this.$appendTo(), this.$appendTo());
-        this.alignOverlay();
-        break;
-      case "void":
-        this.handleEvents("onBeforeHide", {
-          overlay: this.overlayEl,
-          target: this.targetEl,
-          mode: this.overlayMode
-        });
-        this.modal && W(this.overlayEl, "p-overlay-mask-leave");
-        break;
-    }
-    this.handleEvents("onAnimationStart", event2);
-  }
-  onOverlayContentAnimationDone(event2) {
-    const container = this.overlayEl || event2.element.parentElement;
-    switch (event2.toState) {
-      case "visible":
-        if (this.visible) {
-          this.show(container, true);
-          this.bindListeners();
-        }
-        break;
-      case "void":
-        if (!this.visible) {
-          this.hide(container, true);
-          this.modalVisible = false;
-          this.unbindListeners();
-          DomHandler.appendOverlay(this.overlayEl, this.targetEl, this.$appendTo());
-          zindexutils.clear(container);
-          this.cd.markForCheck();
-          break;
-        }
-    }
-    this.handleEvents("onAnimationDone", event2);
-  }
-  handleEvents(name, params) {
-    this[name].emit(params);
-    this.options && this.options[name] && this.options[name](params);
-    this.config?.overlayOptions && (this.config?.overlayOptions)[name] && (this.config?.overlayOptions)[name](params);
-  }
-  bindListeners() {
-    this.bindScrollListener();
-    this.bindDocumentClickListener();
-    this.bindDocumentResizeListener();
-    this.bindDocumentKeyboardListener();
-  }
-  unbindListeners() {
-    this.unbindScrollListener();
-    this.unbindDocumentClickListener();
-    this.unbindDocumentResizeListener();
-    this.unbindDocumentKeyboardListener();
-  }
-  bindScrollListener() {
-    if (!this.scrollHandler) {
-      this.scrollHandler = new ConnectedOverlayScrollHandler(this.targetEl, (event2) => {
-        const valid = this.listener ? this.listener(event2, {
-          type: "scroll",
-          mode: this.overlayMode,
-          valid: true
-        }) : true;
-        valid && this.hide(event2, true);
-      });
-    }
-    this.scrollHandler.bindScrollListener();
-  }
-  unbindScrollListener() {
-    if (this.scrollHandler) {
-      this.scrollHandler.unbindScrollListener();
-    }
-  }
-  bindDocumentClickListener() {
-    if (!this.documentClickListener) {
-      this.documentClickListener = this.renderer.listen(this.document, "click", (event2) => {
-        const isTargetClicked = this.targetEl && (this.targetEl.isSameNode(event2.target) || !this.isOverlayClicked && this.targetEl.contains(event2.target));
-        const isOutsideClicked = !isTargetClicked && !this.isOverlayContentClicked;
-        const valid = this.listener ? this.listener(event2, {
-          type: "outside",
-          mode: this.overlayMode,
-          valid: event2.which !== 3 && isOutsideClicked
-        }) : isOutsideClicked;
-        valid && this.hide(event2);
-        this.isOverlayClicked = this.isOverlayContentClicked = false;
-      });
-    }
-  }
-  unbindDocumentClickListener() {
-    if (this.documentClickListener) {
-      this.documentClickListener();
-      this.documentClickListener = null;
-    }
-  }
-  bindDocumentResizeListener() {
-    if (!this.documentResizeListener) {
-      this.documentResizeListener = this.renderer.listen(this.document.defaultView, "resize", (event2) => {
-        const valid = this.listener ? this.listener(event2, {
-          type: "resize",
-          mode: this.overlayMode,
-          valid: !Yt()
-        }) : !Yt();
-        valid && this.hide(event2, true);
-      });
-    }
-  }
-  unbindDocumentResizeListener() {
-    if (this.documentResizeListener) {
-      this.documentResizeListener();
-      this.documentResizeListener = null;
-    }
-  }
-  bindDocumentKeyboardListener() {
-    if (this.documentKeyboardListener) {
-      return;
-    }
-    this.zone.runOutsideAngular(() => {
-      this.documentKeyboardListener = this.renderer.listen(this.document.defaultView, "keydown", (event2) => {
-        if (this.overlayOptions.hideOnEscape === false || event2.code !== "Escape") {
-          return;
-        }
-        const valid = this.listener ? this.listener(event2, {
-          type: "keydown",
-          mode: this.overlayMode,
-          valid: !Yt()
-        }) : !Yt();
-        if (valid) {
-          this.zone.run(() => {
-            this.hide(event2, true);
-          });
-        }
-      });
-    });
-  }
-  unbindDocumentKeyboardListener() {
-    if (this.documentKeyboardListener) {
-      this.documentKeyboardListener();
-      this.documentKeyboardListener = null;
-    }
-  }
-  ngOnDestroy() {
-    this.hide(this.overlayEl, true);
-    if (this.overlayEl && this.$appendTo() !== "self") {
-      this.renderer.appendChild(this.el.nativeElement, this.overlayEl);
-      zindexutils.clear(this.overlayEl);
-    }
-    if (this.scrollHandler) {
-      this.scrollHandler.destroy();
-      this.scrollHandler = null;
-    }
-    this.unbindListeners();
-    super.ngOnDestroy();
-  }
-  static ɵfac = function Overlay_Factory(__ngFactoryType__) {
-    return new (__ngFactoryType__ || _Overlay)(ɵɵdirectiveInject(OverlayService), ɵɵdirectiveInject(NgZone));
-  };
-  static ɵcmp = ɵɵdefineComponent({
-    type: _Overlay,
-    selectors: [["p-overlay"]],
-    contentQueries: function Overlay_ContentQueries(rf, ctx, dirIndex) {
-      if (rf & 1) {
-        ɵɵcontentQuery(dirIndex, _c07, 4);
-        ɵɵcontentQuery(dirIndex, PrimeTemplate, 4);
-      }
-      if (rf & 2) {
-        let _t;
-        ɵɵqueryRefresh(_t = ɵɵloadQuery()) && (ctx.contentTemplate = _t.first);
-        ɵɵqueryRefresh(_t = ɵɵloadQuery()) && (ctx.templates = _t);
-      }
-    },
-    viewQuery: function Overlay_Query(rf, ctx) {
-      if (rf & 1) {
-        ɵɵviewQuery(_c111, 5);
-        ɵɵviewQuery(_c07, 5);
-      }
-      if (rf & 2) {
-        let _t;
-        ɵɵqueryRefresh(_t = ɵɵloadQuery()) && (ctx.overlayViewChild = _t.first);
-        ɵɵqueryRefresh(_t = ɵɵloadQuery()) && (ctx.contentViewChild = _t.first);
-      }
-    },
-    inputs: {
-      visible: "visible",
-      mode: "mode",
-      style: "style",
-      styleClass: "styleClass",
-      contentStyle: "contentStyle",
-      contentStyleClass: "contentStyleClass",
-      target: "target",
-      autoZIndex: "autoZIndex",
-      baseZIndex: "baseZIndex",
-      showTransitionOptions: "showTransitionOptions",
-      hideTransitionOptions: "hideTransitionOptions",
-      listener: "listener",
-      responsive: "responsive",
-      options: "options",
-      appendTo: [1, "appendTo"],
-      hostAttrSelector: [1, "hostAttrSelector"]
-    },
-    outputs: {
-      visibleChange: "visibleChange",
-      onBeforeShow: "onBeforeShow",
-      onShow: "onShow",
-      onBeforeHide: "onBeforeHide",
-      onHide: "onHide",
-      onAnimationStart: "onAnimationStart",
-      onAnimationDone: "onAnimationDone"
-    },
-    features: [ɵɵProvidersFeature([OverlayStyle]), ɵɵInheritDefinitionFeature],
-    ngContentSelectors: _c25,
-    decls: 1,
-    vars: 1,
-    consts: [["overlay", ""], ["content", ""], [3, "ngStyle", "class", "ngClass", "click", 4, "ngIf"], [3, "click", "ngStyle", "ngClass"], [4, "ngTemplateOutlet", "ngTemplateOutletContext"]],
-    template: function Overlay_Template(rf, ctx) {
-      if (rf & 1) {
-        ɵɵprojectionDef();
-        ɵɵtemplate(0, Overlay_div_0_Template, 3, 20, "div", 2);
-      }
-      if (rf & 2) {
-        ɵɵproperty("ngIf", ctx.modalVisible);
-      }
-    },
-    dependencies: [CommonModule, NgClass, NgIf, NgTemplateOutlet, NgStyle, SharedModule],
-    encapsulation: 2,
-    data: {
-      animation: [trigger("overlayContentAnimation", [transition(":enter", [useAnimation(showOverlayContentAnimation)]), transition(":leave", [useAnimation(hideOverlayContentAnimation)])])]
-    },
-    changeDetection: 0
-  });
-};
-(() => {
-  (typeof ngDevMode === "undefined" || ngDevMode) && setClassMetadata(Overlay, [{
-    type: Component,
-    args: [{
-      selector: "p-overlay",
-      standalone: true,
-      imports: [CommonModule, SharedModule],
-      template: `
-        <div
-            *ngIf="modalVisible"
-            #overlay
-            [ngStyle]="style"
-            [class]="styleClass"
-            [ngClass]="{
-                'p-overlay p-component': true,
-                'p-overlay-modal p-overlay-mask p-overlay-mask-enter': modal,
-                'p-overlay-center': modal && overlayResponsiveDirection === 'center',
-                'p-overlay-top': modal && overlayResponsiveDirection === 'top',
-                'p-overlay-top-start': modal && overlayResponsiveDirection === 'top-start',
-                'p-overlay-top-end': modal && overlayResponsiveDirection === 'top-end',
-                'p-overlay-bottom': modal && overlayResponsiveDirection === 'bottom',
-                'p-overlay-bottom-start': modal && overlayResponsiveDirection === 'bottom-start',
-                'p-overlay-bottom-end': modal && overlayResponsiveDirection === 'bottom-end',
-                'p-overlay-left': modal && overlayResponsiveDirection === 'left',
-                'p-overlay-left-start': modal && overlayResponsiveDirection === 'left-start',
-                'p-overlay-left-end': modal && overlayResponsiveDirection === 'left-end',
-                'p-overlay-right': modal && overlayResponsiveDirection === 'right',
-                'p-overlay-right-start': modal && overlayResponsiveDirection === 'right-start',
-                'p-overlay-right-end': modal && overlayResponsiveDirection === 'right-end'
-            }"
-            (click)="onOverlayClick()"
-        >
-            <div
-                *ngIf="visible"
-                #content
-                [ngStyle]="contentStyle"
-                [class]="contentStyleClass"
-                [ngClass]="'p-overlay-content'"
-                (click)="onOverlayContentClick($event)"
-                [@overlayContentAnimation]="{
-                    value: 'visible',
-                    params: {
-                        showTransitionParams: showTransitionOptions,
-                        hideTransitionParams: hideTransitionOptions,
-                        transform: transformOptions[modal ? overlayResponsiveDirection : 'default']
-                    }
-                }"
-                (@overlayContentAnimation.start)="onOverlayContentAnimationStart($event)"
-                (@overlayContentAnimation.done)="onOverlayContentAnimationDone($event)"
-            >
-                <ng-content></ng-content>
-                <ng-container *ngTemplateOutlet="contentTemplate || _contentTemplate; context: { $implicit: { mode: overlayMode } }"></ng-container>
-            </div>
-        </div>
-    `,
-      animations: [trigger("overlayContentAnimation", [transition(":enter", [useAnimation(showOverlayContentAnimation)]), transition(":leave", [useAnimation(hideOverlayContentAnimation)])])],
-      changeDetection: ChangeDetectionStrategy.OnPush,
-      encapsulation: ViewEncapsulation.None,
-      providers: [OverlayStyle]
-    }]
-  }], () => [{
-    type: OverlayService
-  }, {
-    type: NgZone
-  }], {
-    visible: [{
-      type: Input
-    }],
-    mode: [{
-      type: Input
-    }],
-    style: [{
-      type: Input
-    }],
-    styleClass: [{
-      type: Input
-    }],
-    contentStyle: [{
-      type: Input
-    }],
-    contentStyleClass: [{
-      type: Input
-    }],
-    target: [{
-      type: Input
-    }],
-    autoZIndex: [{
-      type: Input
-    }],
-    baseZIndex: [{
-      type: Input
-    }],
-    showTransitionOptions: [{
-      type: Input
-    }],
-    hideTransitionOptions: [{
-      type: Input
-    }],
-    listener: [{
-      type: Input
-    }],
-    responsive: [{
-      type: Input
-    }],
-    options: [{
-      type: Input
-    }],
-    visibleChange: [{
-      type: Output
-    }],
-    onBeforeShow: [{
-      type: Output
-    }],
-    onShow: [{
-      type: Output
-    }],
-    onBeforeHide: [{
-      type: Output
-    }],
-    onHide: [{
-      type: Output
-    }],
-    onAnimationStart: [{
-      type: Output
-    }],
-    onAnimationDone: [{
-      type: Output
-    }],
-    overlayViewChild: [{
-      type: ViewChild,
-      args: ["overlay"]
-    }],
-    contentViewChild: [{
-      type: ViewChild,
-      args: ["content"]
-    }],
-    contentTemplate: [{
-      type: ContentChild,
-      args: ["content", {
-        descendants: false
-      }]
-    }],
-    templates: [{
-      type: ContentChildren,
-      args: [PrimeTemplate]
-    }]
-  });
-})();
-var OverlayModule = class _OverlayModule {
-  static ɵfac = function OverlayModule_Factory(__ngFactoryType__) {
-    return new (__ngFactoryType__ || _OverlayModule)();
-  };
-  static ɵmod = ɵɵdefineNgModule({
-    type: _OverlayModule,
-    imports: [Overlay, SharedModule],
-    exports: [Overlay, SharedModule]
-  });
-  static ɵinj = ɵɵdefineInjector({
-    imports: [Overlay, SharedModule, SharedModule]
-  });
-};
-(() => {
-  (typeof ngDevMode === "undefined" || ngDevMode) && setClassMetadata(OverlayModule, [{
-    type: NgModule,
-    args: [{
-      imports: [Overlay, SharedModule],
-      exports: [Overlay, SharedModule]
-    }]
-  }], null, null);
-})();
-
-// node_modules/@primeuix/styles/dist/select/index.mjs
-var style6 = "\n    .p-select {\n        display: inline-flex;\n        cursor: pointer;\n        position: relative;\n        user-select: none;\n        background: dt('select.background');\n        border: 1px solid dt('select.border.color');\n        transition:\n            background dt('select.transition.duration'),\n            color dt('select.transition.duration'),\n            border-color dt('select.transition.duration'),\n            outline-color dt('select.transition.duration'),\n            box-shadow dt('select.transition.duration');\n        border-radius: dt('select.border.radius');\n        outline-color: transparent;\n        box-shadow: dt('select.shadow');\n    }\n\n    .p-select:not(.p-disabled):hover {\n        border-color: dt('select.hover.border.color');\n    }\n\n    .p-select:not(.p-disabled).p-focus {\n        border-color: dt('select.focus.border.color');\n        box-shadow: dt('select.focus.ring.shadow');\n        outline: dt('select.focus.ring.width') dt('select.focus.ring.style') dt('select.focus.ring.color');\n        outline-offset: dt('select.focus.ring.offset');\n    }\n\n    .p-select.p-variant-filled {\n        background: dt('select.filled.background');\n    }\n\n    .p-select.p-variant-filled:not(.p-disabled):hover {\n        background: dt('select.filled.hover.background');\n    }\n\n    .p-select.p-variant-filled:not(.p-disabled).p-focus {\n        background: dt('select.filled.focus.background');\n    }\n\n    .p-select.p-invalid {\n        border-color: dt('select.invalid.border.color');\n    }\n\n    .p-select.p-disabled {\n        opacity: 1;\n        background: dt('select.disabled.background');\n    }\n\n    .p-select-clear-icon {\n        position: absolute;\n        top: 50%;\n        margin-top: -0.5rem;\n        color: dt('select.clear.icon.color');\n        inset-inline-end: dt('select.dropdown.width');\n    }\n\n    .p-select-dropdown {\n        display: flex;\n        align-items: center;\n        justify-content: center;\n        flex-shrink: 0;\n        background: transparent;\n        color: dt('select.dropdown.color');\n        width: dt('select.dropdown.width');\n        border-start-end-radius: dt('select.border.radius');\n        border-end-end-radius: dt('select.border.radius');\n    }\n\n    .p-select-label {\n        display: block;\n        white-space: nowrap;\n        overflow: hidden;\n        flex: 1 1 auto;\n        width: 1%;\n        padding: dt('select.padding.y') dt('select.padding.x');\n        text-overflow: ellipsis;\n        cursor: pointer;\n        color: dt('select.color');\n        background: transparent;\n        border: 0 none;\n        outline: 0 none;\n        font-size: 1rem;\n    }\n\n    .p-select-label.p-placeholder {\n        color: dt('select.placeholder.color');\n    }\n\n    .p-select.p-invalid .p-select-label.p-placeholder {\n        color: dt('select.invalid.placeholder.color');\n    }\n\n    .p-select:has(.p-select-clear-icon) .p-select-label {\n        padding-inline-end: calc(1rem + dt('select.padding.x'));\n    }\n\n    .p-select.p-disabled .p-select-label {\n        color: dt('select.disabled.color');\n    }\n\n    .p-select-label-empty {\n        overflow: hidden;\n        opacity: 0;\n    }\n\n    input.p-select-label {\n        cursor: default;\n    }\n\n    .p-select-overlay {\n        position: absolute;\n        top: 0;\n        left: 0;\n        background: dt('select.overlay.background');\n        color: dt('select.overlay.color');\n        border: 1px solid dt('select.overlay.border.color');\n        border-radius: dt('select.overlay.border.radius');\n        box-shadow: dt('select.overlay.shadow');\n        min-width: 100%;\n    }\n\n    .p-select-header {\n        padding: dt('select.list.header.padding');\n    }\n\n    .p-select-filter {\n        width: 100%;\n    }\n\n    .p-select-list-container {\n        overflow: auto;\n    }\n\n    .p-select-option-group {\n        cursor: auto;\n        margin: 0;\n        padding: dt('select.option.group.padding');\n        background: dt('select.option.group.background');\n        color: dt('select.option.group.color');\n        font-weight: dt('select.option.group.font.weight');\n    }\n\n    .p-select-list {\n        margin: 0;\n        padding: 0;\n        list-style-type: none;\n        padding: dt('select.list.padding');\n        gap: dt('select.list.gap');\n        display: flex;\n        flex-direction: column;\n    }\n\n    .p-select-option {\n        cursor: pointer;\n        font-weight: normal;\n        white-space: nowrap;\n        position: relative;\n        overflow: hidden;\n        display: flex;\n        align-items: center;\n        padding: dt('select.option.padding');\n        border: 0 none;\n        color: dt('select.option.color');\n        background: transparent;\n        transition:\n            background dt('select.transition.duration'),\n            color dt('select.transition.duration'),\n            border-color dt('select.transition.duration'),\n            box-shadow dt('select.transition.duration'),\n            outline-color dt('select.transition.duration');\n        border-radius: dt('select.option.border.radius');\n    }\n\n    .p-select-option:not(.p-select-option-selected):not(.p-disabled).p-focus {\n        background: dt('select.option.focus.background');\n        color: dt('select.option.focus.color');\n    }\n\n    .p-select-option.p-select-option-selected {\n        background: dt('select.option.selected.background');\n        color: dt('select.option.selected.color');\n    }\n\n    .p-select-option.p-select-option-selected.p-focus {\n        background: dt('select.option.selected.focus.background');\n        color: dt('select.option.selected.focus.color');\n    }\n\n    .p-select-option-blank-icon {\n        flex-shrink: 0;\n    }\n\n    .p-select-option-check-icon {\n        position: relative;\n        flex-shrink: 0;\n        margin-inline-start: dt('select.checkmark.gutter.start');\n        margin-inline-end: dt('select.checkmark.gutter.end');\n        color: dt('select.checkmark.color');\n    }\n\n    .p-select-empty-message {\n        padding: dt('select.empty.message.padding');\n    }\n\n    .p-select-fluid {\n        display: flex;\n        width: 100%;\n    }\n\n    .p-select-sm .p-select-label {\n        font-size: dt('select.sm.font.size');\n        padding-block: dt('select.sm.padding.y');\n        padding-inline: dt('select.sm.padding.x');\n    }\n\n    .p-select-sm .p-select-dropdown .p-icon {\n        font-size: dt('select.sm.font.size');\n        width: dt('select.sm.font.size');\n        height: dt('select.sm.font.size');\n    }\n\n    .p-select-lg .p-select-label {\n        font-size: dt('select.lg.font.size');\n        padding-block: dt('select.lg.padding.y');\n        padding-inline: dt('select.lg.padding.x');\n    }\n\n    .p-select-lg .p-select-dropdown .p-icon {\n        font-size: dt('select.lg.font.size');\n        width: dt('select.lg.font.size');\n        height: dt('select.lg.font.size');\n    }\n";
-
-// node_modules/primeng/fesm2022/primeng-select.mjs
-var _c08 = (a0) => ({
-  height: a0
-});
-var _c112 = (a0) => ({
-  $implicit: a0
-});
-function SelectItem_ng_container_1__svg_svg_1_Template(rf, ctx) {
-  if (rf & 1) {
-    ɵɵnamespaceSVG();
-    ɵɵelement(0, "svg", 5);
-  }
-  if (rf & 2) {
-    const ctx_r0 = ɵɵnextContext(2);
-    ɵɵclassMap(ctx_r0.cx("optionCheckIcon"));
-  }
-}
-function SelectItem_ng_container_1__svg_svg_2_Template(rf, ctx) {
-  if (rf & 1) {
-    ɵɵnamespaceSVG();
-    ɵɵelement(0, "svg", 6);
-  }
-  if (rf & 2) {
-    const ctx_r0 = ɵɵnextContext(2);
-    ɵɵclassMap(ctx_r0.cx("optionBlankIcon"));
-  }
-}
-function SelectItem_ng_container_1_Template(rf, ctx) {
-  if (rf & 1) {
-    ɵɵelementContainerStart(0);
-    ɵɵtemplate(1, SelectItem_ng_container_1__svg_svg_1_Template, 1, 2, "svg", 3)(2, SelectItem_ng_container_1__svg_svg_2_Template, 1, 2, "svg", 4);
-    ɵɵelementContainerEnd();
-  }
-  if (rf & 2) {
-    const ctx_r0 = ɵɵnextContext();
-    ɵɵadvance();
-    ɵɵproperty("ngIf", ctx_r0.selected);
-    ɵɵadvance();
-    ɵɵproperty("ngIf", !ctx_r0.selected);
-  }
-}
-function SelectItem_span_2_Template(rf, ctx) {
-  if (rf & 1) {
-    ɵɵelementStart(0, "span");
-    ɵɵtext(1);
-    ɵɵelementEnd();
-  }
-  if (rf & 2) {
-    const ctx_r0 = ɵɵnextContext();
-    ɵɵadvance();
-    ɵɵtextInterpolate(ctx_r0.label ?? "empty");
-  }
-}
-function SelectItem_ng_container_3_Template(rf, ctx) {
-  if (rf & 1) {
-    ɵɵelementContainer(0);
-  }
-}
-var _c26 = ["item"];
-var _c34 = ["group"];
-var _c43 = ["loader"];
-var _c53 = ["selectedItem"];
-var _c63 = ["header"];
-var _c73 = ["filter"];
-var _c82 = ["footer"];
-var _c92 = ["emptyfilter"];
-var _c102 = ["empty"];
-var _c113 = ["dropdownicon"];
-var _c123 = ["loadingicon"];
-var _c132 = ["clearicon"];
-var _c142 = ["filtericon"];
-var _c152 = ["onicon"];
-var _c162 = ["officon"];
-var _c172 = ["cancelicon"];
-var _c182 = ["focusInput"];
-var _c192 = ["editableInput"];
-var _c202 = ["items"];
-var _c212 = ["scroller"];
-var _c223 = ["overlay"];
-var _c232 = ["firstHiddenFocusableEl"];
-var _c242 = ["lastHiddenFocusableEl"];
-var _c252 = (a0) => ({
-  class: a0
-});
-var _c262 = (a0) => ({
-  options: a0
-});
-var _c27 = (a0, a1) => ({
-  $implicit: a0,
-  options: a1
-});
-var _c28 = () => ({});
-function Select_span_0_ng_container_2_Template(rf, ctx) {
-  if (rf & 1) {
-    ɵɵelementContainerStart(0);
-    ɵɵtext(1);
-    ɵɵelementContainerEnd();
-  }
-  if (rf & 2) {
-    const ctx_r2 = ɵɵnextContext(2);
-    ɵɵadvance();
-    ɵɵtextInterpolate(ctx_r2.label() === "p-emptylabel" ? " " : ctx_r2.label());
-  }
-}
-function Select_span_0_ng_container_3_Template(rf, ctx) {
-  if (rf & 1) {
-    ɵɵelementContainer(0, 24);
-  }
-  if (rf & 2) {
-    const ctx_r2 = ɵɵnextContext(2);
-    ɵɵproperty("ngTemplateOutlet", ctx_r2.selectedItemTemplate || ctx_r2._selectedItemTemplate)("ngTemplateOutletContext", ɵɵpureFunction1(2, _c112, ctx_r2.selectedOption));
-  }
-}
-function Select_span_0_ng_template_4_span_0_Template(rf, ctx) {
-  if (rf & 1) {
-    ɵɵelementStart(0, "span");
-    ɵɵtext(1);
-    ɵɵelementEnd();
-  }
-  if (rf & 2) {
-    const ctx_r2 = ɵɵnextContext(3);
-    ɵɵadvance();
-    ɵɵtextInterpolate(ctx_r2.label() === "p-emptylabel" ? " " : ctx_r2.label());
-  }
-}
-function Select_span_0_ng_template_4_Template(rf, ctx) {
-  if (rf & 1) {
-    ɵɵtemplate(0, Select_span_0_ng_template_4_span_0_Template, 2, 1, "span", 18);
-  }
-  if (rf & 2) {
-    const ctx_r2 = ɵɵnextContext(2);
-    ɵɵproperty("ngIf", ctx_r2.isSelectedOptionEmpty());
-  }
-}
-function Select_span_0_Template(rf, ctx) {
-  if (rf & 1) {
-    const _r2 = ɵɵgetCurrentView();
-    ɵɵelementStart(0, "span", 22, 3);
-    ɵɵlistener("focus", function Select_span_0_Template_span_focus_0_listener($event) {
-      ɵɵrestoreView(_r2);
-      const ctx_r2 = ɵɵnextContext();
-      return ɵɵresetView(ctx_r2.onInputFocus($event));
-    })("blur", function Select_span_0_Template_span_blur_0_listener($event) {
-      ɵɵrestoreView(_r2);
-      const ctx_r2 = ɵɵnextContext();
-      return ɵɵresetView(ctx_r2.onInputBlur($event));
-    })("keydown", function Select_span_0_Template_span_keydown_0_listener($event) {
-      ɵɵrestoreView(_r2);
-      const ctx_r2 = ɵɵnextContext();
-      return ɵɵresetView(ctx_r2.onKeyDown($event));
-    });
-    ɵɵtemplate(2, Select_span_0_ng_container_2_Template, 2, 1, "ng-container", 20)(3, Select_span_0_ng_container_3_Template, 1, 4, "ng-container", 23)(4, Select_span_0_ng_template_4_Template, 1, 1, "ng-template", null, 4, ɵɵtemplateRefExtractor);
-    ɵɵelementEnd();
-  }
-  if (rf & 2) {
-    const defaultPlaceholder_r4 = ɵɵreference(5);
-    const ctx_r2 = ɵɵnextContext();
-    ɵɵclassMap(ctx_r2.cx("label"));
-    ɵɵproperty("pTooltip", ctx_r2.tooltip)("tooltipPosition", ctx_r2.tooltipPosition)("positionStyle", ctx_r2.tooltipPositionStyle)("tooltipStyleClass", ctx_r2.tooltipStyleClass)("pAutoFocus", ctx_r2.autofocus);
-    ɵɵattribute("aria-disabled", ctx_r2.$disabled())("id", ctx_r2.inputId)("aria-label", ctx_r2.ariaLabel || (ctx_r2.label() === "p-emptylabel" ? void 0 : ctx_r2.label()))("aria-labelledby", ctx_r2.ariaLabelledBy)("aria-haspopup", "listbox")("aria-expanded", ctx_r2.overlayVisible ?? false)("aria-controls", ctx_r2.overlayVisible ? ctx_r2.id + "_list" : null)("tabindex", !ctx_r2.$disabled() ? ctx_r2.tabindex : -1)("aria-activedescendant", ctx_r2.focused ? ctx_r2.focusedOptionId : void 0)("aria-required", ctx_r2.required())("required", ctx_r2.required() ? "" : void 0)("disabled", ctx_r2.$disabled() ? "" : void 0);
-    ɵɵadvance(2);
-    ɵɵproperty("ngIf", !ctx_r2.selectedItemTemplate && !ctx_r2._selectedItemTemplate)("ngIfElse", defaultPlaceholder_r4);
-    ɵɵadvance();
-    ɵɵproperty("ngIf", (ctx_r2.selectedItemTemplate || ctx_r2._selectedItemTemplate) && !ctx_r2.isSelectedOptionEmpty());
-  }
-}
-function Select_input_1_Template(rf, ctx) {
-  if (rf & 1) {
-    const _r5 = ɵɵgetCurrentView();
-    ɵɵelementStart(0, "input", 25, 5);
-    ɵɵlistener("input", function Select_input_1_Template_input_input_0_listener($event) {
-      ɵɵrestoreView(_r5);
-      const ctx_r2 = ɵɵnextContext();
-      return ɵɵresetView(ctx_r2.onEditableInput($event));
-    })("keydown", function Select_input_1_Template_input_keydown_0_listener($event) {
-      ɵɵrestoreView(_r5);
-      const ctx_r2 = ɵɵnextContext();
-      return ɵɵresetView(ctx_r2.onKeyDown($event));
-    })("focus", function Select_input_1_Template_input_focus_0_listener($event) {
-      ɵɵrestoreView(_r5);
-      const ctx_r2 = ɵɵnextContext();
-      return ɵɵresetView(ctx_r2.onInputFocus($event));
-    })("blur", function Select_input_1_Template_input_blur_0_listener($event) {
-      ɵɵrestoreView(_r5);
-      const ctx_r2 = ɵɵnextContext();
-      return ɵɵresetView(ctx_r2.onInputBlur($event));
-    });
-    ɵɵelementEnd();
-  }
-  if (rf & 2) {
-    const ctx_r2 = ɵɵnextContext();
-    ɵɵclassMap(ctx_r2.cx("label"));
-    ɵɵproperty("pAutoFocus", ctx_r2.autofocus);
-    ɵɵattribute("id", ctx_r2.inputId)("aria-haspopup", "listbox")("placeholder", ctx_r2.modelValue() === void 0 || ctx_r2.modelValue() === null ? ctx_r2.placeholder() : void 0)("aria-label", ctx_r2.ariaLabel || (ctx_r2.label() === "p-emptylabel" ? void 0 : ctx_r2.label()))("aria-activedescendant", ctx_r2.focused ? ctx_r2.focusedOptionId : void 0)("name", ctx_r2.name())("minlength", ctx_r2.minlength())("min", ctx_r2.min())("max", ctx_r2.max())("pattern", ctx_r2.pattern())("size", ctx_r2.inputSize())("maxlength", ctx_r2.maxlength())("required", ctx_r2.required() ? "" : void 0)("readonly", ctx_r2.readonly ? "" : void 0)("disabled", ctx_r2.$disabled() ? "" : void 0);
-  }
-}
-function Select_ng_container_2__svg_svg_1_Template(rf, ctx) {
-  if (rf & 1) {
-    const _r6 = ɵɵgetCurrentView();
-    ɵɵnamespaceSVG();
-    ɵɵelementStart(0, "svg", 28);
-    ɵɵlistener("click", function Select_ng_container_2__svg_svg_1_Template_svg_click_0_listener($event) {
-      ɵɵrestoreView(_r6);
-      const ctx_r2 = ɵɵnextContext(2);
-      return ɵɵresetView(ctx_r2.clear($event));
-    });
-    ɵɵelementEnd();
-  }
-  if (rf & 2) {
-    const ctx_r2 = ɵɵnextContext(2);
-    ɵɵclassMap(ctx_r2.cx("clearIcon"));
-    ɵɵattribute("data-pc-section", "clearicon");
-  }
-}
-function Select_ng_container_2_span_2_1_ng_template_0_Template(rf, ctx) {
-}
-function Select_ng_container_2_span_2_1_Template(rf, ctx) {
-  if (rf & 1) {
-    ɵɵtemplate(0, Select_ng_container_2_span_2_1_ng_template_0_Template, 0, 0, "ng-template");
-  }
-}
-function Select_ng_container_2_span_2_Template(rf, ctx) {
-  if (rf & 1) {
-    const _r7 = ɵɵgetCurrentView();
-    ɵɵelementStart(0, "span", 29);
-    ɵɵlistener("click", function Select_ng_container_2_span_2_Template_span_click_0_listener($event) {
-      ɵɵrestoreView(_r7);
-      const ctx_r2 = ɵɵnextContext(2);
-      return ɵɵresetView(ctx_r2.clear($event));
-    });
-    ɵɵtemplate(1, Select_ng_container_2_span_2_1_Template, 1, 0, null, 30);
-    ɵɵelementEnd();
-  }
-  if (rf & 2) {
-    const ctx_r2 = ɵɵnextContext(2);
-    ɵɵclassMap(ctx_r2.cx("clearIcon"));
-    ɵɵattribute("data-pc-section", "clearicon");
-    ɵɵadvance();
-    ɵɵproperty("ngTemplateOutlet", ctx_r2.clearIconTemplate || ctx_r2._clearIconTemplate)("ngTemplateOutletContext", ɵɵpureFunction1(5, _c252, ctx_r2.cx("clearIcon")));
-  }
-}
-function Select_ng_container_2_Template(rf, ctx) {
-  if (rf & 1) {
-    ɵɵelementContainerStart(0);
-    ɵɵtemplate(1, Select_ng_container_2__svg_svg_1_Template, 1, 3, "svg", 26)(2, Select_ng_container_2_span_2_Template, 2, 7, "span", 27);
-    ɵɵelementContainerEnd();
-  }
-  if (rf & 2) {
-    const ctx_r2 = ɵɵnextContext();
-    ɵɵadvance();
-    ɵɵproperty("ngIf", !ctx_r2.clearIconTemplate && !ctx_r2._clearIconTemplate);
-    ɵɵadvance();
-    ɵɵproperty("ngIf", ctx_r2.clearIconTemplate || ctx_r2._clearIconTemplate);
-  }
-}
-function Select_ng_container_4_ng_container_1_ng_container_1_Template(rf, ctx) {
-  if (rf & 1) {
-    ɵɵelementContainer(0);
-  }
-}
-function Select_ng_container_4_ng_container_1_Template(rf, ctx) {
-  if (rf & 1) {
-    ɵɵelementContainerStart(0);
-    ɵɵtemplate(1, Select_ng_container_4_ng_container_1_ng_container_1_Template, 1, 0, "ng-container", 31);
-    ɵɵelementContainerEnd();
-  }
-  if (rf & 2) {
-    const ctx_r2 = ɵɵnextContext(2);
-    ɵɵadvance();
-    ɵɵproperty("ngTemplateOutlet", ctx_r2.loadingIconTemplate || ctx_r2._loadingIconTemplate);
-  }
-}
-function Select_ng_container_4_ng_container_2_span_1_Template(rf, ctx) {
-  if (rf & 1) {
-    ɵɵelement(0, "span", 33);
-  }
-  if (rf & 2) {
-    const ctx_r2 = ɵɵnextContext(3);
-    ɵɵclassMap(ctx_r2.cn(ctx_r2.cx("loadingIcon"), "pi-spin" + ctx_r2.loadingIcon));
-  }
-}
-function Select_ng_container_4_ng_container_2_span_2_Template(rf, ctx) {
-  if (rf & 1) {
-    ɵɵelement(0, "span", 33);
-  }
-  if (rf & 2) {
-    const ctx_r2 = ɵɵnextContext(3);
-    ɵɵclassMap(ctx_r2.cn(ctx_r2.cx("loadingIcon"), "pi pi-spinner pi-spin"));
-  }
-}
-function Select_ng_container_4_ng_container_2_Template(rf, ctx) {
-  if (rf & 1) {
-    ɵɵelementContainerStart(0);
-    ɵɵtemplate(1, Select_ng_container_4_ng_container_2_span_1_Template, 1, 2, "span", 32)(2, Select_ng_container_4_ng_container_2_span_2_Template, 1, 2, "span", 32);
-    ɵɵelementContainerEnd();
-  }
-  if (rf & 2) {
-    const ctx_r2 = ɵɵnextContext(2);
-    ɵɵadvance();
-    ɵɵproperty("ngIf", ctx_r2.loadingIcon);
-    ɵɵadvance();
-    ɵɵproperty("ngIf", !ctx_r2.loadingIcon);
-  }
-}
-function Select_ng_container_4_Template(rf, ctx) {
-  if (rf & 1) {
-    ɵɵelementContainerStart(0);
-    ɵɵtemplate(1, Select_ng_container_4_ng_container_1_Template, 2, 1, "ng-container", 18)(2, Select_ng_container_4_ng_container_2_Template, 3, 2, "ng-container", 18);
-    ɵɵelementContainerEnd();
-  }
-  if (rf & 2) {
-    const ctx_r2 = ɵɵnextContext();
-    ɵɵadvance();
-    ɵɵproperty("ngIf", ctx_r2.loadingIconTemplate || ctx_r2._loadingIconTemplate);
-    ɵɵadvance();
-    ɵɵproperty("ngIf", !ctx_r2.loadingIconTemplate && !ctx_r2._loadingIconTemplate);
-  }
-}
-function Select_ng_template_5_ng_container_0_span_1_Template(rf, ctx) {
-  if (rf & 1) {
-    ɵɵelement(0, "span");
-  }
-  if (rf & 2) {
-    const ctx_r2 = ɵɵnextContext(3);
-    ɵɵclassMap(ctx_r2.cn(ctx_r2.cx("dropdownIcon"), ctx_r2.dropdownIcon));
-  }
-}
-function Select_ng_template_5_ng_container_0__svg_svg_2_Template(rf, ctx) {
-  if (rf & 1) {
-    ɵɵnamespaceSVG();
-    ɵɵelement(0, "svg", 36);
-  }
-  if (rf & 2) {
-    const ctx_r2 = ɵɵnextContext(3);
-    ɵɵclassMap(ctx_r2.cx("dropdownIcon"));
-  }
-}
-function Select_ng_template_5_ng_container_0_Template(rf, ctx) {
-  if (rf & 1) {
-    ɵɵelementContainerStart(0);
-    ɵɵtemplate(1, Select_ng_template_5_ng_container_0_span_1_Template, 1, 2, "span", 34)(2, Select_ng_template_5_ng_container_0__svg_svg_2_Template, 1, 2, "svg", 35);
-    ɵɵelementContainerEnd();
-  }
-  if (rf & 2) {
-    const ctx_r2 = ɵɵnextContext(2);
-    ɵɵadvance();
-    ɵɵproperty("ngIf", ctx_r2.dropdownIcon);
-    ɵɵadvance();
-    ɵɵproperty("ngIf", !ctx_r2.dropdownIcon);
-  }
-}
-function Select_ng_template_5_span_1_1_ng_template_0_Template(rf, ctx) {
-}
-function Select_ng_template_5_span_1_1_Template(rf, ctx) {
-  if (rf & 1) {
-    ɵɵtemplate(0, Select_ng_template_5_span_1_1_ng_template_0_Template, 0, 0, "ng-template");
-  }
-}
-function Select_ng_template_5_span_1_Template(rf, ctx) {
-  if (rf & 1) {
-    ɵɵelementStart(0, "span");
-    ɵɵtemplate(1, Select_ng_template_5_span_1_1_Template, 1, 0, null, 30);
-    ɵɵelementEnd();
-  }
-  if (rf & 2) {
-    const ctx_r2 = ɵɵnextContext(2);
-    ɵɵclassMap(ctx_r2.cx("dropdownIcon"));
-    ɵɵadvance();
-    ɵɵproperty("ngTemplateOutlet", ctx_r2.dropdownIconTemplate || ctx_r2._dropdownIconTemplate)("ngTemplateOutletContext", ɵɵpureFunction1(4, _c252, ctx_r2.cx("dropdownIcon")));
-  }
-}
-function Select_ng_template_5_Template(rf, ctx) {
-  if (rf & 1) {
-    ɵɵtemplate(0, Select_ng_template_5_ng_container_0_Template, 3, 2, "ng-container", 18)(1, Select_ng_template_5_span_1_Template, 2, 6, "span", 34);
-  }
-  if (rf & 2) {
-    const ctx_r2 = ɵɵnextContext();
-    ɵɵproperty("ngIf", !ctx_r2.dropdownIconTemplate && !ctx_r2._dropdownIconTemplate);
-    ɵɵadvance();
-    ɵɵproperty("ngIf", ctx_r2.dropdownIconTemplate || ctx_r2._dropdownIconTemplate);
-  }
-}
-function Select_ng_template_9_ng_container_3_Template(rf, ctx) {
-  if (rf & 1) {
-    ɵɵelementContainer(0);
-  }
-}
-function Select_ng_template_9_div_4_ng_container_1_ng_container_1_Template(rf, ctx) {
-  if (rf & 1) {
-    ɵɵelementContainer(0);
-  }
-}
-function Select_ng_template_9_div_4_ng_container_1_Template(rf, ctx) {
-  if (rf & 1) {
-    ɵɵelementContainerStart(0);
-    ɵɵtemplate(1, Select_ng_template_9_div_4_ng_container_1_ng_container_1_Template, 1, 0, "ng-container", 30);
-    ɵɵelementContainerEnd();
-  }
-  if (rf & 2) {
-    const ctx_r2 = ɵɵnextContext(3);
-    ɵɵadvance();
-    ɵɵproperty("ngTemplateOutlet", ctx_r2.filterTemplate || ctx_r2._filterTemplate)("ngTemplateOutletContext", ɵɵpureFunction1(2, _c262, ctx_r2.filterOptions));
-  }
-}
-function Select_ng_template_9_div_4_ng_template_2__svg_svg_4_Template(rf, ctx) {
-  if (rf & 1) {
-    ɵɵnamespaceSVG();
-    ɵɵelement(0, "svg", 42);
-  }
-}
-function Select_ng_template_9_div_4_ng_template_2_span_5_1_ng_template_0_Template(rf, ctx) {
-}
-function Select_ng_template_9_div_4_ng_template_2_span_5_1_Template(rf, ctx) {
-  if (rf & 1) {
-    ɵɵtemplate(0, Select_ng_template_9_div_4_ng_template_2_span_5_1_ng_template_0_Template, 0, 0, "ng-template");
-  }
-}
-function Select_ng_template_9_div_4_ng_template_2_span_5_Template(rf, ctx) {
-  if (rf & 1) {
-    ɵɵelementStart(0, "span");
-    ɵɵtemplate(1, Select_ng_template_9_div_4_ng_template_2_span_5_1_Template, 1, 0, null, 31);
-    ɵɵelementEnd();
-  }
-  if (rf & 2) {
-    const ctx_r2 = ɵɵnextContext(4);
-    ɵɵadvance();
-    ɵɵproperty("ngTemplateOutlet", ctx_r2.filterIconTemplate || ctx_r2._filterIconTemplate);
-  }
-}
-function Select_ng_template_9_div_4_ng_template_2_Template(rf, ctx) {
-  if (rf & 1) {
-    const _r10 = ɵɵgetCurrentView();
-    ɵɵelementStart(0, "p-iconfield")(1, "input", 40, 10);
-    ɵɵlistener("input", function Select_ng_template_9_div_4_ng_template_2_Template_input_input_1_listener($event) {
-      ɵɵrestoreView(_r10);
-      const ctx_r2 = ɵɵnextContext(3);
-      return ɵɵresetView(ctx_r2.onFilterInputChange($event));
-    })("keydown", function Select_ng_template_9_div_4_ng_template_2_Template_input_keydown_1_listener($event) {
-      ɵɵrestoreView(_r10);
-      const ctx_r2 = ɵɵnextContext(3);
-      return ɵɵresetView(ctx_r2.onFilterKeyDown($event));
-    })("blur", function Select_ng_template_9_div_4_ng_template_2_Template_input_blur_1_listener($event) {
-      ɵɵrestoreView(_r10);
-      const ctx_r2 = ɵɵnextContext(3);
-      return ɵɵresetView(ctx_r2.onFilterBlur($event));
-    });
-    ɵɵelementEnd();
-    ɵɵelementStart(3, "p-inputicon");
-    ɵɵtemplate(4, Select_ng_template_9_div_4_ng_template_2__svg_svg_4_Template, 1, 0, "svg", 41)(5, Select_ng_template_9_div_4_ng_template_2_span_5_Template, 2, 1, "span", 18);
-    ɵɵelementEnd()();
-  }
-  if (rf & 2) {
-    const ctx_r2 = ɵɵnextContext(3);
-    ɵɵadvance();
-    ɵɵclassMap(ctx_r2.cx("pcFilter"));
-    ɵɵproperty("pSize", ctx_r2.size())("value", ctx_r2._filterValue() || "")("variant", ctx_r2.$variant());
-    ɵɵattribute("placeholder", ctx_r2.filterPlaceholder)("aria-owns", ctx_r2.id + "_list")("aria-label", ctx_r2.ariaFilterLabel)("aria-activedescendant", ctx_r2.focusedOptionId);
-    ɵɵadvance(3);
-    ɵɵproperty("ngIf", !ctx_r2.filterIconTemplate && !ctx_r2._filterIconTemplate);
-    ɵɵadvance();
-    ɵɵproperty("ngIf", ctx_r2.filterIconTemplate || ctx_r2._filterIconTemplate);
-  }
-}
-function Select_ng_template_9_div_4_Template(rf, ctx) {
-  if (rf & 1) {
-    const _r9 = ɵɵgetCurrentView();
-    ɵɵelementStart(0, "div", 29);
-    ɵɵlistener("click", function Select_ng_template_9_div_4_Template_div_click_0_listener($event) {
-      ɵɵrestoreView(_r9);
-      return ɵɵresetView($event.stopPropagation());
-    });
-    ɵɵtemplate(1, Select_ng_template_9_div_4_ng_container_1_Template, 2, 4, "ng-container", 20)(2, Select_ng_template_9_div_4_ng_template_2_Template, 6, 11, "ng-template", null, 9, ɵɵtemplateRefExtractor);
-    ɵɵelementEnd();
-  }
-  if (rf & 2) {
-    const builtInFilterElement_r11 = ɵɵreference(3);
-    const ctx_r2 = ɵɵnextContext(2);
-    ɵɵclassMap(ctx_r2.cx("header"));
-    ɵɵadvance();
-    ɵɵproperty("ngIf", ctx_r2.filterTemplate || ctx_r2._filterTemplate)("ngIfElse", builtInFilterElement_r11);
-  }
-}
-function Select_ng_template_9_p_scroller_6_ng_template_2_ng_container_0_Template(rf, ctx) {
-  if (rf & 1) {
-    ɵɵelementContainer(0);
-  }
-}
-function Select_ng_template_9_p_scroller_6_ng_template_2_Template(rf, ctx) {
-  if (rf & 1) {
-    ɵɵtemplate(0, Select_ng_template_9_p_scroller_6_ng_template_2_ng_container_0_Template, 1, 0, "ng-container", 30);
-  }
-  if (rf & 2) {
-    const items_r13 = ctx.$implicit;
-    const scrollerOptions_r14 = ctx.options;
-    ɵɵnextContext(2);
-    const buildInItems_r15 = ɵɵreference(9);
-    ɵɵproperty("ngTemplateOutlet", buildInItems_r15)("ngTemplateOutletContext", ɵɵpureFunction2(2, _c27, items_r13, scrollerOptions_r14));
-  }
-}
-function Select_ng_template_9_p_scroller_6_ng_container_4_ng_template_1_ng_container_0_Template(rf, ctx) {
-  if (rf & 1) {
-    ɵɵelementContainer(0);
-  }
-}
-function Select_ng_template_9_p_scroller_6_ng_container_4_ng_template_1_Template(rf, ctx) {
-  if (rf & 1) {
-    ɵɵtemplate(0, Select_ng_template_9_p_scroller_6_ng_container_4_ng_template_1_ng_container_0_Template, 1, 0, "ng-container", 30);
-  }
-  if (rf & 2) {
-    const scrollerOptions_r16 = ctx.options;
-    const ctx_r2 = ɵɵnextContext(4);
-    ɵɵproperty("ngTemplateOutlet", ctx_r2.loaderTemplate || ctx_r2._loaderTemplate)("ngTemplateOutletContext", ɵɵpureFunction1(2, _c262, scrollerOptions_r16));
-  }
-}
-function Select_ng_template_9_p_scroller_6_ng_container_4_Template(rf, ctx) {
-  if (rf & 1) {
-    ɵɵelementContainerStart(0);
-    ɵɵtemplate(1, Select_ng_template_9_p_scroller_6_ng_container_4_ng_template_1_Template, 1, 4, "ng-template", null, 12, ɵɵtemplateRefExtractor);
-    ɵɵelementContainerEnd();
-  }
-}
-function Select_ng_template_9_p_scroller_6_Template(rf, ctx) {
-  if (rf & 1) {
-    const _r12 = ɵɵgetCurrentView();
-    ɵɵelementStart(0, "p-scroller", 43, 11);
-    ɵɵlistener("onLazyLoad", function Select_ng_template_9_p_scroller_6_Template_p_scroller_onLazyLoad_0_listener($event) {
-      ɵɵrestoreView(_r12);
-      const ctx_r2 = ɵɵnextContext(2);
-      return ɵɵresetView(ctx_r2.onLazyLoad.emit($event));
-    });
-    ɵɵtemplate(2, Select_ng_template_9_p_scroller_6_ng_template_2_Template, 1, 5, "ng-template", null, 2, ɵɵtemplateRefExtractor)(4, Select_ng_template_9_p_scroller_6_ng_container_4_Template, 3, 0, "ng-container", 18);
-    ɵɵelementEnd();
-  }
-  if (rf & 2) {
-    const ctx_r2 = ɵɵnextContext(2);
-    ɵɵstyleMap(ɵɵpureFunction1(8, _c08, ctx_r2.scrollHeight));
-    ɵɵproperty("items", ctx_r2.visibleOptions())("itemSize", ctx_r2.virtualScrollItemSize)("autoSize", true)("lazy", ctx_r2.lazy)("options", ctx_r2.virtualScrollOptions);
-    ɵɵadvance(4);
-    ɵɵproperty("ngIf", ctx_r2.loaderTemplate || ctx_r2._loaderTemplate);
-  }
-}
-function Select_ng_template_9_ng_container_7_ng_container_1_Template(rf, ctx) {
-  if (rf & 1) {
-    ɵɵelementContainer(0);
-  }
-}
-function Select_ng_template_9_ng_container_7_Template(rf, ctx) {
-  if (rf & 1) {
-    ɵɵelementContainerStart(0);
-    ɵɵtemplate(1, Select_ng_template_9_ng_container_7_ng_container_1_Template, 1, 0, "ng-container", 30);
-    ɵɵelementContainerEnd();
-  }
-  if (rf & 2) {
-    ɵɵnextContext();
-    const buildInItems_r15 = ɵɵreference(9);
-    const ctx_r2 = ɵɵnextContext();
-    ɵɵadvance();
-    ɵɵproperty("ngTemplateOutlet", buildInItems_r15)("ngTemplateOutletContext", ɵɵpureFunction2(3, _c27, ctx_r2.visibleOptions(), ɵɵpureFunction0(2, _c28)));
-  }
-}
-function Select_ng_template_9_ng_template_8_ng_template_2_ng_container_0_span_2_Template(rf, ctx) {
-  if (rf & 1) {
-    ɵɵelementStart(0, "span");
-    ɵɵtext(1);
-    ɵɵelementEnd();
-  }
-  if (rf & 2) {
-    const option_r17 = ɵɵnextContext(2).$implicit;
-    const ctx_r2 = ɵɵnextContext(3);
-    ɵɵadvance();
-    ɵɵtextInterpolate(ctx_r2.getOptionGroupLabel(option_r17.optionGroup));
-  }
-}
-function Select_ng_template_9_ng_template_8_ng_template_2_ng_container_0_ng_container_3_Template(rf, ctx) {
-  if (rf & 1) {
-    ɵɵelementContainer(0);
-  }
-}
-function Select_ng_template_9_ng_template_8_ng_template_2_ng_container_0_Template(rf, ctx) {
-  if (rf & 1) {
-    ɵɵelementContainerStart(0);
-    ɵɵelementStart(1, "li", 47);
-    ɵɵtemplate(2, Select_ng_template_9_ng_template_8_ng_template_2_ng_container_0_span_2_Template, 2, 1, "span", 18)(3, Select_ng_template_9_ng_template_8_ng_template_2_ng_container_0_ng_container_3_Template, 1, 0, "ng-container", 30);
-    ɵɵelementEnd();
-    ɵɵelementContainerEnd();
-  }
-  if (rf & 2) {
-    const ctx_r17 = ɵɵnextContext();
-    const option_r17 = ctx_r17.$implicit;
-    const i_r19 = ctx_r17.index;
-    const scrollerOptions_r20 = ɵɵnextContext().options;
-    const ctx_r2 = ɵɵnextContext(2);
-    ɵɵadvance();
-    ɵɵclassMap(ctx_r2.cx("optionGroup"));
-    ɵɵproperty("ngStyle", ɵɵpureFunction1(7, _c08, scrollerOptions_r20.itemSize + "px"));
-    ɵɵattribute("id", ctx_r2.id + "_" + ctx_r2.getOptionIndex(i_r19, scrollerOptions_r20));
-    ɵɵadvance();
-    ɵɵproperty("ngIf", !ctx_r2.groupTemplate && !ctx_r2._groupTemplate);
-    ɵɵadvance();
-    ɵɵproperty("ngTemplateOutlet", ctx_r2.groupTemplate || ctx_r2._groupTemplate)("ngTemplateOutletContext", ɵɵpureFunction1(9, _c112, option_r17.optionGroup));
-  }
-}
-function Select_ng_template_9_ng_template_8_ng_template_2_ng_container_1_Template(rf, ctx) {
-  if (rf & 1) {
-    const _r21 = ɵɵgetCurrentView();
-    ɵɵelementContainerStart(0);
-    ɵɵelementStart(1, "p-selectItem", 48);
-    ɵɵlistener("onClick", function Select_ng_template_9_ng_template_8_ng_template_2_ng_container_1_Template_p_selectItem_onClick_1_listener($event) {
-      ɵɵrestoreView(_r21);
-      const option_r17 = ɵɵnextContext().$implicit;
-      const ctx_r2 = ɵɵnextContext(3);
-      return ɵɵresetView(ctx_r2.onOptionSelect($event, option_r17));
-    })("onMouseEnter", function Select_ng_template_9_ng_template_8_ng_template_2_ng_container_1_Template_p_selectItem_onMouseEnter_1_listener($event) {
-      ɵɵrestoreView(_r21);
-      const i_r19 = ɵɵnextContext().index;
-      const scrollerOptions_r20 = ɵɵnextContext().options;
-      const ctx_r2 = ɵɵnextContext(2);
-      return ɵɵresetView(ctx_r2.onOptionMouseEnter($event, ctx_r2.getOptionIndex(i_r19, scrollerOptions_r20)));
-    });
-    ɵɵelementEnd();
-    ɵɵelementContainerEnd();
-  }
-  if (rf & 2) {
-    const ctx_r17 = ɵɵnextContext();
-    const option_r17 = ctx_r17.$implicit;
-    const i_r19 = ctx_r17.index;
-    const scrollerOptions_r20 = ɵɵnextContext().options;
-    const ctx_r2 = ɵɵnextContext(2);
-    ɵɵadvance();
-    ɵɵproperty("id", ctx_r2.id + "_" + ctx_r2.getOptionIndex(i_r19, scrollerOptions_r20))("option", option_r17)("checkmark", ctx_r2.checkmark)("selected", ctx_r2.isSelected(option_r17))("label", ctx_r2.getOptionLabel(option_r17))("disabled", ctx_r2.isOptionDisabled(option_r17))("template", ctx_r2.itemTemplate || ctx_r2._itemTemplate)("focused", ctx_r2.focusedOptionIndex() === ctx_r2.getOptionIndex(i_r19, scrollerOptions_r20))("ariaPosInset", ctx_r2.getAriaPosInset(ctx_r2.getOptionIndex(i_r19, scrollerOptions_r20)))("ariaSetSize", ctx_r2.ariaSetSize);
-  }
-}
-function Select_ng_template_9_ng_template_8_ng_template_2_Template(rf, ctx) {
-  if (rf & 1) {
-    ɵɵtemplate(0, Select_ng_template_9_ng_template_8_ng_template_2_ng_container_0_Template, 4, 11, "ng-container", 18)(1, Select_ng_template_9_ng_template_8_ng_template_2_ng_container_1_Template, 2, 10, "ng-container", 18);
-  }
-  if (rf & 2) {
-    const option_r17 = ctx.$implicit;
-    const ctx_r2 = ɵɵnextContext(3);
-    ɵɵproperty("ngIf", ctx_r2.isOptionGroup(option_r17));
-    ɵɵadvance();
-    ɵɵproperty("ngIf", !ctx_r2.isOptionGroup(option_r17));
-  }
-}
-function Select_ng_template_9_ng_template_8_li_3_Conditional_1_Template(rf, ctx) {
-  if (rf & 1) {
-    ɵɵtext(0);
-  }
-  if (rf & 2) {
-    const ctx_r2 = ɵɵnextContext(4);
-    ɵɵtextInterpolate1(" ", ctx_r2.emptyFilterMessageLabel, " ");
-  }
-}
-function Select_ng_template_9_ng_template_8_li_3_Conditional_2_ng_container_0_Template(rf, ctx) {
-  if (rf & 1) {
-    ɵɵelementContainer(0, null, 14);
-  }
-}
-function Select_ng_template_9_ng_template_8_li_3_Conditional_2_Template(rf, ctx) {
-  if (rf & 1) {
-    ɵɵtemplate(0, Select_ng_template_9_ng_template_8_li_3_Conditional_2_ng_container_0_Template, 2, 0, "ng-container", 31);
-  }
-  if (rf & 2) {
-    const ctx_r2 = ɵɵnextContext(4);
-    ɵɵproperty("ngTemplateOutlet", ctx_r2.emptyFilterTemplate || ctx_r2._emptyFilterTemplate || ctx_r2.emptyTemplate || ctx_r2._emptyTemplate);
-  }
-}
-function Select_ng_template_9_ng_template_8_li_3_Template(rf, ctx) {
-  if (rf & 1) {
-    ɵɵelementStart(0, "li", 47);
-    ɵɵconditionalCreate(1, Select_ng_template_9_ng_template_8_li_3_Conditional_1_Template, 1, 1)(2, Select_ng_template_9_ng_template_8_li_3_Conditional_2_Template, 1, 1, "ng-container");
-    ɵɵelementEnd();
-  }
-  if (rf & 2) {
-    const scrollerOptions_r20 = ɵɵnextContext().options;
-    const ctx_r2 = ɵɵnextContext(2);
-    ɵɵclassMap(ctx_r2.cx("emptyMessage"));
-    ɵɵproperty("ngStyle", ɵɵpureFunction1(4, _c08, scrollerOptions_r20.itemSize + "px"));
-    ɵɵadvance();
-    ɵɵconditional(!ctx_r2.emptyFilterTemplate && !ctx_r2._emptyFilterTemplate && !ctx_r2.emptyTemplate ? 1 : 2);
-  }
-}
-function Select_ng_template_9_ng_template_8_li_4_Conditional_1_Template(rf, ctx) {
-  if (rf & 1) {
-    ɵɵtext(0);
-  }
-  if (rf & 2) {
-    const ctx_r2 = ɵɵnextContext(4);
-    ɵɵtextInterpolate1(" ", ctx_r2.emptyMessageLabel, " ");
-  }
-}
-function Select_ng_template_9_ng_template_8_li_4_Conditional_2_ng_container_0_Template(rf, ctx) {
-  if (rf & 1) {
-    ɵɵelementContainer(0, null, 15);
-  }
-}
-function Select_ng_template_9_ng_template_8_li_4_Conditional_2_Template(rf, ctx) {
-  if (rf & 1) {
-    ɵɵtemplate(0, Select_ng_template_9_ng_template_8_li_4_Conditional_2_ng_container_0_Template, 2, 0, "ng-container", 31);
-  }
-  if (rf & 2) {
-    const ctx_r2 = ɵɵnextContext(4);
-    ɵɵproperty("ngTemplateOutlet", ctx_r2.emptyTemplate || ctx_r2._emptyTemplate);
-  }
-}
-function Select_ng_template_9_ng_template_8_li_4_Template(rf, ctx) {
-  if (rf & 1) {
-    ɵɵelementStart(0, "li", 47);
-    ɵɵconditionalCreate(1, Select_ng_template_9_ng_template_8_li_4_Conditional_1_Template, 1, 1)(2, Select_ng_template_9_ng_template_8_li_4_Conditional_2_Template, 1, 1, "ng-container");
-    ɵɵelementEnd();
-  }
-  if (rf & 2) {
-    const scrollerOptions_r20 = ɵɵnextContext().options;
-    const ctx_r2 = ɵɵnextContext(2);
-    ɵɵclassMap(ctx_r2.cx("emptyMessage"));
-    ɵɵproperty("ngStyle", ɵɵpureFunction1(4, _c08, scrollerOptions_r20.itemSize + "px"));
-    ɵɵadvance();
-    ɵɵconditional(!ctx_r2.emptyTemplate && !ctx_r2._emptyTemplate ? 1 : 2);
-  }
-}
-function Select_ng_template_9_ng_template_8_Template(rf, ctx) {
-  if (rf & 1) {
-    ɵɵelementStart(0, "ul", 44, 13);
-    ɵɵtemplate(2, Select_ng_template_9_ng_template_8_ng_template_2_Template, 2, 2, "ng-template", 45)(3, Select_ng_template_9_ng_template_8_li_3_Template, 3, 6, "li", 46)(4, Select_ng_template_9_ng_template_8_li_4_Template, 3, 6, "li", 46);
-    ɵɵelementEnd();
-  }
-  if (rf & 2) {
-    const items_r22 = ctx.$implicit;
-    const scrollerOptions_r20 = ctx.options;
-    const ctx_r2 = ɵɵnextContext(2);
-    ɵɵstyleMap(scrollerOptions_r20.contentStyle);
-    ɵɵclassMap(ctx_r2.cn(ctx_r2.cx("list"), scrollerOptions_r20.contentStyleClass));
-    ɵɵattribute("id", ctx_r2.id + "_list")("aria-label", ctx_r2.listLabel);
-    ɵɵadvance(2);
-    ɵɵproperty("ngForOf", items_r22);
-    ɵɵadvance();
-    ɵɵproperty("ngIf", ctx_r2.filterValue && ctx_r2.isEmpty());
-    ɵɵadvance();
-    ɵɵproperty("ngIf", !ctx_r2.filterValue && ctx_r2.isEmpty());
-  }
-}
-function Select_ng_template_9_ng_container_10_Template(rf, ctx) {
-  if (rf & 1) {
-    ɵɵelementContainer(0);
-  }
-}
-function Select_ng_template_9_Template(rf, ctx) {
-  if (rf & 1) {
-    const _r8 = ɵɵgetCurrentView();
-    ɵɵelementStart(0, "div", 37)(1, "span", 38, 6);
-    ɵɵlistener("focus", function Select_ng_template_9_Template_span_focus_1_listener($event) {
-      ɵɵrestoreView(_r8);
-      const ctx_r2 = ɵɵnextContext();
-      return ɵɵresetView(ctx_r2.onFirstHiddenFocus($event));
-    });
-    ɵɵelementEnd();
-    ɵɵtemplate(3, Select_ng_template_9_ng_container_3_Template, 1, 0, "ng-container", 31)(4, Select_ng_template_9_div_4_Template, 4, 4, "div", 27);
-    ɵɵelementStart(5, "div");
-    ɵɵtemplate(6, Select_ng_template_9_p_scroller_6_Template, 5, 10, "p-scroller", 39)(7, Select_ng_template_9_ng_container_7_Template, 2, 6, "ng-container", 18)(8, Select_ng_template_9_ng_template_8_Template, 5, 9, "ng-template", null, 7, ɵɵtemplateRefExtractor);
-    ɵɵelementEnd();
-    ɵɵtemplate(10, Select_ng_template_9_ng_container_10_Template, 1, 0, "ng-container", 31);
-    ɵɵelementStart(11, "span", 38, 8);
-    ɵɵlistener("focus", function Select_ng_template_9_Template_span_focus_11_listener($event) {
-      ɵɵrestoreView(_r8);
-      const ctx_r2 = ɵɵnextContext();
-      return ɵɵresetView(ctx_r2.onLastHiddenFocus($event));
-    });
-    ɵɵelementEnd()();
-  }
-  if (rf & 2) {
-    const ctx_r2 = ɵɵnextContext();
-    ɵɵclassMap(ctx_r2.cn(ctx_r2.cx("overlay"), ctx_r2.panelStyleClass));
-    ɵɵproperty("ngStyle", ctx_r2.panelStyle);
-    ɵɵadvance();
-    ɵɵattribute("tabindex", 0)("data-p-hidden-accessible", true)("data-p-hidden-focusable", true);
-    ɵɵadvance(2);
-    ɵɵproperty("ngTemplateOutlet", ctx_r2.headerTemplate || ctx_r2._headerTemplate);
-    ɵɵadvance();
-    ɵɵproperty("ngIf", ctx_r2.filter);
-    ɵɵadvance();
-    ɵɵclassMap(ctx_r2.cx("listContainer"));
-    ɵɵstyleProp("max-height", ctx_r2.virtualScroll ? "auto" : ctx_r2.scrollHeight || "auto");
-    ɵɵadvance();
-    ɵɵproperty("ngIf", ctx_r2.virtualScroll);
-    ɵɵadvance();
-    ɵɵproperty("ngIf", !ctx_r2.virtualScroll);
-    ɵɵadvance(3);
-    ɵɵproperty("ngTemplateOutlet", ctx_r2.footerTemplate || ctx_r2._footerTemplate);
-    ɵɵadvance();
-    ɵɵattribute("tabindex", 0)("data-p-hidden-accessible", true)("data-p-hidden-focusable", true);
-  }
-}
-var theme5 = (
-  /*css*/
-  `
-    ${style6}
-
-    /* For PrimeNG */
-    .p-select-label.p-placeholder {
-        color: dt('select.placeholder.color');
-    }
-
-    .p-select.ng-invalid.ng-dirty {
-        border-color: dt('select.invalid.border.color');
-    }
-
-    .p-dropdown.ng-invalid.ng-dirty .p-dropdown-label.p-placeholder,
-    .p-select.ng-invalid.ng-dirty .p-select-label.p-placeholder {
-        color: dt('select.invalid.placeholder.color');
-    }
-`
-);
-var classes6 = {
-  root: ({
-    instance
-  }) => ["p-select p-component p-inputwrapper", {
-    "p-disabled": instance.$disabled(),
-    "p-variant-filled": instance.$variant() === "filled",
-    "p-focus": instance.focused,
-    "p-invalid": instance.invalid(),
-    "p-inputwrapper-filled": instance.$filled(),
-    "p-inputwrapper-focus": instance.focused || instance.overlayVisible,
-    "p-select-open": instance.overlayVisible,
-    "p-select-fluid": instance.hasFluid,
-    "p-select-sm p-inputfield-sm": instance.size() === "small",
-    "p-select-lg p-inputfield-lg": instance.size() === "large"
-  }],
-  label: ({
-    instance
-  }) => ["p-select-label", {
-    "p-placeholder": instance.placeholder() && instance.label() === instance.placeholder(),
-    "p-select-label-empty": !instance.editable && !instance.selectedItemTemplate && (instance.label() === void 0 || instance.label() === null || instance.label() === "p-emptylabel" || instance.label().length === 0)
-  }],
-  clearIcon: "p-select-clear-icon",
-  dropdown: "p-select-dropdown",
-  loadingIcon: "p-select-loading-icon",
-  dropdownIcon: "p-select-dropdown-icon",
-  overlay: "p-select-overlay p-component-overlay p-component",
-  header: "p-select-header",
-  pcFilter: "p-select-filter",
-  listContainer: "p-select-list-container",
-  list: "p-select-list",
-  optionGroup: "p-select-option-group",
-  optionGroupLabel: "p-select-option-group-label",
-  option: ({
-    instance
-  }) => ["p-select-option", {
-    "p-select-option-selected": instance.selected && !instance.checkmark,
-    "p-disabled": instance.disabled,
-    "p-focus": instance.focused
-  }],
-  optionLabel: "p-select-option-label",
-  optionCheckIcon: "p-select-option-check-icon",
-  optionBlankIcon: "p-select-option-blank-icon",
-  emptyMessage: "p-select-empty-message"
-};
-var SelectStyle = class _SelectStyle extends BaseStyle {
-  name = "select";
-  theme = theme5;
-  classes = classes6;
-  static ɵfac = /* @__PURE__ */ (() => {
-    let ɵSelectStyle_BaseFactory;
-    return function SelectStyle_Factory(__ngFactoryType__) {
-      return (ɵSelectStyle_BaseFactory || (ɵSelectStyle_BaseFactory = ɵɵgetInheritedFactory(_SelectStyle)))(__ngFactoryType__ || _SelectStyle);
-    };
-  })();
-  static ɵprov = ɵɵdefineInjectable({
-    token: _SelectStyle,
-    factory: _SelectStyle.ɵfac
-  });
-};
-(() => {
-  (typeof ngDevMode === "undefined" || ngDevMode) && setClassMetadata(SelectStyle, [{
-    type: Injectable
-  }], null, null);
-})();
-var SelectClasses;
-(function(SelectClasses2) {
-  SelectClasses2["root"] = "p-select";
-  SelectClasses2["label"] = "p-select-label";
-  SelectClasses2["clearIcon"] = "p-select-clear-icon";
-  SelectClasses2["dropdown"] = "p-select-dropdown";
-  SelectClasses2["loadingIcon"] = "p-select-loading-icon";
-  SelectClasses2["dropdownIcon"] = "p-select-dropdown-icon";
-  SelectClasses2["overlay"] = "p-select-overlay";
-  SelectClasses2["header"] = "p-select-header";
-  SelectClasses2["pcFilter"] = "p-select-filter";
-  SelectClasses2["listContainer"] = "p-select-list-container";
-  SelectClasses2["list"] = "p-select-list";
-  SelectClasses2["optionGroup"] = "p-select-option-group";
-  SelectClasses2["optionGroupLabel"] = "p-select-option-group-label";
-  SelectClasses2["option"] = "p-select-option";
-  SelectClasses2["optionLabel"] = "p-select-option-label";
-  SelectClasses2["optionCheckIcon"] = "p-select-option-check-icon";
-  SelectClasses2["optionBlankIcon"] = "p-select-option-blank-icon";
-  SelectClasses2["emptyMessage"] = "p-select-empty-message";
-})(SelectClasses || (SelectClasses = {}));
-var SELECT_VALUE_ACCESSOR = {
-  provide: NG_VALUE_ACCESSOR,
-  useExisting: forwardRef(() => Select),
-  multi: true
-};
-var SelectItem = class _SelectItem extends BaseComponent {
-  id;
-  option;
-  selected;
-  focused;
-  label;
-  disabled;
-  visible;
-  itemSize;
-  ariaPosInset;
-  ariaSetSize;
-  template;
-  checkmark;
-  onClick = new EventEmitter();
-  onMouseEnter = new EventEmitter();
-  _componentStyle = inject(SelectStyle);
-  onOptionClick(event2) {
-    this.onClick.emit(event2);
-  }
-  onOptionMouseEnter(event2) {
-    this.onMouseEnter.emit(event2);
-  }
-  static ɵfac = /* @__PURE__ */ (() => {
-    let ɵSelectItem_BaseFactory;
-    return function SelectItem_Factory(__ngFactoryType__) {
-      return (ɵSelectItem_BaseFactory || (ɵSelectItem_BaseFactory = ɵɵgetInheritedFactory(_SelectItem)))(__ngFactoryType__ || _SelectItem);
-    };
-  })();
-  static ɵcmp = ɵɵdefineComponent({
-    type: _SelectItem,
-    selectors: [["p-selectItem"]],
-    inputs: {
-      id: "id",
-      option: "option",
-      selected: [2, "selected", "selected", booleanAttribute],
-      focused: [2, "focused", "focused", booleanAttribute],
-      label: "label",
-      disabled: [2, "disabled", "disabled", booleanAttribute],
-      visible: [2, "visible", "visible", booleanAttribute],
-      itemSize: [2, "itemSize", "itemSize", numberAttribute],
-      ariaPosInset: "ariaPosInset",
-      ariaSetSize: "ariaSetSize",
-      template: "template",
-      checkmark: [2, "checkmark", "checkmark", booleanAttribute]
-    },
-    outputs: {
-      onClick: "onClick",
-      onMouseEnter: "onMouseEnter"
-    },
-    features: [ɵɵProvidersFeature([SelectStyle]), ɵɵInheritDefinitionFeature],
-    decls: 4,
-    vars: 19,
-    consts: [["role", "option", "pRipple", "", 3, "click", "mouseenter", "id", "ngStyle"], [4, "ngIf"], [4, "ngTemplateOutlet", "ngTemplateOutletContext"], ["data-p-icon", "check", 3, "class", 4, "ngIf"], ["data-p-icon", "blank", 3, "class", 4, "ngIf"], ["data-p-icon", "check"], ["data-p-icon", "blank"]],
-    template: function SelectItem_Template(rf, ctx) {
-      if (rf & 1) {
-        ɵɵelementStart(0, "li", 0);
-        ɵɵlistener("click", function SelectItem_Template_li_click_0_listener($event) {
-          return ctx.onOptionClick($event);
-        })("mouseenter", function SelectItem_Template_li_mouseenter_0_listener($event) {
-          return ctx.onOptionMouseEnter($event);
-        });
-        ɵɵtemplate(1, SelectItem_ng_container_1_Template, 3, 2, "ng-container", 1)(2, SelectItem_span_2_Template, 2, 1, "span", 1)(3, SelectItem_ng_container_3_Template, 1, 0, "ng-container", 2);
-        ɵɵelementEnd();
-      }
-      if (rf & 2) {
-        ɵɵclassMap(ctx.cx("option"));
-        ɵɵproperty("id", ctx.id)("ngStyle", ɵɵpureFunction1(15, _c08, ctx.itemSize + "px"));
-        ɵɵattribute("aria-label", ctx.label)("aria-setsize", ctx.ariaSetSize)("aria-posinset", ctx.ariaPosInset)("aria-selected", ctx.selected)("data-p-focused", ctx.focused)("data-p-highlight", ctx.selected)("data-p-disabled", ctx.disabled);
-        ɵɵadvance();
-        ɵɵproperty("ngIf", ctx.checkmark);
-        ɵɵadvance();
-        ɵɵproperty("ngIf", !ctx.template);
-        ɵɵadvance();
-        ɵɵproperty("ngTemplateOutlet", ctx.template)("ngTemplateOutletContext", ɵɵpureFunction1(17, _c112, ctx.option));
-      }
-    },
-    dependencies: [CommonModule, NgIf, NgTemplateOutlet, NgStyle, SharedModule, Ripple, CheckIcon, BlankIcon],
-    encapsulation: 2
-  });
-};
-(() => {
-  (typeof ngDevMode === "undefined" || ngDevMode) && setClassMetadata(SelectItem, [{
-    type: Component,
-    args: [{
-      selector: "p-selectItem",
-      standalone: true,
-      imports: [CommonModule, SharedModule, Ripple, CheckIcon, BlankIcon],
-      template: `
-        <li
-            [id]="id"
-            (click)="onOptionClick($event)"
-            (mouseenter)="onOptionMouseEnter($event)"
-            role="option"
-            pRipple
-            [attr.aria-label]="label"
-            [attr.aria-setsize]="ariaSetSize"
-            [attr.aria-posinset]="ariaPosInset"
-            [attr.aria-selected]="selected"
-            [attr.data-p-focused]="focused"
-            [attr.data-p-highlight]="selected"
-            [attr.data-p-disabled]="disabled"
-            [ngStyle]="{ height: itemSize + 'px' }"
-            [class]="cx('option')"
-        >
-            <ng-container *ngIf="checkmark">
-                <svg data-p-icon="check" *ngIf="selected" [class]="cx('optionCheckIcon')" />
-                <svg data-p-icon="blank" *ngIf="!selected" [class]="cx('optionBlankIcon')" />
-            </ng-container>
-            <span *ngIf="!template">{{ label ?? 'empty' }}</span>
-            <ng-container *ngTemplateOutlet="template; context: { $implicit: option }"></ng-container>
-        </li>
-    `,
-      providers: [SelectStyle]
-    }]
-  }], null, {
-    id: [{
-      type: Input
-    }],
-    option: [{
-      type: Input
-    }],
-    selected: [{
-      type: Input,
-      args: [{
-        transform: booleanAttribute
-      }]
-    }],
-    focused: [{
-      type: Input,
-      args: [{
-        transform: booleanAttribute
-      }]
-    }],
-    label: [{
-      type: Input
-    }],
-    disabled: [{
-      type: Input,
-      args: [{
-        transform: booleanAttribute
-      }]
-    }],
-    visible: [{
-      type: Input,
-      args: [{
-        transform: booleanAttribute
-      }]
-    }],
-    itemSize: [{
-      type: Input,
-      args: [{
-        transform: numberAttribute
-      }]
-    }],
-    ariaPosInset: [{
-      type: Input
-    }],
-    ariaSetSize: [{
-      type: Input
-    }],
-    template: [{
-      type: Input
-    }],
-    checkmark: [{
-      type: Input,
-      args: [{
-        transform: booleanAttribute
-      }]
-    }],
-    onClick: [{
-      type: Output
-    }],
-    onMouseEnter: [{
-      type: Output
-    }]
-  });
-})();
-var Select = class _Select extends BaseInput {
-  zone;
-  filterService;
-  /**
-   * Unique identifier of the component
-   * @group Props
-   */
-  id;
-  /**
-   * Height of the viewport in pixels, a scrollbar is defined if height of list exceeds this value.
-   * @group Props
-   */
-  scrollHeight = "200px";
-  /**
-   * When specified, displays an input field to filter the items on keyup.
-   * @group Props
-   */
-  filter;
-  /**
-   * Inline style of the overlay panel element.
-   * @group Props
-   */
-  panelStyle;
-  /**
-   * Style class of the element.
-   * @deprecated since v20.0.0, use `class` instead.
-   * @group Props
-   */
-  styleClass;
-  /**
-   * Style class of the overlay panel element.
-   * @group Props
-   */
-  panelStyleClass;
-  /**
-   * When present, it specifies that the component cannot be edited.
-   * @group Props
-   */
-  readonly;
-  /**
-   * When present, custom value instead of predefined options can be entered using the editable input field.
-   * @group Props
-   */
-  editable;
-  /**
-   * Index of the element in tabbing order.
-   * @group Props
-   */
-  tabindex = 0;
-  /**
-   * Default text to display when no option is selected.
-   * @group Props
-   */
-  set placeholder(val) {
-    this._placeholder.set(val);
-  }
-  get placeholder() {
-    return this._placeholder.asReadonly();
-  }
-  /**
-   * Icon to display in loading state.
-   * @group Props
-   */
-  loadingIcon;
-  /**
-   * Placeholder text to show when filter input is empty.
-   * @group Props
-   */
-  filterPlaceholder;
-  /**
-   * Locale to use in filtering. The default locale is the host environment's current locale.
-   * @group Props
-   */
-  filterLocale;
-  /**
-   * Identifier of the accessible input element.
-   * @group Props
-   */
-  inputId;
-  /**
-   * A property to uniquely identify a value in options.
-   * @group Props
-   */
-  dataKey;
-  /**
-   * When filtering is enabled, filterBy decides which field or fields (comma separated) to search against.
-   * @group Props
-   */
-  filterBy;
-  /**
-   * Fields used when filtering the options, defaults to optionLabel.
-   * @group Props
-   */
-  filterFields;
-  /**
-   * When present, it specifies that the component should automatically get focus on load.
-   * @group Props
-   */
-  autofocus;
-  /**
-   * Clears the filter value when hiding the select.
-   * @group Props
-   */
-  resetFilterOnHide = false;
-  /**
-   * Whether the selected option will be shown with a check mark.
-   * @group Props
-   */
-  checkmark = false;
-  /**
-   * Icon class of the select icon.
-   * @group Props
-   */
-  dropdownIcon;
-  /**
-   * Whether the select is in loading state.
-   * @group Props
-   */
-  loading = false;
-  /**
-   * Name of the label field of an option.
-   * @group Props
-   */
-  optionLabel;
-  /**
-   * Name of the value field of an option.
-   * @group Props
-   */
-  optionValue;
-  /**
-   * Name of the disabled field of an option.
-   * @group Props
-   */
-  optionDisabled;
-  /**
-   * Name of the label field of an option group.
-   * @group Props
-   */
-  optionGroupLabel = "label";
-  /**
-   * Name of the options field of an option group.
-   * @group Props
-   */
-  optionGroupChildren = "items";
-  /**
-   * Whether to display options as grouped when nested options are provided.
-   * @group Props
-   */
-  group;
-  /**
-   * When enabled, a clear icon is displayed to clear the value.
-   * @group Props
-   */
-  showClear;
-  /**
-   * Text to display when filtering does not return any results. Defaults to global value in i18n translation configuration.
-   * @group Props
-   */
-  emptyFilterMessage = "";
-  /**
-   * Text to display when there is no data. Defaults to global value in i18n translation configuration.
-   * @group Props
-   */
-  emptyMessage = "";
-  /**
-   * Defines if data is loaded and interacted with in lazy manner.
-   * @group Props
-   */
-  lazy = false;
-  /**
-   * Whether the data should be loaded on demand during scroll.
-   * @group Props
-   */
-  virtualScroll;
-  /**
-   * Height of an item in the list for VirtualScrolling.
-   * @group Props
-   */
-  virtualScrollItemSize;
-  /**
-   * Whether to use the scroller feature. The properties of scroller component can be used like an object in it.
-   * @group Props
-   */
-  virtualScrollOptions;
-  /**
-   * Whether to use overlay API feature. The properties of overlay API can be used like an object in it.
-   * @group Props
-   */
-  overlayOptions;
-  /**
-   * Defines a string that labels the filter input.
-   * @group Props
-   */
-  ariaFilterLabel;
-  /**
-   * Used to define a aria label attribute the current element.
-   * @group Props
-   */
-  ariaLabel;
-  /**
-   * Establishes relationships between the component and label(s) where its value should be one or more element IDs.
-   * @group Props
-   */
-  ariaLabelledBy;
-  /**
-   * Defines how the items are filtered.
-   * @group Props
-   */
-  filterMatchMode = "contains";
-  /**
-   * Advisory information to display in a tooltip on hover.
-   * @group Props
-   */
-  tooltip = "";
-  /**
-   * Position of the tooltip.
-   * @group Props
-   */
-  tooltipPosition = "right";
-  /**
-   * Type of CSS position.
-   * @group Props
-   */
-  tooltipPositionStyle = "absolute";
-  /**
-   * Style class of the tooltip.
-   * @group Props
-   */
-  tooltipStyleClass;
-  /**
-   * Fields used when filtering the options, defaults to optionLabel.
-   * @group Props
-   */
-  focusOnHover = true;
-  /**
-   * Determines if the option will be selected on focus.
-   * @group Props
-   */
-  selectOnFocus = false;
-  /**
-   * Whether to focus on the first visible or selected element when the overlay panel is shown.
-   * @group Props
-   */
-  autoOptionFocus = false;
-  /**
-   * Applies focus to the filter element when the overlay is shown.
-   * @group Props
-   */
-  autofocusFilter = true;
-  /**
-   * When specified, filter displays with this value.
-   * @group Props
-   */
-  get filterValue() {
-    return this._filterValue();
-  }
-  set filterValue(val) {
-    setTimeout(() => {
-      this._filterValue.set(val);
-    });
-  }
-  /**
-   * An array of objects to display as the available options.
-   * @group Props
-   */
-  get options() {
-    const options = this._options();
-    return options;
-  }
-  set options(val) {
-    if (!y(val, this._options())) {
-      this._options.set(val);
-    }
-  }
-  /**
-   * Target element to attach the overlay, valid values are "body" or a local ng-template variable of another element (note: use binding with brackets for template variables, e.g. [appendTo]="mydiv" for a div element having #mydiv as variable name).
-   * @defaultValue 'self'
-   * @group Props
-   */
-  appendTo = input(void 0, ...ngDevMode ? [{
-    debugName: "appendTo"
-  }] : []);
-  /**
-   * Callback to invoke when value of select changes.
-   * @param {SelectChangeEvent} event - custom change event.
-   * @group Emits
-   */
-  onChange = new EventEmitter();
-  /**
-   * Callback to invoke when data is filtered.
-   * @param {SelectFilterEvent} event - custom filter event.
-   * @group Emits
-   */
-  onFilter = new EventEmitter();
-  /**
-   * Callback to invoke when select gets focus.
-   * @param {Event} event - Browser event.
-   * @group Emits
-   */
-  onFocus = new EventEmitter();
-  /**
-   * Callback to invoke when select loses focus.
-   * @param {Event} event - Browser event.
-   * @group Emits
-   */
-  onBlur = new EventEmitter();
-  /**
-   * Callback to invoke when component is clicked.
-   * @param {MouseEvent} event - Mouse event.
-   * @group Emits
-   */
-  onClick = new EventEmitter();
-  /**
-   * Callback to invoke when select overlay gets visible.
-   * @param {AnimationEvent} event - Animation event.
-   * @group Emits
-   */
-  onShow = new EventEmitter();
-  /**
-   * Callback to invoke when select overlay gets hidden.
-   * @param {AnimationEvent} event - Animation event.
-   * @group Emits
-   */
-  onHide = new EventEmitter();
-  /**
-   * Callback to invoke when select clears the value.
-   * @param {Event} event - Browser event.
-   * @group Emits
-   */
-  onClear = new EventEmitter();
-  /**
-   * Callback to invoke in lazy mode to load new data.
-   * @param {SelectLazyLoadEvent} event - Lazy load event.
-   * @group Emits
-   */
-  onLazyLoad = new EventEmitter();
-  _componentStyle = inject(SelectStyle);
-  filterViewChild;
-  focusInputViewChild;
-  editableInputViewChild;
-  itemsViewChild;
-  scroller;
-  overlayViewChild;
-  firstHiddenFocusableElementOnOverlay;
-  lastHiddenFocusableElementOnOverlay;
-  itemsWrapper;
-  $appendTo = computed(() => this.appendTo() || this.config.overlayAppendTo(), ...ngDevMode ? [{
-    debugName: "$appendTo"
-  }] : []);
-  /**
-   * Custom item template.
-   * @group Templates
-   */
-  itemTemplate;
-  /**
-   * Custom group template.
-   * @group Templates
-   */
-  groupTemplate;
-  /**
-   * Custom loader template.
-   * @group Templates
-   */
-  loaderTemplate;
-  /**
-   * Custom selected item template.
-   * @group Templates
-   */
-  selectedItemTemplate;
-  /**
-   * Custom header template.
-   * @group Templates
-   */
-  headerTemplate;
-  /**
-   * Custom filter template.
-   * @group Templates
-   */
-  filterTemplate;
-  /**
-   * Custom footer template.
-   * @group Templates
-   */
-  footerTemplate;
-  /**
-   * Custom empty filter template.
-   * @group Templates
-   */
-  emptyFilterTemplate;
-  /**
-   * Custom empty template.
-   * @group Templates
-   */
-  emptyTemplate;
-  /**
-   * Custom dropdown icon template.
-   * @group Templates
-   */
-  dropdownIconTemplate;
-  /**
-   * Custom loading icon template.
-   * @group Templates
-   */
-  loadingIconTemplate;
-  /**
-   * Custom clear icon template.
-   * @group Templates
-   */
-  clearIconTemplate;
-  /**
-   * Custom filter icon template.
-   * @group Templates
-   */
-  filterIconTemplate;
-  /**
-   * Custom on icon template.
-   * @group Templates
-   */
-  onIconTemplate;
-  /**
-   * Custom off icon template.
-   * @group Templates
-   */
-  offIconTemplate;
-  /**
-   * Custom cancel icon template.
-   * @group Templates
-   */
-  cancelIconTemplate;
-  templates;
-  _itemTemplate;
-  _selectedItemTemplate;
-  _headerTemplate;
-  _filterTemplate;
-  _footerTemplate;
-  _emptyFilterTemplate;
-  _emptyTemplate;
-  _groupTemplate;
-  _loaderTemplate;
-  _dropdownIconTemplate;
-  _loadingIconTemplate;
-  _clearIconTemplate;
-  _filterIconTemplate;
-  _cancelIconTemplate;
-  _onIconTemplate;
-  _offIconTemplate;
-  filterOptions;
-  _options = signal(null, ...ngDevMode ? [{
-    debugName: "_options"
-  }] : []);
-  _placeholder = signal(void 0, ...ngDevMode ? [{
-    debugName: "_placeholder"
-  }] : []);
-  value;
-  hover;
-  focused;
-  overlayVisible;
-  optionsChanged;
-  panel;
-  dimensionsUpdated;
-  hoveredItem;
-  selectedOptionUpdated;
-  _filterValue = signal(null, ...ngDevMode ? [{
-    debugName: "_filterValue"
-  }] : []);
-  searchValue;
-  searchIndex;
-  searchTimeout;
-  previousSearchChar;
-  currentSearchChar;
-  preventModelTouched;
-  focusedOptionIndex = signal(-1, ...ngDevMode ? [{
-    debugName: "focusedOptionIndex"
-  }] : []);
-  labelId;
-  listId;
-  clicked = signal(false, ...ngDevMode ? [{
-    debugName: "clicked"
-  }] : []);
-  get emptyMessageLabel() {
-    return this.emptyMessage || this.config.getTranslation(TranslationKeys.EMPTY_MESSAGE);
-  }
-  get emptyFilterMessageLabel() {
-    return this.emptyFilterMessage || this.config.getTranslation(TranslationKeys.EMPTY_FILTER_MESSAGE);
-  }
-  get isVisibleClearIcon() {
-    return this.modelValue() != null && this.hasSelectedOption() && this.showClear && !this.$disabled();
-  }
-  get listLabel() {
-    return this.config.getTranslation(TranslationKeys.ARIA)["listLabel"];
-  }
-  get focusedOptionId() {
-    return this.focusedOptionIndex() !== -1 ? `${this.id}_${this.focusedOptionIndex()}` : null;
-  }
-  visibleOptions = computed(() => {
-    const options = this.getAllVisibleAndNonVisibleOptions();
-    if (this._filterValue()) {
-      const _filterBy = this.filterBy || this.optionLabel;
-      const filteredOptions = !_filterBy && !this.filterFields && !this.optionValue ? this.options.filter((option) => {
-        if (option.label) {
-          return option.label.toString().toLowerCase().indexOf(this._filterValue().toLowerCase().trim()) !== -1;
-        }
-        return option.toString().toLowerCase().indexOf(this._filterValue().toLowerCase().trim()) !== -1;
-      }) : this.filterService.filter(options, this.searchFields(), this._filterValue().trim(), this.filterMatchMode, this.filterLocale);
-      if (this.group) {
-        const optionGroups = this.options || [];
-        const filtered = [];
-        optionGroups.forEach((group2) => {
-          const groupChildren = this.getOptionGroupChildren(group2);
-          const filteredItems = groupChildren.filter((item) => filteredOptions.includes(item));
-          if (filteredItems.length > 0) filtered.push(__spreadProps(__spreadValues({}, group2), {
-            [typeof this.optionGroupChildren === "string" ? this.optionGroupChildren : "items"]: [...filteredItems]
-          }));
-        });
-        return this.flatOptions(filtered);
-      }
-      return filteredOptions;
-    }
-    return options;
-  }, ...ngDevMode ? [{
-    debugName: "visibleOptions"
-  }] : []);
-  label = computed(() => {
-    const options = this.getAllVisibleAndNonVisibleOptions();
-    const selectedOptionIndex = options.findIndex((option) => this.isOptionValueEqualsModelValue(option));
-    return selectedOptionIndex !== -1 ? this.getOptionLabel(options[selectedOptionIndex]) : this.placeholder() || "p-emptylabel";
-  }, ...ngDevMode ? [{
-    debugName: "label"
-  }] : []);
-  selectedOption;
-  constructor(zone, filterService) {
-    super();
-    this.zone = zone;
-    this.filterService = filterService;
-    effect(() => {
-      const modelValue = this.modelValue();
-      const visibleOptions = this.visibleOptions();
-      if (visibleOptions && s(visibleOptions)) {
-        const selectedOptionIndex = this.findSelectedOptionIndex();
-        if (selectedOptionIndex !== -1 || modelValue === void 0 || typeof modelValue === "string" && modelValue.length === 0 || this.isModelValueNotSet() || this.editable) {
-          this.selectedOption = visibleOptions[selectedOptionIndex];
-        }
-      }
-      if (a(visibleOptions) && (modelValue === void 0 || this.isModelValueNotSet()) && s(this.selectedOption)) {
-        this.selectedOption = null;
-      }
-      if (modelValue !== void 0 && this.editable) {
-        this.updateEditableLabel();
-      }
-      this.cd.markForCheck();
-    });
-  }
-  isModelValueNotSet() {
-    return this.modelValue() === null && !this.isOptionValueEqualsModelValue(this.selectedOption);
-  }
-  getAllVisibleAndNonVisibleOptions() {
-    return this.group ? this.flatOptions(this.options) : this.options || [];
-  }
-  ngOnInit() {
-    super.ngOnInit();
-    this.id = this.id || s2("pn_id_");
-    this.autoUpdateModel();
-    if (this.filterBy) {
-      this.filterOptions = {
-        filter: (value) => this.onFilterInputChange(value),
-        reset: () => this.resetFilter()
-      };
-    }
-  }
-  ngAfterContentInit() {
-    this.templates.forEach((item) => {
-      switch (item.getType()) {
-        case "item":
-          this._itemTemplate = item.template;
-          break;
-        case "selectedItem":
-          this._selectedItemTemplate = item.template;
-          break;
-        case "header":
-          this._headerTemplate = item.template;
-          break;
-        case "filter":
-          this._filterTemplate = item.template;
-          break;
-        case "footer":
-          this._footerTemplate = item.template;
-          break;
-        case "emptyfilter":
-          this._emptyFilterTemplate = item.template;
-          break;
-        case "empty":
-          this._emptyTemplate = item.template;
-          break;
-        case "group":
-          this._groupTemplate = item.template;
-          break;
-        case "loader":
-          this._loaderTemplate = item.template;
-          break;
-        case "dropdownicon":
-          this._dropdownIconTemplate = item.template;
-          break;
-        case "loadingicon":
-          this._loadingIconTemplate = item.template;
-          break;
-        case "clearicon":
-          this._clearIconTemplate = item.template;
-          break;
-        case "filtericon":
-          this._filterIconTemplate = item.template;
-          break;
-        case "cancelicon":
-          this._cancelIconTemplate = item.template;
-          break;
-        case "onicon":
-          this._onIconTemplate = item.template;
-          break;
-        case "officon":
-          this._offIconTemplate = item.template;
-          break;
-        default:
-          this._itemTemplate = item.template;
-          break;
-      }
-    });
-  }
-  ngAfterViewChecked() {
-    if (this.optionsChanged && this.overlayVisible) {
-      this.optionsChanged = false;
-      this.zone.runOutsideAngular(() => {
-        setTimeout(() => {
-          if (this.overlayViewChild) {
-            this.overlayViewChild.alignOverlay();
-          }
-        }, 1);
-      });
-    }
-    if (this.selectedOptionUpdated && this.itemsWrapper) {
-      let selectedItem = z(this.overlayViewChild?.overlayViewChild?.nativeElement, "li.p-select-option-selected");
-      if (selectedItem) {
-        Jt(this.itemsWrapper, selectedItem);
-      }
-      this.selectedOptionUpdated = false;
-    }
-  }
-  flatOptions(options) {
-    return (options || []).reduce((result, option, index) => {
-      result.push({
-        optionGroup: option,
-        group: true,
-        index
-      });
-      const optionGroupChildren = this.getOptionGroupChildren(option);
-      optionGroupChildren && optionGroupChildren.forEach((o) => result.push(o));
-      return result;
-    }, []);
-  }
-  autoUpdateModel() {
-    if (this.selectOnFocus && this.autoOptionFocus && !this.hasSelectedOption()) {
-      this.focusedOptionIndex.set(this.findFirstFocusedOptionIndex());
-      this.onOptionSelect(null, this.visibleOptions()[this.focusedOptionIndex()], false);
-    }
-  }
-  onOptionSelect(event2, option, isHide = true, preventChange = false) {
-    if (!this.isSelected(option)) {
-      const value = this.getOptionValue(option);
-      this.updateModel(value, event2);
-      this.focusedOptionIndex.set(this.findSelectedOptionIndex());
-      preventChange === false && this.onChange.emit({
-        originalEvent: event2,
-        value
-      });
-    }
-    if (isHide) {
-      this.hide(true);
-    }
-  }
-  onOptionMouseEnter(event2, index) {
-    if (this.focusOnHover) {
-      this.changeFocusedOptionIndex(event2, index);
-    }
-  }
-  updateModel(value, event2) {
-    this.value = value;
-    this.onModelChange(value);
-    this.writeModelValue(value);
-    this.selectedOptionUpdated = true;
-  }
-  allowModelChange() {
-    return !!this.modelValue() && !this.placeholder() && (this.modelValue() === void 0 || this.modelValue() === null) && !this.editable && this.options && this.options.length;
-  }
-  isSelected(option) {
-    return this.isOptionValueEqualsModelValue(option);
-  }
-  isOptionValueEqualsModelValue(option) {
-    return this.isValidOption(option) && k(this.modelValue(), this.getOptionValue(option), this.equalityKey());
-  }
-  ngAfterViewInit() {
-    super.ngAfterViewInit();
-    if (this.editable) {
-      this.updateEditableLabel();
-    }
-    this.updatePlaceHolderForFloatingLabel();
-  }
-  updatePlaceHolderForFloatingLabel() {
-    const parentElement = this.el.nativeElement.parentElement;
-    const isInFloatingLabel = parentElement?.classList.contains("p-float-label");
-    if (parentElement && isInFloatingLabel && !this.selectedOption) {
-      const label = parentElement.querySelector("label");
-      if (label) {
-        this._placeholder.set(label.textContent);
-      }
-    }
-  }
-  updateEditableLabel() {
-    if (this.editableInputViewChild) {
-      this.editableInputViewChild.nativeElement.value = this.getOptionLabel(this.selectedOption) || this.modelValue() || "";
-    }
-  }
-  clearEditableLabel() {
-    if (this.editableInputViewChild) {
-      this.editableInputViewChild.nativeElement.value = "";
-    }
-  }
-  getOptionIndex(index, scrollerOptions) {
-    return this.virtualScrollerDisabled ? index : scrollerOptions && scrollerOptions.getItemOptions(index)["index"];
-  }
-  getOptionLabel(option) {
-    return this.optionLabel !== void 0 && this.optionLabel !== null ? c(option, this.optionLabel) : option && option.label !== void 0 ? option.label : option;
-  }
-  getOptionValue(option) {
-    return this.optionValue && this.optionValue !== null ? c(option, this.optionValue) : !this.optionLabel && option && option.value !== void 0 ? option.value : option;
-  }
-  isSelectedOptionEmpty() {
-    return a(this.selectedOption);
-  }
-  isOptionDisabled(option) {
-    if (this.getOptionValue(this.modelValue()) === this.getOptionValue(option) || this.getOptionLabel(this.modelValue() === this.getOptionLabel(option)) && option.disabled === false) {
-      return false;
-    } else {
-      return this.optionDisabled ? c(option, this.optionDisabled) : option && option.disabled !== void 0 ? option.disabled : false;
-    }
-  }
-  getOptionGroupLabel(optionGroup) {
-    return this.optionGroupLabel !== void 0 && this.optionGroupLabel !== null ? c(optionGroup, this.optionGroupLabel) : optionGroup && optionGroup.label !== void 0 ? optionGroup.label : optionGroup;
-  }
-  getOptionGroupChildren(optionGroup) {
-    return this.optionGroupChildren !== void 0 && this.optionGroupChildren !== null ? c(optionGroup, this.optionGroupChildren) : optionGroup.items;
-  }
-  getAriaPosInset(index) {
-    return (this.optionGroupLabel ? index - this.visibleOptions().slice(0, index).filter((option) => this.isOptionGroup(option)).length : index) + 1;
-  }
-  get ariaSetSize() {
-    return this.visibleOptions().filter((option) => !this.isOptionGroup(option)).length;
-  }
-  /**
-   * Callback to invoke on filter reset.
-   * @group Method
-   */
-  resetFilter() {
-    this._filterValue.set(null);
-    if (this.filterViewChild && this.filterViewChild.nativeElement) {
-      this.filterViewChild.nativeElement.value = "";
-    }
-  }
-  onContainerClick(event2) {
-    if (this.$disabled() || this.readonly || this.loading) {
-      return;
-    }
-    this.focusInputViewChild?.nativeElement.focus({
-      preventScroll: true
-    });
-    if (event2.target.tagName === "INPUT" || event2.target.getAttribute("data-pc-section") === "clearicon" || event2.target.closest('[data-pc-section="clearicon"]')) {
-      return;
-    } else if (!this.overlayViewChild || !this.overlayViewChild.el.nativeElement.contains(event2.target)) {
-      this.overlayVisible ? this.hide(true) : this.show(true);
-    }
-    this.onClick.emit(event2);
-    this.clicked.set(true);
-    this.cd.detectChanges();
-  }
-  isEmpty() {
-    return !this._options() || this.visibleOptions() && this.visibleOptions().length === 0;
-  }
-  onEditableInput(event2) {
-    const value = event2.target.value;
-    this.searchValue = "";
-    const matched = this.searchOptions(event2, value);
-    !matched && this.focusedOptionIndex.set(-1);
-    this.onModelChange(value);
-    this.updateModel(value || null, event2);
-    setTimeout(() => {
-      this.onChange.emit({
-        originalEvent: event2,
-        value
-      });
-    }, 1);
-    !this.overlayVisible && s(value) && this.show();
-  }
-  /**
-   * Displays the panel.
-   * @group Method
-   */
-  show(isFocus) {
-    this.overlayVisible = true;
-    this.focusedOptionIndex.set(this.focusedOptionIndex() !== -1 ? this.focusedOptionIndex() : this.autoOptionFocus ? this.findFirstFocusedOptionIndex() : this.editable ? -1 : this.findSelectedOptionIndex());
-    if (isFocus) {
-      bt(this.focusInputViewChild?.nativeElement);
-    }
-    this.cd.markForCheck();
-  }
-  onOverlayAnimationStart(event2) {
-    if (event2.toState === "visible") {
-      this.itemsWrapper = z(this.overlayViewChild?.overlayViewChild?.nativeElement, this.virtualScroll ? ".p-scroller" : ".p-select-list-container");
-      this.virtualScroll && this.scroller?.setContentEl(this.itemsViewChild?.nativeElement);
-      if (this.options && this.options.length) {
-        if (this.virtualScroll) {
-          const selectedIndex = this.modelValue() ? this.focusedOptionIndex() : -1;
-          if (selectedIndex !== -1) {
-            this.scroller?.scrollToIndex(selectedIndex);
-          }
-        } else {
-          let selectedListItem = z(this.itemsWrapper, ".p-select-option.p-select-option-selected");
-          if (selectedListItem) {
-            selectedListItem.scrollIntoView({
-              block: "nearest",
-              inline: "nearest"
-            });
-          }
-        }
-      }
-      if (this.filterViewChild && this.filterViewChild.nativeElement) {
-        this.preventModelTouched = true;
-        if (this.autofocusFilter && !this.editable) {
-          this.filterViewChild.nativeElement.focus();
-        }
-      }
-      this.onShow.emit(event2);
-    }
-    if (event2.toState === "void") {
-      this.itemsWrapper = null;
-      this.onModelTouched();
-      this.onHide.emit(event2);
-    }
-  }
-  /**
-   * Hides the panel.
-   * @group Method
-   */
-  hide(isFocus) {
-    this.overlayVisible = false;
-    this.focusedOptionIndex.set(-1);
-    this.clicked.set(false);
-    this.searchValue = "";
-    if (this.overlayOptions?.mode === "modal") {
-      unblockBodyScroll();
-    }
-    if (this.filter && this.resetFilterOnHide) {
-      this.resetFilter();
-    }
-    if (isFocus) {
-      if (this.focusInputViewChild) {
-        bt(this.focusInputViewChild?.nativeElement);
-      }
-      if (this.editable && this.editableInputViewChild) {
-        bt(this.editableInputViewChild?.nativeElement);
-      }
-    }
-    this.cd.markForCheck();
-  }
-  onInputFocus(event2) {
-    if (this.$disabled()) {
-      return;
-    }
-    this.focused = true;
-    const focusedOptionIndex = this.focusedOptionIndex() !== -1 ? this.focusedOptionIndex() : this.overlayVisible && this.autoOptionFocus ? this.findFirstFocusedOptionIndex() : -1;
-    this.focusedOptionIndex.set(focusedOptionIndex);
-    this.overlayVisible && this.scrollInView(this.focusedOptionIndex());
-    this.onFocus.emit(event2);
-  }
-  onInputBlur(event2) {
-    this.focused = false;
-    this.onBlur.emit(event2);
-    if (!this.preventModelTouched) {
-      this.onModelTouched();
-    }
-    this.preventModelTouched = false;
-  }
-  onKeyDown(event2, search = false) {
-    if (this.$disabled() || this.readonly || this.loading) {
-      return;
-    }
-    switch (event2.code) {
-      //down
-      case "ArrowDown":
-        this.onArrowDownKey(event2);
-        break;
-      //up
-      case "ArrowUp":
-        this.onArrowUpKey(event2, this.editable);
-        break;
-      case "ArrowLeft":
-      case "ArrowRight":
-        this.onArrowLeftKey(event2, this.editable);
-        break;
-      case "Delete":
-        this.onDeleteKey(event2);
-        break;
-      case "Home":
-        this.onHomeKey(event2, this.editable);
-        break;
-      case "End":
-        this.onEndKey(event2, this.editable);
-        break;
-      case "PageDown":
-        this.onPageDownKey(event2);
-        break;
-      case "PageUp":
-        this.onPageUpKey(event2);
-        break;
-      //space
-      case "Space":
-        this.onSpaceKey(event2, search);
-        break;
-      //enter
-      case "Enter":
-      case "NumpadEnter":
-        this.onEnterKey(event2);
-        break;
-      //escape and tab
-      case "Escape":
-        this.onEscapeKey(event2);
-        break;
-      case "Tab":
-        this.onTabKey(event2);
-        break;
-      case "Backspace":
-        this.onBackspaceKey(event2, this.editable);
-        break;
-      case "ShiftLeft":
-      case "ShiftRight":
-        break;
-      default:
-        if (!event2.metaKey && j2(event2.key)) {
-          !this.overlayVisible && this.show();
-          !this.editable && this.searchOptions(event2, event2.key);
-        }
-        break;
-    }
-    this.clicked.set(false);
-  }
-  onFilterKeyDown(event2) {
-    switch (event2.code) {
-      case "ArrowDown":
-        this.onArrowDownKey(event2);
-        break;
-      case "ArrowUp":
-        this.onArrowUpKey(event2, true);
-        break;
-      case "ArrowLeft":
-      case "ArrowRight":
-        this.onArrowLeftKey(event2, true);
-        break;
-      case "Home":
-        this.onHomeKey(event2, true);
-        break;
-      case "End":
-        this.onEndKey(event2, true);
-        break;
-      case "Enter":
-      case "NumpadEnter":
-        this.onEnterKey(event2, true);
-        break;
-      case "Escape":
-        this.onEscapeKey(event2);
-        break;
-      case "Tab":
-        this.onTabKey(event2, true);
-        break;
-      default:
-        break;
-    }
-  }
-  onFilterBlur(event2) {
-    this.focusedOptionIndex.set(-1);
-  }
-  onArrowDownKey(event2) {
-    if (!this.overlayVisible) {
-      this.show();
-      this.editable && this.changeFocusedOptionIndex(event2, this.findSelectedOptionIndex());
-    } else {
-      const optionIndex = this.focusedOptionIndex() !== -1 ? this.findNextOptionIndex(this.focusedOptionIndex()) : this.clicked() ? this.findFirstOptionIndex() : this.findFirstFocusedOptionIndex();
-      this.changeFocusedOptionIndex(event2, optionIndex);
-    }
-    event2.preventDefault();
-    event2.stopPropagation();
-  }
-  changeFocusedOptionIndex(event2, index) {
-    if (this.focusedOptionIndex() !== index) {
-      this.focusedOptionIndex.set(index);
-      this.scrollInView();
-      if (this.selectOnFocus) {
-        const option = this.visibleOptions()[index];
-        this.onOptionSelect(event2, option, false);
-      }
-    }
-  }
-  get virtualScrollerDisabled() {
-    return !this.virtualScroll;
-  }
-  scrollInView(index = -1) {
-    const id = index !== -1 ? `${this.id}_${index}` : this.focusedOptionId;
-    if (this.itemsViewChild && this.itemsViewChild.nativeElement) {
-      const element = z(this.itemsViewChild.nativeElement, `li[id="${id}"]`);
-      if (element) {
-        element.scrollIntoView && element.scrollIntoView({
-          block: "nearest",
-          inline: "nearest"
-        });
-      } else if (!this.virtualScrollerDisabled) {
-        setTimeout(() => {
-          this.virtualScroll && this.scroller?.scrollToIndex(index !== -1 ? index : this.focusedOptionIndex());
-        }, 0);
-      }
-    }
-  }
-  hasSelectedOption() {
-    return this.modelValue() !== void 0;
-  }
-  isValidSelectedOption(option) {
-    return this.isValidOption(option) && this.isSelected(option);
-  }
-  equalityKey() {
-    return this.optionValue ? null : this.dataKey;
-  }
-  findFirstFocusedOptionIndex() {
-    const selectedIndex = this.findSelectedOptionIndex();
-    return selectedIndex < 0 ? this.findFirstOptionIndex() : selectedIndex;
-  }
-  findFirstOptionIndex() {
-    return this.visibleOptions().findIndex((option) => this.isValidOption(option));
-  }
-  findSelectedOptionIndex() {
-    return this.hasSelectedOption() ? this.visibleOptions().findIndex((option) => this.isValidSelectedOption(option)) : -1;
-  }
-  findNextOptionIndex(index) {
-    const matchedOptionIndex = index < this.visibleOptions().length - 1 ? this.visibleOptions().slice(index + 1).findIndex((option) => this.isValidOption(option)) : -1;
-    return matchedOptionIndex > -1 ? matchedOptionIndex + index + 1 : index;
-  }
-  findPrevOptionIndex(index) {
-    const matchedOptionIndex = index > 0 ? M(this.visibleOptions().slice(0, index), (option) => this.isValidOption(option)) : -1;
-    return matchedOptionIndex > -1 ? matchedOptionIndex : index;
-  }
-  findLastOptionIndex() {
-    return M(this.visibleOptions(), (option) => this.isValidOption(option));
-  }
-  findLastFocusedOptionIndex() {
-    const selectedIndex = this.findSelectedOptionIndex();
-    return selectedIndex < 0 ? this.findLastOptionIndex() : selectedIndex;
-  }
-  isValidOption(option) {
-    return option !== void 0 && option !== null && !(this.isOptionDisabled(option) || this.isOptionGroup(option));
-  }
-  isOptionGroup(option) {
-    return this.optionGroupLabel !== void 0 && this.optionGroupLabel !== null && option.optionGroup !== void 0 && option.optionGroup !== null && option.group;
-  }
-  onArrowUpKey(event2, pressedInInputText = false) {
-    if (event2.altKey && !pressedInInputText) {
-      if (this.focusedOptionIndex() !== -1) {
-        const option = this.visibleOptions()[this.focusedOptionIndex()];
-        this.onOptionSelect(event2, option);
-      }
-      this.overlayVisible && this.hide();
-    } else {
-      const optionIndex = this.focusedOptionIndex() !== -1 ? this.findPrevOptionIndex(this.focusedOptionIndex()) : this.clicked() ? this.findLastOptionIndex() : this.findLastFocusedOptionIndex();
-      this.changeFocusedOptionIndex(event2, optionIndex);
-      !this.overlayVisible && this.show();
-    }
-    event2.preventDefault();
-    event2.stopPropagation();
-  }
-  onArrowLeftKey(event2, pressedInInputText = false) {
-    pressedInInputText && this.focusedOptionIndex.set(-1);
-  }
-  onDeleteKey(event2) {
-    if (this.showClear) {
-      this.clear(event2);
-      event2.preventDefault();
-    }
-  }
-  onHomeKey(event2, pressedInInputText = false) {
-    if (pressedInInputText) {
-      const target = event2.currentTarget;
-      if (event2.shiftKey) {
-        target.setSelectionRange(0, target.value.length);
-      } else {
-        target.setSelectionRange(0, 0);
-        this.focusedOptionIndex.set(-1);
-      }
-    } else {
-      this.changeFocusedOptionIndex(event2, this.findFirstOptionIndex());
-      !this.overlayVisible && this.show();
-    }
-    event2.preventDefault();
-  }
-  onEndKey(event2, pressedInInputText = false) {
-    if (pressedInInputText) {
-      const target = event2.currentTarget;
-      if (event2.shiftKey) {
-        target.setSelectionRange(0, target.value.length);
-      } else {
-        const len = target.value.length;
-        target.setSelectionRange(len, len);
-        this.focusedOptionIndex.set(-1);
-      }
-    } else {
-      this.changeFocusedOptionIndex(event2, this.findLastOptionIndex());
-      !this.overlayVisible && this.show();
-    }
-    event2.preventDefault();
-  }
-  onPageDownKey(event2) {
-    this.scrollInView(this.visibleOptions().length - 1);
-    event2.preventDefault();
-  }
-  onPageUpKey(event2) {
-    this.scrollInView(0);
-    event2.preventDefault();
-  }
-  onSpaceKey(event2, pressedInInputText = false) {
-    !this.editable && !pressedInInputText && this.onEnterKey(event2);
-  }
-  onEnterKey(event2, pressedInInput = false) {
-    if (!this.overlayVisible) {
-      this.focusedOptionIndex.set(-1);
-      this.onArrowDownKey(event2);
-    } else {
-      if (this.focusedOptionIndex() !== -1) {
-        const option = this.visibleOptions()[this.focusedOptionIndex()];
-        this.onOptionSelect(event2, option);
-      }
-      !pressedInInput && this.hide();
-    }
-    event2.preventDefault();
-  }
-  onEscapeKey(event2) {
-    this.overlayVisible && this.hide(true);
-    event2.preventDefault();
-    event2.stopPropagation();
-  }
-  onTabKey(event2, pressedInInputText = false) {
-    if (!pressedInInputText) {
-      if (this.overlayVisible && this.hasFocusableElements()) {
-        bt(event2.shiftKey ? this.lastHiddenFocusableElementOnOverlay.nativeElement : this.firstHiddenFocusableElementOnOverlay.nativeElement);
-        event2.preventDefault();
-      } else {
-        if (this.focusedOptionIndex() !== -1 && this.overlayVisible) {
-          const option = this.visibleOptions()[this.focusedOptionIndex()];
-          this.onOptionSelect(event2, option);
-        }
-        this.overlayVisible && this.hide(this.filter);
-      }
-    }
-    event2.stopPropagation();
-  }
-  onFirstHiddenFocus(event2) {
-    const focusableEl = event2.relatedTarget === this.focusInputViewChild?.nativeElement ? vt(this.overlayViewChild.el?.nativeElement, ":not(.p-hidden-focusable)") : this.focusInputViewChild?.nativeElement;
-    bt(focusableEl);
-  }
-  onLastHiddenFocus(event2) {
-    const focusableEl = event2.relatedTarget === this.focusInputViewChild?.nativeElement ? Lt(this.overlayViewChild?.overlayViewChild?.nativeElement, ':not([data-p-hidden-focusable="true"])') : this.focusInputViewChild?.nativeElement;
-    bt(focusableEl);
-  }
-  hasFocusableElements() {
-    return b(this.overlayViewChild.overlayViewChild.nativeElement, ':not([data-p-hidden-focusable="true"])').length > 0;
-  }
-  onBackspaceKey(event2, pressedInInputText = false) {
-    if (pressedInInputText) {
-      !this.overlayVisible && this.show();
-    }
-  }
-  searchFields() {
-    return this.filterBy?.split(",") || this.filterFields || [this.optionLabel];
-  }
-  searchOptions(event2, char) {
-    this.searchValue = (this.searchValue || "") + char;
-    let optionIndex = -1;
-    let matched = false;
-    optionIndex = this.visibleOptions().findIndex((option) => this.isOptionMatched(option));
-    if (optionIndex !== -1) {
-      matched = true;
-    }
-    if (optionIndex === -1 && this.focusedOptionIndex() === -1) {
-      optionIndex = this.findFirstFocusedOptionIndex();
-    }
-    if (optionIndex !== -1) {
-      setTimeout(() => {
-        this.changeFocusedOptionIndex(event2, optionIndex);
-      });
-    }
-    if (this.searchTimeout) {
-      clearTimeout(this.searchTimeout);
-    }
-    this.searchTimeout = setTimeout(() => {
-      this.searchValue = "";
-      this.searchTimeout = null;
-    }, 500);
-    return matched;
-  }
-  isOptionMatched(option) {
-    return this.isValidOption(option) && this.getOptionLabel(option).toString().toLocaleLowerCase(this.filterLocale).startsWith(this.searchValue.toLocaleLowerCase(this.filterLocale));
-  }
-  onFilterInputChange(event2) {
-    let value = event2.target.value;
-    this._filterValue.set(value);
-    this.focusedOptionIndex.set(-1);
-    this.onFilter.emit({
-      originalEvent: event2,
-      filter: this._filterValue()
-    });
-    !this.virtualScrollerDisabled && this.scroller.scrollToIndex(0);
-    setTimeout(() => {
-      this.overlayViewChild.alignOverlay();
-    });
-    this.cd.markForCheck();
-  }
-  applyFocus() {
-    if (this.editable) z(this.el.nativeElement, ".p-dropdown-label.p-inputtext").focus();
-    else bt(this.focusInputViewChild?.nativeElement);
-  }
-  /**
-   * Applies focus.
-   * @group Method
-   */
-  focus() {
-    this.applyFocus();
-  }
-  /**
-   * Clears the model.
-   * @group Method
-   */
-  clear(event2) {
-    this.updateModel(null, event2);
-    this.clearEditableLabel();
-    this.onModelTouched();
-    this.onChange.emit({
-      originalEvent: event2,
-      value: this.value
-    });
-    this.onClear.emit(event2);
-    this.resetFilter();
-  }
-  /**
-   * @override
-   *
-   * @see {@link BaseEditableHolder.writeControlValue}
-   * Writes the value to the control.
-   */
-  writeControlValue(value, setModelValue) {
-    if (this.filter) {
-      this.resetFilter();
-    }
-    this.value = value;
-    this.allowModelChange() && this.onModelChange(value);
-    setModelValue(this.value);
-    this.updateEditableLabel();
-    this.cd.markForCheck();
-  }
-  static ɵfac = function Select_Factory(__ngFactoryType__) {
-    return new (__ngFactoryType__ || _Select)(ɵɵdirectiveInject(NgZone), ɵɵdirectiveInject(FilterService));
-  };
-  static ɵcmp = ɵɵdefineComponent({
-    type: _Select,
-    selectors: [["p-select"]],
-    contentQueries: function Select_ContentQueries(rf, ctx, dirIndex) {
-      if (rf & 1) {
-        ɵɵcontentQuery(dirIndex, _c26, 4);
-        ɵɵcontentQuery(dirIndex, _c34, 4);
-        ɵɵcontentQuery(dirIndex, _c43, 4);
-        ɵɵcontentQuery(dirIndex, _c53, 4);
-        ɵɵcontentQuery(dirIndex, _c63, 4);
-        ɵɵcontentQuery(dirIndex, _c73, 4);
-        ɵɵcontentQuery(dirIndex, _c82, 4);
-        ɵɵcontentQuery(dirIndex, _c92, 4);
-        ɵɵcontentQuery(dirIndex, _c102, 4);
-        ɵɵcontentQuery(dirIndex, _c113, 4);
-        ɵɵcontentQuery(dirIndex, _c123, 4);
-        ɵɵcontentQuery(dirIndex, _c132, 4);
-        ɵɵcontentQuery(dirIndex, _c142, 4);
-        ɵɵcontentQuery(dirIndex, _c152, 4);
-        ɵɵcontentQuery(dirIndex, _c162, 4);
-        ɵɵcontentQuery(dirIndex, _c172, 4);
-        ɵɵcontentQuery(dirIndex, PrimeTemplate, 4);
-      }
-      if (rf & 2) {
-        let _t;
-        ɵɵqueryRefresh(_t = ɵɵloadQuery()) && (ctx.itemTemplate = _t.first);
-        ɵɵqueryRefresh(_t = ɵɵloadQuery()) && (ctx.groupTemplate = _t.first);
-        ɵɵqueryRefresh(_t = ɵɵloadQuery()) && (ctx.loaderTemplate = _t.first);
-        ɵɵqueryRefresh(_t = ɵɵloadQuery()) && (ctx.selectedItemTemplate = _t.first);
-        ɵɵqueryRefresh(_t = ɵɵloadQuery()) && (ctx.headerTemplate = _t.first);
-        ɵɵqueryRefresh(_t = ɵɵloadQuery()) && (ctx.filterTemplate = _t.first);
-        ɵɵqueryRefresh(_t = ɵɵloadQuery()) && (ctx.footerTemplate = _t.first);
-        ɵɵqueryRefresh(_t = ɵɵloadQuery()) && (ctx.emptyFilterTemplate = _t.first);
-        ɵɵqueryRefresh(_t = ɵɵloadQuery()) && (ctx.emptyTemplate = _t.first);
-        ɵɵqueryRefresh(_t = ɵɵloadQuery()) && (ctx.dropdownIconTemplate = _t.first);
-        ɵɵqueryRefresh(_t = ɵɵloadQuery()) && (ctx.loadingIconTemplate = _t.first);
-        ɵɵqueryRefresh(_t = ɵɵloadQuery()) && (ctx.clearIconTemplate = _t.first);
-        ɵɵqueryRefresh(_t = ɵɵloadQuery()) && (ctx.filterIconTemplate = _t.first);
-        ɵɵqueryRefresh(_t = ɵɵloadQuery()) && (ctx.onIconTemplate = _t.first);
-        ɵɵqueryRefresh(_t = ɵɵloadQuery()) && (ctx.offIconTemplate = _t.first);
-        ɵɵqueryRefresh(_t = ɵɵloadQuery()) && (ctx.cancelIconTemplate = _t.first);
-        ɵɵqueryRefresh(_t = ɵɵloadQuery()) && (ctx.templates = _t);
-      }
-    },
-    viewQuery: function Select_Query(rf, ctx) {
-      if (rf & 1) {
-        ɵɵviewQuery(_c73, 5);
-        ɵɵviewQuery(_c182, 5);
-        ɵɵviewQuery(_c192, 5);
-        ɵɵviewQuery(_c202, 5);
-        ɵɵviewQuery(_c212, 5);
-        ɵɵviewQuery(_c223, 5);
-        ɵɵviewQuery(_c232, 5);
-        ɵɵviewQuery(_c242, 5);
-      }
-      if (rf & 2) {
-        let _t;
-        ɵɵqueryRefresh(_t = ɵɵloadQuery()) && (ctx.filterViewChild = _t.first);
-        ɵɵqueryRefresh(_t = ɵɵloadQuery()) && (ctx.focusInputViewChild = _t.first);
-        ɵɵqueryRefresh(_t = ɵɵloadQuery()) && (ctx.editableInputViewChild = _t.first);
-        ɵɵqueryRefresh(_t = ɵɵloadQuery()) && (ctx.itemsViewChild = _t.first);
-        ɵɵqueryRefresh(_t = ɵɵloadQuery()) && (ctx.scroller = _t.first);
-        ɵɵqueryRefresh(_t = ɵɵloadQuery()) && (ctx.overlayViewChild = _t.first);
-        ɵɵqueryRefresh(_t = ɵɵloadQuery()) && (ctx.firstHiddenFocusableElementOnOverlay = _t.first);
-        ɵɵqueryRefresh(_t = ɵɵloadQuery()) && (ctx.lastHiddenFocusableElementOnOverlay = _t.first);
-      }
-    },
-    hostVars: 3,
-    hostBindings: function Select_HostBindings(rf, ctx) {
-      if (rf & 1) {
-        ɵɵlistener("click", function Select_click_HostBindingHandler($event) {
-          return ctx.onContainerClick($event);
-        });
-      }
-      if (rf & 2) {
-        ɵɵattribute("id", ctx.id);
-        ɵɵclassMap(ctx.cn(ctx.cx("root"), ctx.styleClass));
-      }
-    },
-    inputs: {
-      id: "id",
-      scrollHeight: "scrollHeight",
-      filter: [2, "filter", "filter", booleanAttribute],
-      panelStyle: "panelStyle",
-      styleClass: "styleClass",
-      panelStyleClass: "panelStyleClass",
-      readonly: [2, "readonly", "readonly", booleanAttribute],
-      editable: [2, "editable", "editable", booleanAttribute],
-      tabindex: [2, "tabindex", "tabindex", numberAttribute],
-      placeholder: "placeholder",
-      loadingIcon: "loadingIcon",
-      filterPlaceholder: "filterPlaceholder",
-      filterLocale: "filterLocale",
-      inputId: "inputId",
-      dataKey: "dataKey",
-      filterBy: "filterBy",
-      filterFields: "filterFields",
-      autofocus: [2, "autofocus", "autofocus", booleanAttribute],
-      resetFilterOnHide: [2, "resetFilterOnHide", "resetFilterOnHide", booleanAttribute],
-      checkmark: [2, "checkmark", "checkmark", booleanAttribute],
-      dropdownIcon: "dropdownIcon",
-      loading: [2, "loading", "loading", booleanAttribute],
-      optionLabel: "optionLabel",
-      optionValue: "optionValue",
-      optionDisabled: "optionDisabled",
-      optionGroupLabel: "optionGroupLabel",
-      optionGroupChildren: "optionGroupChildren",
-      group: [2, "group", "group", booleanAttribute],
-      showClear: [2, "showClear", "showClear", booleanAttribute],
-      emptyFilterMessage: "emptyFilterMessage",
-      emptyMessage: "emptyMessage",
-      lazy: [2, "lazy", "lazy", booleanAttribute],
-      virtualScroll: [2, "virtualScroll", "virtualScroll", booleanAttribute],
-      virtualScrollItemSize: [2, "virtualScrollItemSize", "virtualScrollItemSize", numberAttribute],
-      virtualScrollOptions: "virtualScrollOptions",
-      overlayOptions: "overlayOptions",
-      ariaFilterLabel: "ariaFilterLabel",
-      ariaLabel: "ariaLabel",
-      ariaLabelledBy: "ariaLabelledBy",
-      filterMatchMode: "filterMatchMode",
-      tooltip: "tooltip",
-      tooltipPosition: "tooltipPosition",
-      tooltipPositionStyle: "tooltipPositionStyle",
-      tooltipStyleClass: "tooltipStyleClass",
-      focusOnHover: [2, "focusOnHover", "focusOnHover", booleanAttribute],
-      selectOnFocus: [2, "selectOnFocus", "selectOnFocus", booleanAttribute],
-      autoOptionFocus: [2, "autoOptionFocus", "autoOptionFocus", booleanAttribute],
-      autofocusFilter: [2, "autofocusFilter", "autofocusFilter", booleanAttribute],
-      filterValue: "filterValue",
-      options: "options",
-      appendTo: [1, "appendTo"]
-    },
-    outputs: {
-      onChange: "onChange",
-      onFilter: "onFilter",
-      onFocus: "onFocus",
-      onBlur: "onBlur",
-      onClick: "onClick",
-      onShow: "onShow",
-      onHide: "onHide",
-      onClear: "onClear",
-      onLazyLoad: "onLazyLoad"
-    },
-    features: [ɵɵProvidersFeature([SELECT_VALUE_ACCESSOR, SelectStyle]), ɵɵInheritDefinitionFeature],
-    decls: 11,
-    vars: 14,
-    consts: [["elseBlock", ""], ["overlay", ""], ["content", ""], ["focusInput", ""], ["defaultPlaceholder", ""], ["editableInput", ""], ["firstHiddenFocusableEl", ""], ["buildInItems", ""], ["lastHiddenFocusableEl", ""], ["builtInFilterElement", ""], ["filter", ""], ["scroller", ""], ["loader", ""], ["items", ""], ["emptyFilter", ""], ["empty", ""], ["role", "combobox", 3, "class", "pTooltip", "tooltipPosition", "positionStyle", "tooltipStyleClass", "pAutoFocus", "focus", "blur", "keydown", 4, "ngIf"], ["type", "text", 3, "class", "pAutoFocus", "input", "keydown", "focus", "blur", 4, "ngIf"], [4, "ngIf"], ["role", "button", "aria-label", "dropdown trigger", "aria-haspopup", "listbox"], [4, "ngIf", "ngIfElse"], [3, "visibleChange", "onAnimationStart", "onHide", "hostAttrSelector", "visible", "options", "target", "appendTo"], ["role", "combobox", 3, "focus", "blur", "keydown", "pTooltip", "tooltipPosition", "positionStyle", "tooltipStyleClass", "pAutoFocus"], [3, "ngTemplateOutlet", "ngTemplateOutletContext", 4, "ngIf"], [3, "ngTemplateOutlet", "ngTemplateOutletContext"], ["type", "text", 3, "input", "keydown", "focus", "blur", "pAutoFocus"], ["data-p-icon", "times", 3, "class", "click", 4, "ngIf"], [3, "class", "click", 4, "ngIf"], ["data-p-icon", "times", 3, "click"], [3, "click"], [4, "ngTemplateOutlet", "ngTemplateOutletContext"], [4, "ngTemplateOutlet"], ["aria-hidden", "true", 3, "class", 4, "ngIf"], ["aria-hidden", "true"], [3, "class", 4, "ngIf"], ["data-p-icon", "chevron-down", 3, "class", 4, "ngIf"], ["data-p-icon", "chevron-down"], [3, "ngStyle"], ["role", "presentation", 1, "p-hidden-accessible", "p-hidden-focusable", 3, "focus"], [3, "items", "style", "itemSize", "autoSize", "lazy", "options", "onLazyLoad", 4, "ngIf"], ["pInputText", "", "type", "text", "role", "searchbox", "autocomplete", "off", 3, "input", "keydown", "blur", "pSize", "value", "variant"], ["data-p-icon", "search", 4, "ngIf"], ["data-p-icon", "search"], [3, "onLazyLoad", "items", "itemSize", "autoSize", "lazy", "options"], ["role", "listbox"], ["ngFor", "", 3, "ngForOf"], ["role", "option", 3, "class", "ngStyle", 4, "ngIf"], ["role", "option", 3, "ngStyle"], [3, "onClick", "onMouseEnter", "id", "option", "checkmark", "selected", "label", "disabled", "template", "focused", "ariaPosInset", "ariaSetSize"]],
-    template: function Select_Template(rf, ctx) {
-      if (rf & 1) {
-        const _r1 = ɵɵgetCurrentView();
-        ɵɵtemplate(0, Select_span_0_Template, 6, 22, "span", 16)(1, Select_input_1_Template, 2, 18, "input", 17)(2, Select_ng_container_2_Template, 3, 2, "ng-container", 18);
-        ɵɵelementStart(3, "div", 19);
-        ɵɵtemplate(4, Select_ng_container_4_Template, 3, 2, "ng-container", 20)(5, Select_ng_template_5_Template, 2, 2, "ng-template", null, 0, ɵɵtemplateRefExtractor);
-        ɵɵelementEnd();
-        ɵɵelementStart(7, "p-overlay", 21, 1);
-        ɵɵtwoWayListener("visibleChange", function Select_Template_p_overlay_visibleChange_7_listener($event) {
-          ɵɵrestoreView(_r1);
-          ɵɵtwoWayBindingSet(ctx.overlayVisible, $event) || (ctx.overlayVisible = $event);
-          return ɵɵresetView($event);
-        });
-        ɵɵlistener("onAnimationStart", function Select_Template_p_overlay_onAnimationStart_7_listener($event) {
-          ɵɵrestoreView(_r1);
-          return ɵɵresetView(ctx.onOverlayAnimationStart($event));
-        })("onHide", function Select_Template_p_overlay_onHide_7_listener() {
-          ɵɵrestoreView(_r1);
-          return ɵɵresetView(ctx.hide());
-        });
-        ɵɵtemplate(9, Select_ng_template_9_Template, 13, 18, "ng-template", null, 2, ɵɵtemplateRefExtractor);
-        ɵɵelementEnd();
-      }
-      if (rf & 2) {
-        const elseBlock_r23 = ɵɵreference(6);
-        ɵɵproperty("ngIf", !ctx.editable);
-        ɵɵadvance();
-        ɵɵproperty("ngIf", ctx.editable);
-        ɵɵadvance();
-        ɵɵproperty("ngIf", ctx.isVisibleClearIcon);
-        ɵɵadvance();
-        ɵɵclassMap(ctx.cx("dropdown"));
-        ɵɵattribute("aria-expanded", ctx.overlayVisible ?? false)("data-pc-section", "trigger");
-        ɵɵadvance();
-        ɵɵproperty("ngIf", ctx.loading)("ngIfElse", elseBlock_r23);
-        ɵɵadvance(3);
-        ɵɵproperty("hostAttrSelector", ctx.attrSelector);
-        ɵɵtwoWayProperty("visible", ctx.overlayVisible);
-        ɵɵproperty("options", ctx.overlayOptions)("target", "@parent")("appendTo", ctx.$appendTo());
-      }
-    },
-    dependencies: [CommonModule, NgForOf, NgIf, NgTemplateOutlet, NgStyle, SelectItem, Overlay, Tooltip, AutoFocus, TimesIcon, ChevronDownIcon, SearchIcon, InputText, IconField, InputIcon, Scroller, SharedModule],
-    encapsulation: 2,
-    changeDetection: 0
-  });
-};
-(() => {
-  (typeof ngDevMode === "undefined" || ngDevMode) && setClassMetadata(Select, [{
-    type: Component,
-    args: [{
-      selector: "p-select",
-      standalone: true,
-      imports: [CommonModule, SelectItem, Overlay, Tooltip, AutoFocus, TimesIcon, ChevronDownIcon, SearchIcon, InputText, IconField, InputIcon, Scroller, SharedModule],
-      template: `
-        <span
-            #focusInput
-            [class]="cx('label')"
-            *ngIf="!editable"
-            [pTooltip]="tooltip"
-            [tooltipPosition]="tooltipPosition"
-            [positionStyle]="tooltipPositionStyle"
-            [tooltipStyleClass]="tooltipStyleClass"
-            [attr.aria-disabled]="$disabled()"
-            [attr.id]="inputId"
-            role="combobox"
-            [attr.aria-label]="ariaLabel || (label() === 'p-emptylabel' ? undefined : label())"
-            [attr.aria-labelledby]="ariaLabelledBy"
-            [attr.aria-haspopup]="'listbox'"
-            [attr.aria-expanded]="overlayVisible ?? false"
-            [attr.aria-controls]="overlayVisible ? id + '_list' : null"
-            [attr.tabindex]="!$disabled() ? tabindex : -1"
-            [pAutoFocus]="autofocus"
-            [attr.aria-activedescendant]="focused ? focusedOptionId : undefined"
-            (focus)="onInputFocus($event)"
-            (blur)="onInputBlur($event)"
-            (keydown)="onKeyDown($event)"
-            [attr.aria-required]="required()"
-            [attr.required]="required() ? '' : undefined"
-            [attr.disabled]="$disabled() ? '' : undefined"
-        >
-            <ng-container *ngIf="!selectedItemTemplate && !_selectedItemTemplate; else defaultPlaceholder">{{ label() === 'p-emptylabel' ? '&nbsp;' : label() }}</ng-container>
-            <ng-container *ngIf="(selectedItemTemplate || _selectedItemTemplate) && !isSelectedOptionEmpty()" [ngTemplateOutlet]="selectedItemTemplate || _selectedItemTemplate" [ngTemplateOutletContext]="{ $implicit: selectedOption }"></ng-container>
-            <ng-template #defaultPlaceholder>
-                <span *ngIf="isSelectedOptionEmpty()">{{ label() === 'p-emptylabel' ? '&nbsp;' : label() }}</span>
-            </ng-template>
-        </span>
-        <input
-            *ngIf="editable"
-            #editableInput
-            type="text"
-            [attr.id]="inputId"
-            [class]="cx('label')"
-            [attr.aria-haspopup]="'listbox'"
-            [attr.placeholder]="modelValue() === undefined || modelValue() === null ? placeholder() : undefined"
-            [attr.aria-label]="ariaLabel || (label() === 'p-emptylabel' ? undefined : label())"
-            (input)="onEditableInput($event)"
-            (keydown)="onKeyDown($event)"
-            [pAutoFocus]="autofocus"
-            [attr.aria-activedescendant]="focused ? focusedOptionId : undefined"
-            (focus)="onInputFocus($event)"
-            (blur)="onInputBlur($event)"
-            [attr.name]="name()"
-            [attr.minlength]="minlength()"
-            [attr.min]="min()"
-            [attr.max]="max()"
-            [attr.pattern]="pattern()"
-            [attr.size]="inputSize()"
-            [attr.maxlength]="maxlength()"
-            [attr.required]="required() ? '' : undefined"
-            [attr.readonly]="readonly ? '' : undefined"
-            [attr.disabled]="$disabled() ? '' : undefined"
-        />
-        <ng-container *ngIf="isVisibleClearIcon">
-            <svg data-p-icon="times" [class]="cx('clearIcon')" (click)="clear($event)" *ngIf="!clearIconTemplate && !_clearIconTemplate" [attr.data-pc-section]="'clearicon'" />
-            <span [class]="cx('clearIcon')" (click)="clear($event)" *ngIf="clearIconTemplate || _clearIconTemplate" [attr.data-pc-section]="'clearicon'">
-                <ng-template *ngTemplateOutlet="clearIconTemplate || _clearIconTemplate; context: { class: cx('clearIcon') }"></ng-template>
-            </span>
-        </ng-container>
-
-        <div [class]="cx('dropdown')" role="button" aria-label="dropdown trigger" aria-haspopup="listbox" [attr.aria-expanded]="overlayVisible ?? false" [attr.data-pc-section]="'trigger'">
-            <ng-container *ngIf="loading; else elseBlock">
-                <ng-container *ngIf="loadingIconTemplate || _loadingIconTemplate">
-                    <ng-container *ngTemplateOutlet="loadingIconTemplate || _loadingIconTemplate"></ng-container>
-                </ng-container>
-                <ng-container *ngIf="!loadingIconTemplate && !_loadingIconTemplate">
-                    <span *ngIf="loadingIcon" [class]="cn(cx('loadingIcon'), 'pi-spin' + loadingIcon)" aria-hidden="true"></span>
-                    <span *ngIf="!loadingIcon" [class]="cn(cx('loadingIcon'), 'pi pi-spinner pi-spin')" aria-hidden="true"></span>
-                </ng-container>
-            </ng-container>
-
-            <ng-template #elseBlock>
-                <ng-container *ngIf="!dropdownIconTemplate && !_dropdownIconTemplate">
-                    <span [class]="cn(cx('dropdownIcon'), dropdownIcon)" *ngIf="dropdownIcon"></span>
-                    <svg data-p-icon="chevron-down" *ngIf="!dropdownIcon" [class]="cx('dropdownIcon')" />
-                </ng-container>
-                <span *ngIf="dropdownIconTemplate || _dropdownIconTemplate" [class]="cx('dropdownIcon')">
-                    <ng-template *ngTemplateOutlet="dropdownIconTemplate || _dropdownIconTemplate; context: { class: cx('dropdownIcon') }"></ng-template>
-                </span>
-            </ng-template>
-        </div>
-
-        <p-overlay #overlay [hostAttrSelector]="attrSelector" [(visible)]="overlayVisible" [options]="overlayOptions" [target]="'@parent'" [appendTo]="$appendTo()" (onAnimationStart)="onOverlayAnimationStart($event)" (onHide)="hide()">
-            <ng-template #content>
-                <div [class]="cn(cx('overlay'), panelStyleClass)" [ngStyle]="panelStyle">
-                    <span
-                        #firstHiddenFocusableEl
-                        role="presentation"
-                        class="p-hidden-accessible p-hidden-focusable"
-                        [attr.tabindex]="0"
-                        (focus)="onFirstHiddenFocus($event)"
-                        [attr.data-p-hidden-accessible]="true"
-                        [attr.data-p-hidden-focusable]="true"
-                    >
-                    </span>
-                    <ng-container *ngTemplateOutlet="headerTemplate || _headerTemplate"></ng-container>
-                    <div [class]="cx('header')" *ngIf="filter" (click)="$event.stopPropagation()">
-                        <ng-container *ngIf="filterTemplate || _filterTemplate; else builtInFilterElement">
-                            <ng-container *ngTemplateOutlet="filterTemplate || _filterTemplate; context: { options: filterOptions }"></ng-container>
-                        </ng-container>
-                        <ng-template #builtInFilterElement>
-                            <p-iconfield>
-                                <input
-                                    #filter
-                                    pInputText
-                                    [pSize]="size()"
-                                    type="text"
-                                    role="searchbox"
-                                    autocomplete="off"
-                                    [value]="_filterValue() || ''"
-                                    [class]="cx('pcFilter')"
-                                    [variant]="$variant()"
-                                    [attr.placeholder]="filterPlaceholder"
-                                    [attr.aria-owns]="id + '_list'"
-                                    (input)="onFilterInputChange($event)"
-                                    [attr.aria-label]="ariaFilterLabel"
-                                    [attr.aria-activedescendant]="focusedOptionId"
-                                    (keydown)="onFilterKeyDown($event)"
-                                    (blur)="onFilterBlur($event)"
-                                />
-                                <p-inputicon>
-                                    <svg data-p-icon="search" *ngIf="!filterIconTemplate && !_filterIconTemplate" />
-                                    <span *ngIf="filterIconTemplate || _filterIconTemplate">
-                                        <ng-template *ngTemplateOutlet="filterIconTemplate || _filterIconTemplate"></ng-template>
-                                    </span>
-                                </p-inputicon>
-                            </p-iconfield>
-                        </ng-template>
-                    </div>
-                    <div [class]="cx('listContainer')" [style.max-height]="virtualScroll ? 'auto' : scrollHeight || 'auto'">
-                        <p-scroller
-                            *ngIf="virtualScroll"
-                            #scroller
-                            [items]="visibleOptions()"
-                            [style]="{ height: scrollHeight }"
-                            [itemSize]="virtualScrollItemSize"
-                            [autoSize]="true"
-                            [lazy]="lazy"
-                            (onLazyLoad)="onLazyLoad.emit($event)"
-                            [options]="virtualScrollOptions"
-                        >
-                            <ng-template #content let-items let-scrollerOptions="options">
-                                <ng-container *ngTemplateOutlet="buildInItems; context: { $implicit: items, options: scrollerOptions }"></ng-container>
-                            </ng-template>
-                            <ng-container *ngIf="loaderTemplate || _loaderTemplate">
-                                <ng-template #loader let-scrollerOptions="options">
-                                    <ng-container *ngTemplateOutlet="loaderTemplate || _loaderTemplate; context: { options: scrollerOptions }"></ng-container>
-                                </ng-template>
-                            </ng-container>
-                        </p-scroller>
-                        <ng-container *ngIf="!virtualScroll">
-                            <ng-container *ngTemplateOutlet="buildInItems; context: { $implicit: visibleOptions(), options: {} }"></ng-container>
-                        </ng-container>
-
-                        <ng-template #buildInItems let-items let-scrollerOptions="options">
-                            <ul #items [attr.id]="id + '_list'" [attr.aria-label]="listLabel" [class]="cn(cx('list'), scrollerOptions.contentStyleClass)" [style]="scrollerOptions.contentStyle" role="listbox">
-                                <ng-template ngFor let-option [ngForOf]="items" let-i="index">
-                                    <ng-container *ngIf="isOptionGroup(option)">
-                                        <li [class]="cx('optionGroup')" [attr.id]="id + '_' + getOptionIndex(i, scrollerOptions)" [ngStyle]="{ height: scrollerOptions.itemSize + 'px' }" role="option">
-                                            <span *ngIf="!groupTemplate && !_groupTemplate">{{ getOptionGroupLabel(option.optionGroup) }}</span>
-                                            <ng-container *ngTemplateOutlet="groupTemplate || _groupTemplate; context: { $implicit: option.optionGroup }"></ng-container>
-                                        </li>
-                                    </ng-container>
-                                    <ng-container *ngIf="!isOptionGroup(option)">
-                                        <p-selectItem
-                                            [id]="id + '_' + getOptionIndex(i, scrollerOptions)"
-                                            [option]="option"
-                                            [checkmark]="checkmark"
-                                            [selected]="isSelected(option)"
-                                            [label]="getOptionLabel(option)"
-                                            [disabled]="isOptionDisabled(option)"
-                                            [template]="itemTemplate || _itemTemplate"
-                                            [focused]="focusedOptionIndex() === getOptionIndex(i, scrollerOptions)"
-                                            [ariaPosInset]="getAriaPosInset(getOptionIndex(i, scrollerOptions))"
-                                            [ariaSetSize]="ariaSetSize"
-                                            (onClick)="onOptionSelect($event, option)"
-                                            (onMouseEnter)="onOptionMouseEnter($event, getOptionIndex(i, scrollerOptions))"
-                                        ></p-selectItem>
-                                    </ng-container>
-                                </ng-template>
-                                <li *ngIf="filterValue && isEmpty()" [class]="cx('emptyMessage')" [ngStyle]="{ height: scrollerOptions.itemSize + 'px' }" role="option">
-                                    @if (!emptyFilterTemplate && !_emptyFilterTemplate && !emptyTemplate) {
-                                        {{ emptyFilterMessageLabel }}
-                                    } @else {
-                                        <ng-container #emptyFilter *ngTemplateOutlet="emptyFilterTemplate || _emptyFilterTemplate || emptyTemplate || _emptyTemplate"></ng-container>
-                                    }
-                                </li>
-                                <li *ngIf="!filterValue && isEmpty()" [class]="cx('emptyMessage')" [ngStyle]="{ height: scrollerOptions.itemSize + 'px' }" role="option">
-                                    @if (!emptyTemplate && !_emptyTemplate) {
-                                        {{ emptyMessageLabel }}
-                                    } @else {
-                                        <ng-container #empty *ngTemplateOutlet="emptyTemplate || _emptyTemplate"></ng-container>
-                                    }
-                                </li>
-                            </ul>
-                        </ng-template>
-                    </div>
-                    <ng-container *ngTemplateOutlet="footerTemplate || _footerTemplate"></ng-container>
-                    <span
-                        #lastHiddenFocusableEl
-                        role="presentation"
-                        class="p-hidden-accessible p-hidden-focusable"
-                        [attr.tabindex]="0"
-                        (focus)="onLastHiddenFocus($event)"
-                        [attr.data-p-hidden-accessible]="true"
-                        [attr.data-p-hidden-focusable]="true"
-                    ></span>
-                </div>
-            </ng-template>
-        </p-overlay>
-    `,
-      host: {
-        "[class]": "cn(cx('root'), styleClass)",
-        "[attr.id]": "id",
-        "(click)": "onContainerClick($event)"
-      },
-      providers: [SELECT_VALUE_ACCESSOR, SelectStyle],
-      changeDetection: ChangeDetectionStrategy.OnPush,
-      encapsulation: ViewEncapsulation.None
-    }]
-  }], () => [{
-    type: NgZone
-  }, {
-    type: FilterService
-  }], {
-    id: [{
-      type: Input
-    }],
-    scrollHeight: [{
-      type: Input
-    }],
-    filter: [{
-      type: Input,
-      args: [{
-        transform: booleanAttribute
-      }]
-    }],
-    panelStyle: [{
-      type: Input
-    }],
-    styleClass: [{
-      type: Input
-    }],
-    panelStyleClass: [{
-      type: Input
-    }],
-    readonly: [{
-      type: Input,
-      args: [{
-        transform: booleanAttribute
-      }]
-    }],
-    editable: [{
-      type: Input,
-      args: [{
-        transform: booleanAttribute
-      }]
-    }],
-    tabindex: [{
-      type: Input,
-      args: [{
-        transform: numberAttribute
-      }]
-    }],
-    placeholder: [{
-      type: Input
-    }],
-    loadingIcon: [{
-      type: Input
-    }],
-    filterPlaceholder: [{
-      type: Input
-    }],
-    filterLocale: [{
-      type: Input
-    }],
-    inputId: [{
-      type: Input
-    }],
-    dataKey: [{
-      type: Input
-    }],
-    filterBy: [{
-      type: Input
-    }],
-    filterFields: [{
-      type: Input
-    }],
-    autofocus: [{
-      type: Input,
-      args: [{
-        transform: booleanAttribute
-      }]
-    }],
-    resetFilterOnHide: [{
-      type: Input,
-      args: [{
-        transform: booleanAttribute
-      }]
-    }],
-    checkmark: [{
-      type: Input,
-      args: [{
-        transform: booleanAttribute
-      }]
-    }],
-    dropdownIcon: [{
-      type: Input
-    }],
-    loading: [{
-      type: Input,
-      args: [{
-        transform: booleanAttribute
-      }]
-    }],
-    optionLabel: [{
-      type: Input
-    }],
-    optionValue: [{
-      type: Input
-    }],
-    optionDisabled: [{
-      type: Input
-    }],
-    optionGroupLabel: [{
-      type: Input
-    }],
-    optionGroupChildren: [{
-      type: Input
-    }],
-    group: [{
-      type: Input,
-      args: [{
-        transform: booleanAttribute
-      }]
-    }],
-    showClear: [{
-      type: Input,
-      args: [{
-        transform: booleanAttribute
-      }]
-    }],
-    emptyFilterMessage: [{
-      type: Input
-    }],
-    emptyMessage: [{
-      type: Input
-    }],
-    lazy: [{
-      type: Input,
-      args: [{
-        transform: booleanAttribute
-      }]
-    }],
-    virtualScroll: [{
-      type: Input,
-      args: [{
-        transform: booleanAttribute
-      }]
-    }],
-    virtualScrollItemSize: [{
-      type: Input,
-      args: [{
-        transform: numberAttribute
-      }]
-    }],
-    virtualScrollOptions: [{
-      type: Input
-    }],
-    overlayOptions: [{
-      type: Input
-    }],
-    ariaFilterLabel: [{
-      type: Input
-    }],
-    ariaLabel: [{
-      type: Input
-    }],
-    ariaLabelledBy: [{
-      type: Input
-    }],
-    filterMatchMode: [{
-      type: Input
-    }],
-    tooltip: [{
-      type: Input
-    }],
-    tooltipPosition: [{
-      type: Input
-    }],
-    tooltipPositionStyle: [{
-      type: Input
-    }],
-    tooltipStyleClass: [{
-      type: Input
-    }],
-    focusOnHover: [{
-      type: Input,
-      args: [{
-        transform: booleanAttribute
-      }]
-    }],
-    selectOnFocus: [{
-      type: Input,
-      args: [{
-        transform: booleanAttribute
-      }]
-    }],
-    autoOptionFocus: [{
-      type: Input,
-      args: [{
-        transform: booleanAttribute
-      }]
-    }],
-    autofocusFilter: [{
-      type: Input,
-      args: [{
-        transform: booleanAttribute
-      }]
-    }],
-    filterValue: [{
-      type: Input
-    }],
-    options: [{
-      type: Input
-    }],
-    onChange: [{
-      type: Output
-    }],
-    onFilter: [{
-      type: Output
-    }],
-    onFocus: [{
-      type: Output
-    }],
-    onBlur: [{
-      type: Output
-    }],
-    onClick: [{
-      type: Output
-    }],
-    onShow: [{
-      type: Output
-    }],
-    onHide: [{
-      type: Output
-    }],
-    onClear: [{
-      type: Output
-    }],
-    onLazyLoad: [{
-      type: Output
-    }],
-    filterViewChild: [{
-      type: ViewChild,
-      args: ["filter"]
-    }],
-    focusInputViewChild: [{
-      type: ViewChild,
-      args: ["focusInput"]
-    }],
-    editableInputViewChild: [{
-      type: ViewChild,
-      args: ["editableInput"]
-    }],
-    itemsViewChild: [{
-      type: ViewChild,
-      args: ["items"]
-    }],
-    scroller: [{
-      type: ViewChild,
-      args: ["scroller"]
-    }],
-    overlayViewChild: [{
-      type: ViewChild,
-      args: ["overlay"]
-    }],
-    firstHiddenFocusableElementOnOverlay: [{
-      type: ViewChild,
-      args: ["firstHiddenFocusableEl"]
-    }],
-    lastHiddenFocusableElementOnOverlay: [{
-      type: ViewChild,
-      args: ["lastHiddenFocusableEl"]
-    }],
-    itemTemplate: [{
-      type: ContentChild,
-      args: ["item", {
-        descendants: false
-      }]
-    }],
-    groupTemplate: [{
-      type: ContentChild,
-      args: ["group", {
-        descendants: false
-      }]
-    }],
-    loaderTemplate: [{
-      type: ContentChild,
-      args: ["loader", {
-        descendants: false
-      }]
-    }],
-    selectedItemTemplate: [{
-      type: ContentChild,
-      args: ["selectedItem", {
-        descendants: false
-      }]
-    }],
-    headerTemplate: [{
-      type: ContentChild,
-      args: ["header", {
-        descendants: false
-      }]
-    }],
-    filterTemplate: [{
-      type: ContentChild,
-      args: ["filter", {
-        descendants: false
-      }]
-    }],
-    footerTemplate: [{
-      type: ContentChild,
-      args: ["footer", {
-        descendants: false
-      }]
-    }],
-    emptyFilterTemplate: [{
-      type: ContentChild,
-      args: ["emptyfilter", {
-        descendants: false
-      }]
-    }],
-    emptyTemplate: [{
-      type: ContentChild,
-      args: ["empty", {
-        descendants: false
-      }]
-    }],
-    dropdownIconTemplate: [{
-      type: ContentChild,
-      args: ["dropdownicon", {
-        descendants: false
-      }]
-    }],
-    loadingIconTemplate: [{
-      type: ContentChild,
-      args: ["loadingicon", {
-        descendants: false
-      }]
-    }],
-    clearIconTemplate: [{
-      type: ContentChild,
-      args: ["clearicon", {
-        descendants: false
-      }]
-    }],
-    filterIconTemplate: [{
-      type: ContentChild,
-      args: ["filtericon", {
-        descendants: false
-      }]
-    }],
-    onIconTemplate: [{
-      type: ContentChild,
-      args: ["onicon", {
-        descendants: false
-      }]
-    }],
-    offIconTemplate: [{
-      type: ContentChild,
-      args: ["officon", {
-        descendants: false
-      }]
-    }],
-    cancelIconTemplate: [{
-      type: ContentChild,
-      args: ["cancelicon", {
-        descendants: false
-      }]
-    }],
-    templates: [{
-      type: ContentChildren,
-      args: [PrimeTemplate]
-    }]
-  });
-})();
-var SelectModule = class _SelectModule {
-  static ɵfac = function SelectModule_Factory(__ngFactoryType__) {
-    return new (__ngFactoryType__ || _SelectModule)();
-  };
-  static ɵmod = ɵɵdefineNgModule({
-    type: _SelectModule,
-    imports: [Select, SharedModule],
-    exports: [Select, SharedModule]
-  });
-  static ɵinj = ɵɵdefineInjector({
-    imports: [Select, SharedModule, SharedModule]
-  });
-};
-(() => {
-  (typeof ngDevMode === "undefined" || ngDevMode) && setClassMetadata(SelectModule, [{
-    type: NgModule,
-    args: [{
-      imports: [Select, SharedModule],
-      exports: [Select, SharedModule]
-    }]
-  }], null, null);
-})();
-
 // node_modules/@primeuix/styles/dist/paginator/index.mjs
-var style7 = "\n    .p-paginator {\n        display: flex;\n        align-items: center;\n        justify-content: center;\n        flex-wrap: wrap;\n        background: dt('paginator.background');\n        color: dt('paginator.color');\n        padding: dt('paginator.padding');\n        border-radius: dt('paginator.border.radius');\n        gap: dt('paginator.gap');\n    }\n\n    .p-paginator-content {\n        display: flex;\n        align-items: center;\n        justify-content: center;\n        flex-wrap: wrap;\n        gap: dt('paginator.gap');\n    }\n\n    .p-paginator-content-start {\n        margin-inline-end: auto;\n    }\n\n    .p-paginator-content-end {\n        margin-inline-start: auto;\n    }\n\n    .p-paginator-page,\n    .p-paginator-next,\n    .p-paginator-last,\n    .p-paginator-first,\n    .p-paginator-prev {\n        cursor: pointer;\n        display: inline-flex;\n        align-items: center;\n        justify-content: center;\n        line-height: 1;\n        user-select: none;\n        overflow: hidden;\n        position: relative;\n        background: dt('paginator.nav.button.background');\n        border: 0 none;\n        color: dt('paginator.nav.button.color');\n        min-width: dt('paginator.nav.button.width');\n        height: dt('paginator.nav.button.height');\n        transition:\n            background dt('paginator.transition.duration'),\n            color dt('paginator.transition.duration'),\n            outline-color dt('paginator.transition.duration'),\n            box-shadow dt('paginator.transition.duration');\n        border-radius: dt('paginator.nav.button.border.radius');\n        padding: 0;\n        margin: 0;\n    }\n\n    .p-paginator-page:focus-visible,\n    .p-paginator-next:focus-visible,\n    .p-paginator-last:focus-visible,\n    .p-paginator-first:focus-visible,\n    .p-paginator-prev:focus-visible {\n        box-shadow: dt('paginator.nav.button.focus.ring.shadow');\n        outline: dt('paginator.nav.button.focus.ring.width') dt('paginator.nav.button.focus.ring.style') dt('paginator.nav.button.focus.ring.color');\n        outline-offset: dt('paginator.nav.button.focus.ring.offset');\n    }\n\n    .p-paginator-page:not(.p-disabled):not(.p-paginator-page-selected):hover,\n    .p-paginator-first:not(.p-disabled):hover,\n    .p-paginator-prev:not(.p-disabled):hover,\n    .p-paginator-next:not(.p-disabled):hover,\n    .p-paginator-last:not(.p-disabled):hover {\n        background: dt('paginator.nav.button.hover.background');\n        color: dt('paginator.nav.button.hover.color');\n    }\n\n    .p-paginator-page.p-paginator-page-selected {\n        background: dt('paginator.nav.button.selected.background');\n        color: dt('paginator.nav.button.selected.color');\n    }\n\n    .p-paginator-current {\n        color: dt('paginator.current.page.report.color');\n    }\n\n    .p-paginator-pages {\n        display: flex;\n        align-items: center;\n        gap: dt('paginator.gap');\n    }\n\n    .p-paginator-jtp-input .p-inputtext {\n        max-width: dt('paginator.jump.to.page.input.max.width');\n    }\n\n    .p-paginator-first:dir(rtl),\n    .p-paginator-prev:dir(rtl),\n    .p-paginator-next:dir(rtl),\n    .p-paginator-last:dir(rtl) {\n        transform: rotate(180deg);\n    }\n";
+var style5 = "\n    .p-paginator {\n        display: flex;\n        align-items: center;\n        justify-content: center;\n        flex-wrap: wrap;\n        background: dt('paginator.background');\n        color: dt('paginator.color');\n        padding: dt('paginator.padding');\n        border-radius: dt('paginator.border.radius');\n        gap: dt('paginator.gap');\n    }\n\n    .p-paginator-content {\n        display: flex;\n        align-items: center;\n        justify-content: center;\n        flex-wrap: wrap;\n        gap: dt('paginator.gap');\n    }\n\n    .p-paginator-content-start {\n        margin-inline-end: auto;\n    }\n\n    .p-paginator-content-end {\n        margin-inline-start: auto;\n    }\n\n    .p-paginator-page,\n    .p-paginator-next,\n    .p-paginator-last,\n    .p-paginator-first,\n    .p-paginator-prev {\n        cursor: pointer;\n        display: inline-flex;\n        align-items: center;\n        justify-content: center;\n        line-height: 1;\n        user-select: none;\n        overflow: hidden;\n        position: relative;\n        background: dt('paginator.nav.button.background');\n        border: 0 none;\n        color: dt('paginator.nav.button.color');\n        min-width: dt('paginator.nav.button.width');\n        height: dt('paginator.nav.button.height');\n        transition:\n            background dt('paginator.transition.duration'),\n            color dt('paginator.transition.duration'),\n            outline-color dt('paginator.transition.duration'),\n            box-shadow dt('paginator.transition.duration');\n        border-radius: dt('paginator.nav.button.border.radius');\n        padding: 0;\n        margin: 0;\n    }\n\n    .p-paginator-page:focus-visible,\n    .p-paginator-next:focus-visible,\n    .p-paginator-last:focus-visible,\n    .p-paginator-first:focus-visible,\n    .p-paginator-prev:focus-visible {\n        box-shadow: dt('paginator.nav.button.focus.ring.shadow');\n        outline: dt('paginator.nav.button.focus.ring.width') dt('paginator.nav.button.focus.ring.style') dt('paginator.nav.button.focus.ring.color');\n        outline-offset: dt('paginator.nav.button.focus.ring.offset');\n    }\n\n    .p-paginator-page:not(.p-disabled):not(.p-paginator-page-selected):hover,\n    .p-paginator-first:not(.p-disabled):hover,\n    .p-paginator-prev:not(.p-disabled):hover,\n    .p-paginator-next:not(.p-disabled):hover,\n    .p-paginator-last:not(.p-disabled):hover {\n        background: dt('paginator.nav.button.hover.background');\n        color: dt('paginator.nav.button.hover.color');\n    }\n\n    .p-paginator-page.p-paginator-page-selected {\n        background: dt('paginator.nav.button.selected.background');\n        color: dt('paginator.nav.button.selected.color');\n    }\n\n    .p-paginator-current {\n        color: dt('paginator.current.page.report.color');\n    }\n\n    .p-paginator-pages {\n        display: flex;\n        align-items: center;\n        gap: dt('paginator.gap');\n    }\n\n    .p-paginator-jtp-input .p-inputtext {\n        max-width: dt('paginator.jump.to.page.input.max.width');\n    }\n\n    .p-paginator-first:dir(rtl),\n    .p-paginator-prev:dir(rtl),\n    .p-paginator-next:dir(rtl),\n    .p-paginator-last:dir(rtl) {\n        transform: rotate(180deg);\n    }\n";
 
 // node_modules/primeng/fesm2022/primeng-paginator.mjs
-var _c09 = ["dropdownicon"];
-var _c114 = ["firstpagelinkicon"];
-var _c29 = ["previouspagelinkicon"];
-var _c35 = ["lastpagelinkicon"];
-var _c44 = ["nextpagelinkicon"];
-var _c54 = (a0) => ({
+var _c05 = ["dropdownicon"];
+var _c111 = ["firstpagelinkicon"];
+var _c25 = ["previouspagelinkicon"];
+var _c33 = ["lastpagelinkicon"];
+var _c42 = ["nextpagelinkicon"];
+var _c52 = (a0) => ({
   $implicit: a0
 });
-var _c64 = (a0) => ({
+var _c62 = (a0) => ({
   pageLink: a0
 });
 function Paginator_div_0_ng_container_1_Template(rf, ctx) {
@@ -13256,7 +8433,7 @@ function Paginator_div_0_Template(rf, ctx) {
     ɵɵclassMap(ctx_r0.cx("contentStart"));
     ɵɵattribute("data-pc-section", "start");
     ɵɵadvance();
-    ɵɵproperty("ngTemplateOutlet", ctx_r0.templateLeft)("ngTemplateOutletContext", ɵɵpureFunction1(5, _c54, ctx_r0.paginatorState));
+    ɵɵproperty("ngTemplateOutlet", ctx_r0.templateLeft)("ngTemplateOutletContext", ɵɵpureFunction1(5, _c52, ctx_r0.paginatorState));
   }
 }
 function Paginator_span_1_Template(rf, ctx) {
@@ -13369,7 +8546,7 @@ function Paginator_span_6_button_1_Template(rf, ctx) {
   if (rf & 2) {
     const pageLink_r4 = ctx.$implicit;
     const ctx_r0 = ɵɵnextContext(2);
-    ɵɵclassMap(ctx_r0.cx("page", ɵɵpureFunction1(5, _c64, pageLink_r4)));
+    ɵɵclassMap(ctx_r0.cx("page", ɵɵpureFunction1(5, _c62, pageLink_r4)));
     ɵɵattribute("aria-label", ctx_r0.getPageAriaLabel(pageLink_r4))("aria-current", pageLink_r4 - 1 == ctx_r0.getPage() ? "page" : void 0);
     ɵɵadvance();
     ɵɵtextInterpolate1(" ", ctx_r0.getLocalization(pageLink_r4), " ");
@@ -13409,7 +8586,7 @@ function Paginator_p_select_7_ng_container_2_ng_template_1_Template(rf, ctx) {
   if (rf & 2) {
     const item_r6 = ctx.$implicit;
     const ctx_r0 = ɵɵnextContext(3);
-    ɵɵproperty("ngTemplateOutlet", ctx_r0.jumpToPageItemTemplate)("ngTemplateOutletContext", ɵɵpureFunction1(2, _c54, item_r6));
+    ɵɵproperty("ngTemplateOutlet", ctx_r0.jumpToPageItemTemplate)("ngTemplateOutletContext", ɵɵpureFunction1(2, _c52, item_r6));
   }
 }
 function Paginator_p_select_7_ng_container_2_Template(rf, ctx) {
@@ -13572,7 +8749,7 @@ function Paginator_p_select_13_ng_container_1_ng_template_1_Template(rf, ctx) {
   if (rf & 2) {
     const item_r10 = ctx.$implicit;
     const ctx_r0 = ɵɵnextContext(3);
-    ɵɵproperty("ngTemplateOutlet", ctx_r0.dropdownItemTemplate)("ngTemplateOutletContext", ɵɵpureFunction1(2, _c54, item_r10));
+    ɵɵproperty("ngTemplateOutlet", ctx_r0.dropdownItemTemplate)("ngTemplateOutletContext", ɵɵpureFunction1(2, _c52, item_r10));
   }
 }
 function Paginator_p_select_13_ng_container_1_Template(rf, ctx) {
@@ -13646,10 +8823,10 @@ function Paginator_div_14_Template(rf, ctx) {
     ɵɵclassMap(ctx_r0.cx("contentEnd"));
     ɵɵattribute("data-pc-section", "end");
     ɵɵadvance();
-    ɵɵproperty("ngTemplateOutlet", ctx_r0.templateRight)("ngTemplateOutletContext", ɵɵpureFunction1(5, _c54, ctx_r0.paginatorState));
+    ɵɵproperty("ngTemplateOutlet", ctx_r0.templateRight)("ngTemplateOutletContext", ɵɵpureFunction1(5, _c52, ctx_r0.paginatorState));
   }
 }
-var classes7 = {
+var classes4 = {
   paginator: ({
     instance
   }) => ["p-paginator p-component"],
@@ -13694,8 +8871,8 @@ var classes7 = {
 };
 var PaginatorStyle = class _PaginatorStyle extends BaseStyle {
   name = "paginator";
-  theme = style7;
-  classes = classes7;
+  theme = style5;
+  classes = classes4;
   static ɵfac = /* @__PURE__ */ (() => {
     let ɵPaginatorStyle_BaseFactory;
     return function PaginatorStyle_Factory(__ngFactoryType__) {
@@ -14106,11 +9283,11 @@ var Paginator = class _Paginator extends BaseComponent {
     selectors: [["p-paginator"]],
     contentQueries: function Paginator_ContentQueries(rf, ctx, dirIndex) {
       if (rf & 1) {
-        ɵɵcontentQuery(dirIndex, _c09, 4);
-        ɵɵcontentQuery(dirIndex, _c114, 4);
-        ɵɵcontentQuery(dirIndex, _c29, 4);
-        ɵɵcontentQuery(dirIndex, _c35, 4);
-        ɵɵcontentQuery(dirIndex, _c44, 4);
+        ɵɵcontentQuery(dirIndex, _c05, 4);
+        ɵɵcontentQuery(dirIndex, _c111, 4);
+        ɵɵcontentQuery(dirIndex, _c25, 4);
+        ɵɵcontentQuery(dirIndex, _c33, 4);
+        ɵɵcontentQuery(dirIndex, _c42, 4);
         ɵɵcontentQuery(dirIndex, PrimeTemplate, 4);
       }
       if (rf & 2) {
@@ -14479,14 +9656,14 @@ var PaginatorModule = class _PaginatorModule {
 })();
 
 // node_modules/@primeuix/styles/dist/radiobutton/index.mjs
-var style8 = "\n    .p-radiobutton {\n        position: relative;\n        display: inline-flex;\n        user-select: none;\n        vertical-align: bottom;\n        width: dt('radiobutton.width');\n        height: dt('radiobutton.height');\n    }\n\n    .p-radiobutton-input {\n        cursor: pointer;\n        appearance: none;\n        position: absolute;\n        top: 0;\n        inset-inline-start: 0;\n        width: 100%;\n        height: 100%;\n        padding: 0;\n        margin: 0;\n        opacity: 0;\n        z-index: 1;\n        outline: 0 none;\n        border: 1px solid transparent;\n        border-radius: 50%;\n    }\n\n    .p-radiobutton-box {\n        display: flex;\n        justify-content: center;\n        align-items: center;\n        border-radius: 50%;\n        border: 1px solid dt('radiobutton.border.color');\n        background: dt('radiobutton.background');\n        width: dt('radiobutton.width');\n        height: dt('radiobutton.height');\n        transition:\n            background dt('radiobutton.transition.duration'),\n            color dt('radiobutton.transition.duration'),\n            border-color dt('radiobutton.transition.duration'),\n            box-shadow dt('radiobutton.transition.duration'),\n            outline-color dt('radiobutton.transition.duration');\n        outline-color: transparent;\n        box-shadow: dt('radiobutton.shadow');\n    }\n\n    .p-radiobutton-icon {\n        transition-duration: dt('radiobutton.transition.duration');\n        background: transparent;\n        font-size: dt('radiobutton.icon.size');\n        width: dt('radiobutton.icon.size');\n        height: dt('radiobutton.icon.size');\n        border-radius: 50%;\n        backface-visibility: hidden;\n        transform: translateZ(0) scale(0.1);\n    }\n\n    .p-radiobutton:not(.p-disabled):has(.p-radiobutton-input:hover) .p-radiobutton-box {\n        border-color: dt('radiobutton.hover.border.color');\n    }\n\n    .p-radiobutton-checked .p-radiobutton-box {\n        border-color: dt('radiobutton.checked.border.color');\n        background: dt('radiobutton.checked.background');\n    }\n\n    .p-radiobutton-checked .p-radiobutton-box .p-radiobutton-icon {\n        background: dt('radiobutton.icon.checked.color');\n        transform: translateZ(0) scale(1, 1);\n        visibility: visible;\n    }\n\n    .p-radiobutton-checked:not(.p-disabled):has(.p-radiobutton-input:hover) .p-radiobutton-box {\n        border-color: dt('radiobutton.checked.hover.border.color');\n        background: dt('radiobutton.checked.hover.background');\n    }\n\n    .p-radiobutton:not(.p-disabled):has(.p-radiobutton-input:hover).p-radiobutton-checked .p-radiobutton-box .p-radiobutton-icon {\n        background: dt('radiobutton.icon.checked.hover.color');\n    }\n\n    .p-radiobutton:not(.p-disabled):has(.p-radiobutton-input:focus-visible) .p-radiobutton-box {\n        border-color: dt('radiobutton.focus.border.color');\n        box-shadow: dt('radiobutton.focus.ring.shadow');\n        outline: dt('radiobutton.focus.ring.width') dt('radiobutton.focus.ring.style') dt('radiobutton.focus.ring.color');\n        outline-offset: dt('radiobutton.focus.ring.offset');\n    }\n\n    .p-radiobutton-checked:not(.p-disabled):has(.p-radiobutton-input:focus-visible) .p-radiobutton-box {\n        border-color: dt('radiobutton.checked.focus.border.color');\n    }\n\n    .p-radiobutton.p-invalid > .p-radiobutton-box {\n        border-color: dt('radiobutton.invalid.border.color');\n    }\n\n    .p-radiobutton.p-variant-filled .p-radiobutton-box {\n        background: dt('radiobutton.filled.background');\n    }\n\n    .p-radiobutton.p-variant-filled.p-radiobutton-checked .p-radiobutton-box {\n        background: dt('radiobutton.checked.background');\n    }\n\n    .p-radiobutton.p-variant-filled:not(.p-disabled):has(.p-radiobutton-input:hover).p-radiobutton-checked .p-radiobutton-box {\n        background: dt('radiobutton.checked.hover.background');\n    }\n\n    .p-radiobutton.p-disabled {\n        opacity: 1;\n    }\n\n    .p-radiobutton.p-disabled .p-radiobutton-box {\n        background: dt('radiobutton.disabled.background');\n        border-color: dt('radiobutton.checked.disabled.border.color');\n    }\n\n    .p-radiobutton-checked.p-disabled .p-radiobutton-box .p-radiobutton-icon {\n        background: dt('radiobutton.icon.disabled.color');\n    }\n\n    .p-radiobutton-sm,\n    .p-radiobutton-sm .p-radiobutton-box {\n        width: dt('radiobutton.sm.width');\n        height: dt('radiobutton.sm.height');\n    }\n\n    .p-radiobutton-sm .p-radiobutton-icon {\n        font-size: dt('radiobutton.icon.sm.size');\n        width: dt('radiobutton.icon.sm.size');\n        height: dt('radiobutton.icon.sm.size');\n    }\n\n    .p-radiobutton-lg,\n    .p-radiobutton-lg .p-radiobutton-box {\n        width: dt('radiobutton.lg.width');\n        height: dt('radiobutton.lg.height');\n    }\n\n    .p-radiobutton-lg .p-radiobutton-icon {\n        font-size: dt('radiobutton.icon.lg.size');\n        width: dt('radiobutton.icon.lg.size');\n        height: dt('radiobutton.icon.lg.size');\n    }\n";
+var style6 = "\n    .p-radiobutton {\n        position: relative;\n        display: inline-flex;\n        user-select: none;\n        vertical-align: bottom;\n        width: dt('radiobutton.width');\n        height: dt('radiobutton.height');\n    }\n\n    .p-radiobutton-input {\n        cursor: pointer;\n        appearance: none;\n        position: absolute;\n        top: 0;\n        inset-inline-start: 0;\n        width: 100%;\n        height: 100%;\n        padding: 0;\n        margin: 0;\n        opacity: 0;\n        z-index: 1;\n        outline: 0 none;\n        border: 1px solid transparent;\n        border-radius: 50%;\n    }\n\n    .p-radiobutton-box {\n        display: flex;\n        justify-content: center;\n        align-items: center;\n        border-radius: 50%;\n        border: 1px solid dt('radiobutton.border.color');\n        background: dt('radiobutton.background');\n        width: dt('radiobutton.width');\n        height: dt('radiobutton.height');\n        transition:\n            background dt('radiobutton.transition.duration'),\n            color dt('radiobutton.transition.duration'),\n            border-color dt('radiobutton.transition.duration'),\n            box-shadow dt('radiobutton.transition.duration'),\n            outline-color dt('radiobutton.transition.duration');\n        outline-color: transparent;\n        box-shadow: dt('radiobutton.shadow');\n    }\n\n    .p-radiobutton-icon {\n        transition-duration: dt('radiobutton.transition.duration');\n        background: transparent;\n        font-size: dt('radiobutton.icon.size');\n        width: dt('radiobutton.icon.size');\n        height: dt('radiobutton.icon.size');\n        border-radius: 50%;\n        backface-visibility: hidden;\n        transform: translateZ(0) scale(0.1);\n    }\n\n    .p-radiobutton:not(.p-disabled):has(.p-radiobutton-input:hover) .p-radiobutton-box {\n        border-color: dt('radiobutton.hover.border.color');\n    }\n\n    .p-radiobutton-checked .p-radiobutton-box {\n        border-color: dt('radiobutton.checked.border.color');\n        background: dt('radiobutton.checked.background');\n    }\n\n    .p-radiobutton-checked .p-radiobutton-box .p-radiobutton-icon {\n        background: dt('radiobutton.icon.checked.color');\n        transform: translateZ(0) scale(1, 1);\n        visibility: visible;\n    }\n\n    .p-radiobutton-checked:not(.p-disabled):has(.p-radiobutton-input:hover) .p-radiobutton-box {\n        border-color: dt('radiobutton.checked.hover.border.color');\n        background: dt('radiobutton.checked.hover.background');\n    }\n\n    .p-radiobutton:not(.p-disabled):has(.p-radiobutton-input:hover).p-radiobutton-checked .p-radiobutton-box .p-radiobutton-icon {\n        background: dt('radiobutton.icon.checked.hover.color');\n    }\n\n    .p-radiobutton:not(.p-disabled):has(.p-radiobutton-input:focus-visible) .p-radiobutton-box {\n        border-color: dt('radiobutton.focus.border.color');\n        box-shadow: dt('radiobutton.focus.ring.shadow');\n        outline: dt('radiobutton.focus.ring.width') dt('radiobutton.focus.ring.style') dt('radiobutton.focus.ring.color');\n        outline-offset: dt('radiobutton.focus.ring.offset');\n    }\n\n    .p-radiobutton-checked:not(.p-disabled):has(.p-radiobutton-input:focus-visible) .p-radiobutton-box {\n        border-color: dt('radiobutton.checked.focus.border.color');\n    }\n\n    .p-radiobutton.p-invalid > .p-radiobutton-box {\n        border-color: dt('radiobutton.invalid.border.color');\n    }\n\n    .p-radiobutton.p-variant-filled .p-radiobutton-box {\n        background: dt('radiobutton.filled.background');\n    }\n\n    .p-radiobutton.p-variant-filled.p-radiobutton-checked .p-radiobutton-box {\n        background: dt('radiobutton.checked.background');\n    }\n\n    .p-radiobutton.p-variant-filled:not(.p-disabled):has(.p-radiobutton-input:hover).p-radiobutton-checked .p-radiobutton-box {\n        background: dt('radiobutton.checked.hover.background');\n    }\n\n    .p-radiobutton.p-disabled {\n        opacity: 1;\n    }\n\n    .p-radiobutton.p-disabled .p-radiobutton-box {\n        background: dt('radiobutton.disabled.background');\n        border-color: dt('radiobutton.checked.disabled.border.color');\n    }\n\n    .p-radiobutton-checked.p-disabled .p-radiobutton-box .p-radiobutton-icon {\n        background: dt('radiobutton.icon.disabled.color');\n    }\n\n    .p-radiobutton-sm,\n    .p-radiobutton-sm .p-radiobutton-box {\n        width: dt('radiobutton.sm.width');\n        height: dt('radiobutton.sm.height');\n    }\n\n    .p-radiobutton-sm .p-radiobutton-icon {\n        font-size: dt('radiobutton.icon.sm.size');\n        width: dt('radiobutton.icon.sm.size');\n        height: dt('radiobutton.icon.sm.size');\n    }\n\n    .p-radiobutton-lg,\n    .p-radiobutton-lg .p-radiobutton-box {\n        width: dt('radiobutton.lg.width');\n        height: dt('radiobutton.lg.height');\n    }\n\n    .p-radiobutton-lg .p-radiobutton-icon {\n        font-size: dt('radiobutton.icon.lg.size');\n        width: dt('radiobutton.icon.lg.size');\n        height: dt('radiobutton.icon.lg.size');\n    }\n";
 
 // node_modules/primeng/fesm2022/primeng-radiobutton.mjs
-var _c010 = ["input"];
-var theme6 = (
+var _c06 = ["input"];
+var theme4 = (
   /*css*/
   `
-    ${style8}
+    ${style6}
 
     /* For PrimeNG */
     p-radioButton.ng-invalid.ng-dirty .p-radiobutton-box,
@@ -14496,7 +9673,7 @@ var theme6 = (
     }
 `
 );
-var classes8 = {
+var classes5 = {
   root: ({
     instance
   }) => ["p-radiobutton p-component", {
@@ -14513,8 +9690,8 @@ var classes8 = {
 };
 var RadioButtonStyle = class _RadioButtonStyle extends BaseStyle {
   name = "radiobutton";
-  theme = theme6;
-  classes = classes8;
+  theme = theme4;
+  classes = classes5;
   static ɵfac = /* @__PURE__ */ (() => {
     let ɵRadioButtonStyle_BaseFactory;
     return function RadioButtonStyle_Factory(__ngFactoryType__) {
@@ -14733,7 +9910,7 @@ var RadioButton = class _RadioButton extends BaseEditableHolder {
     selectors: [["p-radioButton"], ["p-radiobutton"], ["p-radio-button"]],
     viewQuery: function RadioButton_Query(rf, ctx) {
       if (rf & 1) {
-        ɵɵviewQuery(_c010, 5);
+        ɵɵviewQuery(_c06, 5);
       }
       if (rf & 2) {
         let _t;
@@ -14916,12 +10093,12 @@ var RadioButtonModule = class _RadioButtonModule {
 })();
 
 // node_modules/@primeuix/styles/dist/togglebutton/index.mjs
-var style9 = "\n    .p-togglebutton {\n        display: inline-flex;\n        cursor: pointer;\n        user-select: none;\n        overflow: hidden;\n        position: relative;\n        color: dt('togglebutton.color');\n        background: dt('togglebutton.background');\n        border: 1px solid dt('togglebutton.border.color');\n        padding: dt('togglebutton.padding');\n        font-size: 1rem;\n        font-family: inherit;\n        font-feature-settings: inherit;\n        transition:\n            background dt('togglebutton.transition.duration'),\n            color dt('togglebutton.transition.duration'),\n            border-color dt('togglebutton.transition.duration'),\n            outline-color dt('togglebutton.transition.duration'),\n            box-shadow dt('togglebutton.transition.duration');\n        border-radius: dt('togglebutton.border.radius');\n        outline-color: transparent;\n        font-weight: dt('togglebutton.font.weight');\n    }\n\n    .p-togglebutton-content {\n        display: inline-flex;\n        flex: 1 1 auto;\n        align-items: center;\n        justify-content: center;\n        gap: dt('togglebutton.gap');\n        padding: dt('togglebutton.content.padding');\n        background: transparent;\n        border-radius: dt('togglebutton.content.border.radius');\n        transition:\n            background dt('togglebutton.transition.duration'),\n            color dt('togglebutton.transition.duration'),\n            border-color dt('togglebutton.transition.duration'),\n            outline-color dt('togglebutton.transition.duration'),\n            box-shadow dt('togglebutton.transition.duration');\n    }\n\n    .p-togglebutton:not(:disabled):not(.p-togglebutton-checked):hover {\n        background: dt('togglebutton.hover.background');\n        color: dt('togglebutton.hover.color');\n    }\n\n    .p-togglebutton.p-togglebutton-checked {\n        background: dt('togglebutton.checked.background');\n        border-color: dt('togglebutton.checked.border.color');\n        color: dt('togglebutton.checked.color');\n    }\n\n    .p-togglebutton-checked .p-togglebutton-content {\n        background: dt('togglebutton.content.checked.background');\n        box-shadow: dt('togglebutton.content.checked.shadow');\n    }\n\n    .p-togglebutton:focus-visible {\n        box-shadow: dt('togglebutton.focus.ring.shadow');\n        outline: dt('togglebutton.focus.ring.width') dt('togglebutton.focus.ring.style') dt('togglebutton.focus.ring.color');\n        outline-offset: dt('togglebutton.focus.ring.offset');\n    }\n\n    .p-togglebutton.p-invalid {\n        border-color: dt('togglebutton.invalid.border.color');\n    }\n\n    .p-togglebutton:disabled {\n        opacity: 1;\n        cursor: default;\n        background: dt('togglebutton.disabled.background');\n        border-color: dt('togglebutton.disabled.border.color');\n        color: dt('togglebutton.disabled.color');\n    }\n\n    .p-togglebutton-label,\n    .p-togglebutton-icon {\n        position: relative;\n        transition: none;\n    }\n\n    .p-togglebutton-icon {\n        color: dt('togglebutton.icon.color');\n    }\n\n    .p-togglebutton:not(:disabled):not(.p-togglebutton-checked):hover .p-togglebutton-icon {\n        color: dt('togglebutton.icon.hover.color');\n    }\n\n    .p-togglebutton.p-togglebutton-checked .p-togglebutton-icon {\n        color: dt('togglebutton.icon.checked.color');\n    }\n\n    .p-togglebutton:disabled .p-togglebutton-icon {\n        color: dt('togglebutton.icon.disabled.color');\n    }\n\n    .p-togglebutton-sm {\n        padding: dt('togglebutton.sm.padding');\n        font-size: dt('togglebutton.sm.font.size');\n    }\n\n    .p-togglebutton-sm .p-togglebutton-content {\n        padding: dt('togglebutton.content.sm.padding');\n    }\n\n    .p-togglebutton-lg {\n        padding: dt('togglebutton.lg.padding');\n        font-size: dt('togglebutton.lg.font.size');\n    }\n\n    .p-togglebutton-lg .p-togglebutton-content {\n        padding: dt('togglebutton.content.lg.padding');\n    }\n\n    .p-togglebutton-fluid {\n        width: 100%;\n    }\n";
+var style7 = "\n    .p-togglebutton {\n        display: inline-flex;\n        cursor: pointer;\n        user-select: none;\n        overflow: hidden;\n        position: relative;\n        color: dt('togglebutton.color');\n        background: dt('togglebutton.background');\n        border: 1px solid dt('togglebutton.border.color');\n        padding: dt('togglebutton.padding');\n        font-size: 1rem;\n        font-family: inherit;\n        font-feature-settings: inherit;\n        transition:\n            background dt('togglebutton.transition.duration'),\n            color dt('togglebutton.transition.duration'),\n            border-color dt('togglebutton.transition.duration'),\n            outline-color dt('togglebutton.transition.duration'),\n            box-shadow dt('togglebutton.transition.duration');\n        border-radius: dt('togglebutton.border.radius');\n        outline-color: transparent;\n        font-weight: dt('togglebutton.font.weight');\n    }\n\n    .p-togglebutton-content {\n        display: inline-flex;\n        flex: 1 1 auto;\n        align-items: center;\n        justify-content: center;\n        gap: dt('togglebutton.gap');\n        padding: dt('togglebutton.content.padding');\n        background: transparent;\n        border-radius: dt('togglebutton.content.border.radius');\n        transition:\n            background dt('togglebutton.transition.duration'),\n            color dt('togglebutton.transition.duration'),\n            border-color dt('togglebutton.transition.duration'),\n            outline-color dt('togglebutton.transition.duration'),\n            box-shadow dt('togglebutton.transition.duration');\n    }\n\n    .p-togglebutton:not(:disabled):not(.p-togglebutton-checked):hover {\n        background: dt('togglebutton.hover.background');\n        color: dt('togglebutton.hover.color');\n    }\n\n    .p-togglebutton.p-togglebutton-checked {\n        background: dt('togglebutton.checked.background');\n        border-color: dt('togglebutton.checked.border.color');\n        color: dt('togglebutton.checked.color');\n    }\n\n    .p-togglebutton-checked .p-togglebutton-content {\n        background: dt('togglebutton.content.checked.background');\n        box-shadow: dt('togglebutton.content.checked.shadow');\n    }\n\n    .p-togglebutton:focus-visible {\n        box-shadow: dt('togglebutton.focus.ring.shadow');\n        outline: dt('togglebutton.focus.ring.width') dt('togglebutton.focus.ring.style') dt('togglebutton.focus.ring.color');\n        outline-offset: dt('togglebutton.focus.ring.offset');\n    }\n\n    .p-togglebutton.p-invalid {\n        border-color: dt('togglebutton.invalid.border.color');\n    }\n\n    .p-togglebutton:disabled {\n        opacity: 1;\n        cursor: default;\n        background: dt('togglebutton.disabled.background');\n        border-color: dt('togglebutton.disabled.border.color');\n        color: dt('togglebutton.disabled.color');\n    }\n\n    .p-togglebutton-label,\n    .p-togglebutton-icon {\n        position: relative;\n        transition: none;\n    }\n\n    .p-togglebutton-icon {\n        color: dt('togglebutton.icon.color');\n    }\n\n    .p-togglebutton:not(:disabled):not(.p-togglebutton-checked):hover .p-togglebutton-icon {\n        color: dt('togglebutton.icon.hover.color');\n    }\n\n    .p-togglebutton.p-togglebutton-checked .p-togglebutton-icon {\n        color: dt('togglebutton.icon.checked.color');\n    }\n\n    .p-togglebutton:disabled .p-togglebutton-icon {\n        color: dt('togglebutton.icon.disabled.color');\n    }\n\n    .p-togglebutton-sm {\n        padding: dt('togglebutton.sm.padding');\n        font-size: dt('togglebutton.sm.font.size');\n    }\n\n    .p-togglebutton-sm .p-togglebutton-content {\n        padding: dt('togglebutton.content.sm.padding');\n    }\n\n    .p-togglebutton-lg {\n        padding: dt('togglebutton.lg.padding');\n        font-size: dt('togglebutton.lg.font.size');\n    }\n\n    .p-togglebutton-lg .p-togglebutton-content {\n        padding: dt('togglebutton.content.lg.padding');\n    }\n\n    .p-togglebutton-fluid {\n        width: 100%;\n    }\n";
 
 // node_modules/primeng/fesm2022/primeng-togglebutton.mjs
-var _c011 = ["icon"];
-var _c115 = ["content"];
-var _c210 = (a0) => ({
+var _c07 = ["icon"];
+var _c112 = ["content"];
+var _c26 = (a0) => ({
   $implicit: a0
 });
 function ToggleButton_ng_container_1_Template(rf, ctx) {
@@ -14959,7 +10136,7 @@ function ToggleButton_Conditional_2_Conditional_1_Template(rf, ctx) {
   }
   if (rf & 2) {
     const ctx_r0 = ɵɵnextContext(2);
-    ɵɵproperty("ngTemplateOutlet", ctx_r0.iconTemplate || ctx_r0._iconTemplate)("ngTemplateOutletContext", ɵɵpureFunction1(2, _c210, ctx_r0.checked));
+    ɵɵproperty("ngTemplateOutlet", ctx_r0.iconTemplate || ctx_r0._iconTemplate)("ngTemplateOutletContext", ɵɵpureFunction1(2, _c26, ctx_r0.checked));
   }
 }
 function ToggleButton_Conditional_2_Template(rf, ctx) {
@@ -14979,10 +10156,10 @@ function ToggleButton_Conditional_2_Template(rf, ctx) {
     ɵɵtextInterpolate(ctx_r0.checked ? ctx_r0.hasOnLabel ? ctx_r0.onLabel : " " : ctx_r0.hasOffLabel ? ctx_r0.offLabel : " ");
   }
 }
-var theme7 = (
+var theme5 = (
   /*css*/
   `
-    ${style9}
+    ${style7}
 
     /* For PrimeNG (iconPos) */
     .p-togglebutton-icon-right {
@@ -14994,7 +10171,7 @@ var theme7 = (
     }
 `
 );
-var classes9 = {
+var classes6 = {
   root: ({
     instance
   }) => ["p-togglebutton p-component", {
@@ -15013,8 +10190,8 @@ var classes9 = {
 };
 var ToggleButtonStyle = class _ToggleButtonStyle extends BaseStyle {
   name = "togglebutton";
-  theme = theme7;
-  classes = classes9;
+  theme = theme5;
+  classes = classes6;
   static ɵfac = /* @__PURE__ */ (() => {
     let ɵToggleButtonStyle_BaseFactory;
     return function ToggleButtonStyle_Factory(__ngFactoryType__) {
@@ -15217,8 +10394,8 @@ var ToggleButton = class _ToggleButton extends BaseEditableHolder {
     selectors: [["p-toggleButton"], ["p-togglebutton"], ["p-toggle-button"]],
     contentQueries: function ToggleButton_ContentQueries(rf, ctx, dirIndex) {
       if (rf & 1) {
-        ɵɵcontentQuery(dirIndex, _c011, 4);
-        ɵɵcontentQuery(dirIndex, _c115, 4);
+        ɵɵcontentQuery(dirIndex, _c07, 4);
+        ɵɵcontentQuery(dirIndex, _c112, 4);
         ɵɵcontentQuery(dirIndex, PrimeTemplate, 4);
       }
       if (rf & 2) {
@@ -15275,7 +10452,7 @@ var ToggleButton = class _ToggleButton extends BaseEditableHolder {
       if (rf & 2) {
         ɵɵclassMap(ctx.cx("content"));
         ɵɵadvance();
-        ɵɵproperty("ngTemplateOutlet", ctx.contentTemplate || ctx._contentTemplate)("ngTemplateOutletContext", ɵɵpureFunction1(5, _c210, ctx.checked));
+        ɵɵproperty("ngTemplateOutlet", ctx.contentTemplate || ctx._contentTemplate)("ngTemplateOutletContext", ɵɵpureFunction1(5, _c26, ctx.checked));
         ɵɵadvance();
         ɵɵconditional(!ctx.contentTemplate ? 2 : -1);
       }
@@ -15417,11 +10594,11 @@ var ToggleButtonModule = class _ToggleButtonModule {
 })();
 
 // node_modules/@primeuix/styles/dist/selectbutton/index.mjs
-var style10 = "\n    .p-selectbutton {\n        display: inline-flex;\n        user-select: none;\n        vertical-align: bottom;\n        outline-color: transparent;\n        border-radius: dt('selectbutton.border.radius');\n    }\n\n    .p-selectbutton .p-togglebutton {\n        border-radius: 0;\n        border-width: 1px 1px 1px 0;\n    }\n\n    .p-selectbutton .p-togglebutton:focus-visible {\n        position: relative;\n        z-index: 1;\n    }\n\n    .p-selectbutton .p-togglebutton:first-child {\n        border-inline-start-width: 1px;\n        border-start-start-radius: dt('selectbutton.border.radius');\n        border-end-start-radius: dt('selectbutton.border.radius');\n    }\n\n    .p-selectbutton .p-togglebutton:last-child {\n        border-start-end-radius: dt('selectbutton.border.radius');\n        border-end-end-radius: dt('selectbutton.border.radius');\n    }\n\n    .p-selectbutton.p-invalid {\n        outline: 1px solid dt('selectbutton.invalid.border.color');\n        outline-offset: 0;\n    }\n\n    .p-selectbutton-fluid {\n        width: 100%;\n    }\n    \n    .p-selectbutton-fluid .p-togglebutton {\n        flex: 1 1 0;\n    }\n";
+var style8 = "\n    .p-selectbutton {\n        display: inline-flex;\n        user-select: none;\n        vertical-align: bottom;\n        outline-color: transparent;\n        border-radius: dt('selectbutton.border.radius');\n    }\n\n    .p-selectbutton .p-togglebutton {\n        border-radius: 0;\n        border-width: 1px 1px 1px 0;\n    }\n\n    .p-selectbutton .p-togglebutton:focus-visible {\n        position: relative;\n        z-index: 1;\n    }\n\n    .p-selectbutton .p-togglebutton:first-child {\n        border-inline-start-width: 1px;\n        border-start-start-radius: dt('selectbutton.border.radius');\n        border-end-start-radius: dt('selectbutton.border.radius');\n    }\n\n    .p-selectbutton .p-togglebutton:last-child {\n        border-start-end-radius: dt('selectbutton.border.radius');\n        border-end-end-radius: dt('selectbutton.border.radius');\n    }\n\n    .p-selectbutton.p-invalid {\n        outline: 1px solid dt('selectbutton.invalid.border.color');\n        outline-offset: 0;\n    }\n\n    .p-selectbutton-fluid {\n        width: 100%;\n    }\n    \n    .p-selectbutton-fluid .p-togglebutton {\n        flex: 1 1 0;\n    }\n";
 
 // node_modules/primeng/fesm2022/primeng-selectbutton.mjs
-var _c012 = ["item"];
-var _c116 = (a0, a1) => ({
+var _c08 = ["item"];
+var _c113 = (a0, a1) => ({
   $implicit: a0,
   index: a1
 });
@@ -15442,7 +10619,7 @@ function SelectButton_For_1_Conditional_1_ng_template_0_Template(rf, ctx) {
     const option_r3 = ctx_r5.$implicit;
     const ɵ$index_1_r4 = ctx_r5.$index;
     const ctx_r4 = ɵɵnextContext();
-    ɵɵproperty("ngTemplateOutlet", ctx_r4.itemTemplate || ctx_r4._itemTemplate)("ngTemplateOutletContext", ɵɵpureFunction2(2, _c116, option_r3, ɵ$index_1_r4));
+    ɵɵproperty("ngTemplateOutlet", ctx_r4.itemTemplate || ctx_r4._itemTemplate)("ngTemplateOutletContext", ɵɵpureFunction2(2, _c113, option_r3, ɵ$index_1_r4));
   }
 }
 function SelectButton_For_1_Conditional_1_Template(rf, ctx) {
@@ -15472,10 +10649,10 @@ function SelectButton_For_1_Template(rf, ctx) {
     ɵɵconditional(ctx_r4.itemTemplate || ctx_r4._itemTemplate ? 1 : -1);
   }
 }
-var theme8 = (
+var theme6 = (
   /*css*/
   `
-    ${style10}
+    ${style8}
 
     /* For PrimeNG */
     .p-selectbutton.ng-invalid.ng-dirty {
@@ -15484,7 +10661,7 @@ var theme8 = (
     }
 `
 );
-var classes10 = {
+var classes7 = {
   root: ({
     instance
   }) => ["p-selectbutton p-component", {
@@ -15494,8 +10671,8 @@ var classes10 = {
 };
 var SelectButtonStyle = class _SelectButtonStyle extends BaseStyle {
   name = "selectbutton";
-  theme = theme8;
-  classes = classes10;
+  theme = theme6;
+  classes = classes7;
   static ɵfac = /* @__PURE__ */ (() => {
     let ɵSelectButtonStyle_BaseFactory;
     return function SelectButtonStyle_Factory(__ngFactoryType__) {
@@ -15756,7 +10933,7 @@ var SelectButton = class _SelectButton extends BaseEditableHolder {
     selectors: [["p-selectButton"], ["p-selectbutton"], ["p-select-button"]],
     contentQueries: function SelectButton_ContentQueries(rf, ctx, dirIndex) {
       if (rf & 1) {
-        ɵɵcontentQuery(dirIndex, _c012, 4);
+        ɵɵcontentQuery(dirIndex, _c08, 4);
         ɵɵcontentQuery(dirIndex, PrimeTemplate, 4);
       }
       if (rf & 2) {
@@ -15943,46 +11120,46 @@ var SelectButtonModule = class _SelectButtonModule {
 })();
 
 // node_modules/@primeuix/styles/dist/datatable/index.mjs
-var style11 = "\n    .p-datatable {\n        position: relative;\n    }\n\n    .p-datatable-table {\n        border-spacing: 0;\n        border-collapse: separate;\n        width: 100%;\n    }\n\n    .p-datatable-scrollable > .p-datatable-table-container {\n        position: relative;\n    }\n\n    .p-datatable-scrollable-table > .p-datatable-thead {\n        inset-block-start: 0;\n        z-index: 1;\n    }\n\n    .p-datatable-scrollable-table > .p-datatable-frozen-tbody {\n        position: sticky;\n        z-index: 1;\n    }\n\n    .p-datatable-scrollable-table > .p-datatable-tfoot {\n        inset-block-end: 0;\n        z-index: 1;\n    }\n\n    .p-datatable-scrollable .p-datatable-frozen-column {\n        position: sticky;\n        background: dt('datatable.header.cell.background');\n    }\n\n    .p-datatable-scrollable th.p-datatable-frozen-column {\n        z-index: 1;\n    }\n\n    .p-datatable-scrollable > .p-datatable-table-container > .p-datatable-table > .p-datatable-thead,\n    .p-datatable-scrollable > .p-datatable-table-container > .p-virtualscroller > .p-datatable-table > .p-datatable-thead {\n        background: dt('datatable.header.cell.background');\n    }\n\n    .p-datatable-scrollable > .p-datatable-table-container > .p-datatable-table > .p-datatable-tfoot,\n    .p-datatable-scrollable > .p-datatable-table-container > .p-virtualscroller > .p-datatable-table > .p-datatable-tfoot {\n        background: dt('datatable.footer.cell.background');\n    }\n\n    .p-datatable-flex-scrollable {\n        display: flex;\n        flex-direction: column;\n        height: 100%;\n    }\n\n    .p-datatable-flex-scrollable > .p-datatable-table-container {\n        display: flex;\n        flex-direction: column;\n        flex: 1;\n        height: 100%;\n    }\n\n    .p-datatable-scrollable-table > .p-datatable-tbody > .p-datatable-row-group-header {\n        position: sticky;\n        z-index: 1;\n    }\n\n    .p-datatable-resizable-table > .p-datatable-thead > tr > th,\n    .p-datatable-resizable-table > .p-datatable-tfoot > tr > td,\n    .p-datatable-resizable-table > .p-datatable-tbody > tr > td {\n        overflow: hidden;\n        white-space: nowrap;\n    }\n\n    .p-datatable-resizable-table > .p-datatable-thead > tr > th.p-datatable-resizable-column:not(.p-datatable-frozen-column) {\n        background-clip: padding-box;\n        position: relative;\n    }\n\n    .p-datatable-resizable-table-fit > .p-datatable-thead > tr > th.p-datatable-resizable-column:last-child .p-datatable-column-resizer {\n        display: none;\n    }\n\n    .p-datatable-column-resizer {\n        display: block;\n        position: absolute;\n        inset-block-start: 0;\n        inset-inline-end: 0;\n        margin: 0;\n        width: dt('datatable.column.resizer.width');\n        height: 100%;\n        padding: 0;\n        cursor: col-resize;\n        border: 1px solid transparent;\n    }\n\n    .p-datatable-column-header-content {\n        display: flex;\n        align-items: center;\n        gap: dt('datatable.header.cell.gap');\n    }\n\n    .p-datatable-column-resize-indicator {\n        width: dt('datatable.resize.indicator.width');\n        position: absolute;\n        z-index: 10;\n        display: none;\n        background: dt('datatable.resize.indicator.color');\n    }\n\n    .p-datatable-row-reorder-indicator-up,\n    .p-datatable-row-reorder-indicator-down {\n        position: absolute;\n        display: none;\n    }\n\n    .p-datatable-reorderable-column,\n    .p-datatable-reorderable-row-handle {\n        cursor: move;\n    }\n\n    .p-datatable-mask {\n        position: absolute;\n        display: flex;\n        align-items: center;\n        justify-content: center;\n        z-index: 2;\n    }\n\n    .p-datatable-inline-filter {\n        display: flex;\n        align-items: center;\n        width: 100%;\n        gap: dt('datatable.filter.inline.gap');\n    }\n\n    .p-datatable-inline-filter .p-datatable-filter-element-container {\n        flex: 1 1 auto;\n        width: 1%;\n    }\n\n    .p-datatable-filter-overlay {\n        background: dt('datatable.filter.overlay.select.background');\n        color: dt('datatable.filter.overlay.select.color');\n        border: 1px solid dt('datatable.filter.overlay.select.border.color');\n        border-radius: dt('datatable.filter.overlay.select.border.radius');\n        box-shadow: dt('datatable.filter.overlay.select.shadow');\n        min-width: 12.5rem;\n    }\n\n    .p-datatable-filter-constraint-list {\n        margin: 0;\n        list-style: none;\n        display: flex;\n        flex-direction: column;\n        padding: dt('datatable.filter.constraint.list.padding');\n        gap: dt('datatable.filter.constraint.list.gap');\n    }\n\n    .p-datatable-filter-constraint {\n        padding: dt('datatable.filter.constraint.padding');\n        color: dt('datatable.filter.constraint.color');\n        border-radius: dt('datatable.filter.constraint.border.radius');\n        cursor: pointer;\n        transition:\n            background dt('datatable.transition.duration'),\n            color dt('datatable.transition.duration'),\n            border-color dt('datatable.transition.duration'),\n            box-shadow dt('datatable.transition.duration');\n    }\n\n    .p-datatable-filter-constraint-selected {\n        background: dt('datatable.filter.constraint.selected.background');\n        color: dt('datatable.filter.constraint.selected.color');\n    }\n\n    .p-datatable-filter-constraint:not(.p-datatable-filter-constraint-selected):not(.p-disabled):hover {\n        background: dt('datatable.filter.constraint.focus.background');\n        color: dt('datatable.filter.constraint.focus.color');\n    }\n\n    .p-datatable-filter-constraint:focus-visible {\n        outline: 0 none;\n        background: dt('datatable.filter.constraint.focus.background');\n        color: dt('datatable.filter.constraint.focus.color');\n    }\n\n    .p-datatable-filter-constraint-selected:focus-visible {\n        outline: 0 none;\n        background: dt('datatable.filter.constraint.selected.focus.background');\n        color: dt('datatable.filter.constraint.selected.focus.color');\n    }\n\n    .p-datatable-filter-constraint-separator {\n        border-block-start: 1px solid dt('datatable.filter.constraint.separator.border.color');\n    }\n\n    .p-datatable-popover-filter {\n        display: inline-flex;\n        margin-inline-start: auto;\n    }\n\n    .p-datatable-filter-overlay-popover {\n        background: dt('datatable.filter.overlay.popover.background');\n        color: dt('datatable.filter.overlay.popover.color');\n        border: 1px solid dt('datatable.filter.overlay.popover.border.color');\n        border-radius: dt('datatable.filter.overlay.popover.border.radius');\n        box-shadow: dt('datatable.filter.overlay.popover.shadow');\n        min-width: 12.5rem;\n        padding: dt('datatable.filter.overlay.popover.padding');\n        display: flex;\n        flex-direction: column;\n        gap: dt('datatable.filter.overlay.popover.gap');\n    }\n\n    .p-datatable-filter-operator-dropdown {\n        width: 100%;\n    }\n\n    .p-datatable-filter-rule-list,\n    .p-datatable-filter-rule {\n        display: flex;\n        flex-direction: column;\n        gap: dt('datatable.filter.overlay.popover.gap');\n    }\n\n    .p-datatable-filter-rule {\n        border-block-end: 1px solid dt('datatable.filter.rule.border.color');\n        padding-bottom: dt('datatable.filter.overlay.popover.gap');\n    }\n\n    .p-datatable-filter-rule:last-child {\n        border-block-end: 0 none;\n        padding-bottom: 0;\n    }\n\n    .p-datatable-filter-add-rule-button {\n        width: 100%;\n    }\n\n    .p-datatable-filter-remove-rule-button {\n        width: 100%;\n    }\n\n    .p-datatable-filter-buttonbar {\n        padding: 0;\n        display: flex;\n        align-items: center;\n        justify-content: space-between;\n    }\n\n    .p-datatable-virtualscroller-spacer {\n        display: flex;\n    }\n\n    .p-datatable .p-virtualscroller .p-virtualscroller-loading {\n        transform: none !important;\n        min-height: 0;\n        position: sticky;\n        inset-block-start: 0;\n        inset-inline-start: 0;\n    }\n\n    .p-datatable-paginator-top {\n        border-color: dt('datatable.paginator.top.border.color');\n        border-style: solid;\n        border-width: dt('datatable.paginator.top.border.width');\n    }\n\n    .p-datatable-paginator-bottom {\n        border-color: dt('datatable.paginator.bottom.border.color');\n        border-style: solid;\n        border-width: dt('datatable.paginator.bottom.border.width');\n    }\n\n    .p-datatable-header {\n        background: dt('datatable.header.background');\n        color: dt('datatable.header.color');\n        border-color: dt('datatable.header.border.color');\n        border-style: solid;\n        border-width: dt('datatable.header.border.width');\n        padding: dt('datatable.header.padding');\n    }\n\n    .p-datatable-footer {\n        background: dt('datatable.footer.background');\n        color: dt('datatable.footer.color');\n        border-color: dt('datatable.footer.border.color');\n        border-style: solid;\n        border-width: dt('datatable.footer.border.width');\n        padding: dt('datatable.footer.padding');\n    }\n\n    .p-datatable-header-cell {\n        padding: dt('datatable.header.cell.padding');\n        background: dt('datatable.header.cell.background');\n        border-color: dt('datatable.header.cell.border.color');\n        border-style: solid;\n        border-width: 0 0 1px 0;\n        color: dt('datatable.header.cell.color');\n        font-weight: normal;\n        text-align: start;\n        transition:\n            background dt('datatable.transition.duration'),\n            color dt('datatable.transition.duration'),\n            border-color dt('datatable.transition.duration'),\n            outline-color dt('datatable.transition.duration'),\n            box-shadow dt('datatable.transition.duration');\n    }\n\n    .p-datatable-column-title {\n        font-weight: dt('datatable.column.title.font.weight');\n    }\n\n    .p-datatable-tbody > tr {\n        outline-color: transparent;\n        background: dt('datatable.row.background');\n        color: dt('datatable.row.color');\n        transition:\n            background dt('datatable.transition.duration'),\n            color dt('datatable.transition.duration'),\n            border-color dt('datatable.transition.duration'),\n            outline-color dt('datatable.transition.duration'),\n            box-shadow dt('datatable.transition.duration');\n    }\n\n    .p-datatable-tbody > tr > td {\n        text-align: start;\n        border-color: dt('datatable.body.cell.border.color');\n        border-style: solid;\n        border-width: 0 0 1px 0;\n        padding: dt('datatable.body.cell.padding');\n    }\n\n    .p-datatable-hoverable .p-datatable-tbody > tr:not(.p-datatable-row-selected):hover {\n        background: dt('datatable.row.hover.background');\n        color: dt('datatable.row.hover.color');\n    }\n\n    .p-datatable-tbody > tr.p-datatable-row-selected {\n        background: dt('datatable.row.selected.background');\n        color: dt('datatable.row.selected.color');\n    }\n\n    .p-datatable-tbody > tr:has(+ .p-datatable-row-selected) > td {\n        border-block-end-color: dt('datatable.body.cell.selected.border.color');\n    }\n\n    .p-datatable-tbody > tr.p-datatable-row-selected > td {\n        border-block-end-color: dt('datatable.body.cell.selected.border.color');\n    }\n\n    .p-datatable-tbody > tr:focus-visible,\n    .p-datatable-tbody > tr.p-datatable-contextmenu-row-selected {\n        box-shadow: dt('datatable.row.focus.ring.shadow');\n        outline: dt('datatable.row.focus.ring.width') dt('datatable.row.focus.ring.style') dt('datatable.row.focus.ring.color');\n        outline-offset: dt('datatable.row.focus.ring.offset');\n    }\n\n    .p-datatable-tfoot > tr > td {\n        text-align: start;\n        padding: dt('datatable.footer.cell.padding');\n        border-color: dt('datatable.footer.cell.border.color');\n        border-style: solid;\n        border-width: 0 0 1px 0;\n        color: dt('datatable.footer.cell.color');\n        background: dt('datatable.footer.cell.background');\n    }\n\n    .p-datatable-column-footer {\n        font-weight: dt('datatable.column.footer.font.weight');\n    }\n\n    .p-datatable-sortable-column {\n        cursor: pointer;\n        user-select: none;\n        outline-color: transparent;\n    }\n\n    .p-datatable-column-title,\n    .p-datatable-sort-icon,\n    .p-datatable-sort-badge {\n        vertical-align: middle;\n    }\n\n    .p-datatable-sort-icon {\n        color: dt('datatable.sort.icon.color');\n        font-size: dt('datatable.sort.icon.size');\n        width: dt('datatable.sort.icon.size');\n        height: dt('datatable.sort.icon.size');\n        transition: color dt('datatable.transition.duration');\n    }\n\n    .p-datatable-sortable-column:not(.p-datatable-column-sorted):hover {\n        background: dt('datatable.header.cell.hover.background');\n        color: dt('datatable.header.cell.hover.color');\n    }\n\n    .p-datatable-sortable-column:not(.p-datatable-column-sorted):hover .p-datatable-sort-icon {\n        color: dt('datatable.sort.icon.hover.color');\n    }\n\n    .p-datatable-column-sorted {\n        background: dt('datatable.header.cell.selected.background');\n        color: dt('datatable.header.cell.selected.color');\n    }\n\n    .p-datatable-column-sorted .p-datatable-sort-icon {\n        color: dt('datatable.header.cell.selected.color');\n    }\n\n    .p-datatable-sortable-column:focus-visible {\n        box-shadow: dt('datatable.header.cell.focus.ring.shadow');\n        outline: dt('datatable.header.cell.focus.ring.width') dt('datatable.header.cell.focus.ring.style') dt('datatable.header.cell.focus.ring.color');\n        outline-offset: dt('datatable.header.cell.focus.ring.offset');\n    }\n\n    .p-datatable-hoverable .p-datatable-selectable-row {\n        cursor: pointer;\n    }\n\n    .p-datatable-tbody > tr.p-datatable-dragpoint-top > td {\n        box-shadow: inset 0 2px 0 0 dt('datatable.drop.point.color');\n    }\n\n    .p-datatable-tbody > tr.p-datatable-dragpoint-bottom > td {\n        box-shadow: inset 0 -2px 0 0 dt('datatable.drop.point.color');\n    }\n\n    .p-datatable-loading-icon {\n        font-size: dt('datatable.loading.icon.size');\n        width: dt('datatable.loading.icon.size');\n        height: dt('datatable.loading.icon.size');\n    }\n\n    .p-datatable-gridlines .p-datatable-header {\n        border-width: 1px 1px 0 1px;\n    }\n\n    .p-datatable-gridlines .p-datatable-footer {\n        border-width: 0 1px 1px 1px;\n    }\n\n    .p-datatable-gridlines .p-datatable-paginator-top {\n        border-width: 1px 1px 0 1px;\n    }\n\n    .p-datatable-gridlines .p-datatable-paginator-bottom {\n        border-width: 0 1px 1px 1px;\n    }\n\n    .p-datatable-gridlines .p-datatable-thead > tr > th {\n        border-width: 1px 0 1px 1px;\n    }\n\n    .p-datatable-gridlines .p-datatable-thead > tr > th:last-child {\n        border-width: 1px;\n    }\n\n    .p-datatable-gridlines .p-datatable-tbody > tr > td {\n        border-width: 1px 0 0 1px;\n    }\n\n    .p-datatable-gridlines .p-datatable-tbody > tr > td:last-child {\n        border-width: 1px 1px 0 1px;\n    }\n\n    .p-datatable-gridlines .p-datatable-tbody > tr:last-child > td {\n        border-width: 1px 0 1px 1px;\n    }\n\n    .p-datatable-gridlines .p-datatable-tbody > tr:last-child > td:last-child {\n        border-width: 1px;\n    }\n\n    .p-datatable-gridlines .p-datatable-tfoot > tr > td {\n        border-width: 1px 0 1px 1px;\n    }\n\n    .p-datatable-gridlines .p-datatable-tfoot > tr > td:last-child {\n        border-width: 1px 1px 1px 1px;\n    }\n\n    .p-datatable.p-datatable-gridlines .p-datatable-thead + .p-datatable-tfoot > tr > td {\n        border-width: 0 0 1px 1px;\n    }\n\n    .p-datatable.p-datatable-gridlines .p-datatable-thead + .p-datatable-tfoot > tr > td:last-child {\n        border-width: 0 1px 1px 1px;\n    }\n\n    .p-datatable.p-datatable-gridlines:has(.p-datatable-thead):has(.p-datatable-tbody) .p-datatable-tbody > tr > td {\n        border-width: 0 0 1px 1px;\n    }\n\n    .p-datatable.p-datatable-gridlines:has(.p-datatable-thead):has(.p-datatable-tbody) .p-datatable-tbody > tr > td:last-child {\n        border-width: 0 1px 1px 1px;\n    }\n\n    .p-datatable.p-datatable-gridlines:has(.p-datatable-tbody):has(.p-datatable-tfoot) .p-datatable-tbody > tr:last-child > td {\n        border-width: 0 0 0 1px;\n    }\n\n    .p-datatable.p-datatable-gridlines:has(.p-datatable-tbody):has(.p-datatable-tfoot) .p-datatable-tbody > tr:last-child > td:last-child {\n        border-width: 0 1px 0 1px;\n    }\n\n    .p-datatable.p-datatable-striped .p-datatable-tbody > tr.p-row-odd {\n        background: dt('datatable.row.striped.background');\n    }\n\n    .p-datatable.p-datatable-striped .p-datatable-tbody > tr.p-row-odd.p-datatable-row-selected {\n        background: dt('datatable.row.selected.background');\n        color: dt('datatable.row.selected.color');\n    }\n\n    .p-datatable-striped.p-datatable-hoverable .p-datatable-tbody > tr:not(.p-datatable-row-selected):hover {\n        background: dt('datatable.row.hover.background');\n        color: dt('datatable.row.hover.color');\n    }\n\n    .p-datatable.p-datatable-sm .p-datatable-header {\n        padding: dt('datatable.header.sm.padding');\n    }\n\n    .p-datatable.p-datatable-sm .p-datatable-thead > tr > th {\n        padding: dt('datatable.header.cell.sm.padding');\n    }\n\n    .p-datatable.p-datatable-sm .p-datatable-tbody > tr > td {\n        padding: dt('datatable.body.cell.sm.padding');\n    }\n\n    .p-datatable.p-datatable-sm .p-datatable-tfoot > tr > td {\n        padding: dt('datatable.footer.cell.sm.padding');\n    }\n\n    .p-datatable.p-datatable-sm .p-datatable-footer {\n        padding: dt('datatable.footer.sm.padding');\n    }\n\n    .p-datatable.p-datatable-lg .p-datatable-header {\n        padding: dt('datatable.header.lg.padding');\n    }\n\n    .p-datatable.p-datatable-lg .p-datatable-thead > tr > th {\n        padding: dt('datatable.header.cell.lg.padding');\n    }\n\n    .p-datatable.p-datatable-lg .p-datatable-tbody > tr > td {\n        padding: dt('datatable.body.cell.lg.padding');\n    }\n\n    .p-datatable.p-datatable-lg .p-datatable-tfoot > tr > td {\n        padding: dt('datatable.footer.cell.lg.padding');\n    }\n\n    .p-datatable.p-datatable-lg .p-datatable-footer {\n        padding: dt('datatable.footer.lg.padding');\n    }\n\n    .p-datatable-row-toggle-button {\n        display: inline-flex;\n        align-items: center;\n        justify-content: center;\n        overflow: hidden;\n        position: relative;\n        width: dt('datatable.row.toggle.button.size');\n        height: dt('datatable.row.toggle.button.size');\n        color: dt('datatable.row.toggle.button.color');\n        border: 0 none;\n        background: transparent;\n        cursor: pointer;\n        border-radius: dt('datatable.row.toggle.button.border.radius');\n        transition:\n            background dt('datatable.transition.duration'),\n            color dt('datatable.transition.duration'),\n            border-color dt('datatable.transition.duration'),\n            outline-color dt('datatable.transition.duration'),\n            box-shadow dt('datatable.transition.duration');\n        outline-color: transparent;\n        user-select: none;\n    }\n\n    .p-datatable-row-toggle-button:enabled:hover {\n        color: dt('datatable.row.toggle.button.hover.color');\n        background: dt('datatable.row.toggle.button.hover.background');\n    }\n\n    .p-datatable-tbody > tr.p-datatable-row-selected .p-datatable-row-toggle-button:hover {\n        background: dt('datatable.row.toggle.button.selected.hover.background');\n        color: dt('datatable.row.toggle.button.selected.hover.color');\n    }\n\n    .p-datatable-row-toggle-button:focus-visible {\n        box-shadow: dt('datatable.row.toggle.button.focus.ring.shadow');\n        outline: dt('datatable.row.toggle.button.focus.ring.width') dt('datatable.row.toggle.button.focus.ring.style') dt('datatable.row.toggle.button.focus.ring.color');\n        outline-offset: dt('datatable.row.toggle.button.focus.ring.offset');\n    }\n\n    .p-datatable-row-toggle-icon:dir(rtl) {\n        transform: rotate(180deg);\n    }\n";
+var style9 = "\n    .p-datatable {\n        position: relative;\n    }\n\n    .p-datatable-table {\n        border-spacing: 0;\n        border-collapse: separate;\n        width: 100%;\n    }\n\n    .p-datatable-scrollable > .p-datatable-table-container {\n        position: relative;\n    }\n\n    .p-datatable-scrollable-table > .p-datatable-thead {\n        inset-block-start: 0;\n        z-index: 1;\n    }\n\n    .p-datatable-scrollable-table > .p-datatable-frozen-tbody {\n        position: sticky;\n        z-index: 1;\n    }\n\n    .p-datatable-scrollable-table > .p-datatable-tfoot {\n        inset-block-end: 0;\n        z-index: 1;\n    }\n\n    .p-datatable-scrollable .p-datatable-frozen-column {\n        position: sticky;\n        background: dt('datatable.header.cell.background');\n    }\n\n    .p-datatable-scrollable th.p-datatable-frozen-column {\n        z-index: 1;\n    }\n\n    .p-datatable-scrollable > .p-datatable-table-container > .p-datatable-table > .p-datatable-thead,\n    .p-datatable-scrollable > .p-datatable-table-container > .p-virtualscroller > .p-datatable-table > .p-datatable-thead {\n        background: dt('datatable.header.cell.background');\n    }\n\n    .p-datatable-scrollable > .p-datatable-table-container > .p-datatable-table > .p-datatable-tfoot,\n    .p-datatable-scrollable > .p-datatable-table-container > .p-virtualscroller > .p-datatable-table > .p-datatable-tfoot {\n        background: dt('datatable.footer.cell.background');\n    }\n\n    .p-datatable-flex-scrollable {\n        display: flex;\n        flex-direction: column;\n        height: 100%;\n    }\n\n    .p-datatable-flex-scrollable > .p-datatable-table-container {\n        display: flex;\n        flex-direction: column;\n        flex: 1;\n        height: 100%;\n    }\n\n    .p-datatable-scrollable-table > .p-datatable-tbody > .p-datatable-row-group-header {\n        position: sticky;\n        z-index: 1;\n    }\n\n    .p-datatable-resizable-table > .p-datatable-thead > tr > th,\n    .p-datatable-resizable-table > .p-datatable-tfoot > tr > td,\n    .p-datatable-resizable-table > .p-datatable-tbody > tr > td {\n        overflow: hidden;\n        white-space: nowrap;\n    }\n\n    .p-datatable-resizable-table > .p-datatable-thead > tr > th.p-datatable-resizable-column:not(.p-datatable-frozen-column) {\n        background-clip: padding-box;\n        position: relative;\n    }\n\n    .p-datatable-resizable-table-fit > .p-datatable-thead > tr > th.p-datatable-resizable-column:last-child .p-datatable-column-resizer {\n        display: none;\n    }\n\n    .p-datatable-column-resizer {\n        display: block;\n        position: absolute;\n        inset-block-start: 0;\n        inset-inline-end: 0;\n        margin: 0;\n        width: dt('datatable.column.resizer.width');\n        height: 100%;\n        padding: 0;\n        cursor: col-resize;\n        border: 1px solid transparent;\n    }\n\n    .p-datatable-column-header-content {\n        display: flex;\n        align-items: center;\n        gap: dt('datatable.header.cell.gap');\n    }\n\n    .p-datatable-column-resize-indicator {\n        width: dt('datatable.resize.indicator.width');\n        position: absolute;\n        z-index: 10;\n        display: none;\n        background: dt('datatable.resize.indicator.color');\n    }\n\n    .p-datatable-row-reorder-indicator-up,\n    .p-datatable-row-reorder-indicator-down {\n        position: absolute;\n        display: none;\n    }\n\n    .p-datatable-reorderable-column,\n    .p-datatable-reorderable-row-handle {\n        cursor: move;\n    }\n\n    .p-datatable-mask {\n        position: absolute;\n        display: flex;\n        align-items: center;\n        justify-content: center;\n        z-index: 2;\n    }\n\n    .p-datatable-inline-filter {\n        display: flex;\n        align-items: center;\n        width: 100%;\n        gap: dt('datatable.filter.inline.gap');\n    }\n\n    .p-datatable-inline-filter .p-datatable-filter-element-container {\n        flex: 1 1 auto;\n        width: 1%;\n    }\n\n    .p-datatable-filter-overlay {\n        background: dt('datatable.filter.overlay.select.background');\n        color: dt('datatable.filter.overlay.select.color');\n        border: 1px solid dt('datatable.filter.overlay.select.border.color');\n        border-radius: dt('datatable.filter.overlay.select.border.radius');\n        box-shadow: dt('datatable.filter.overlay.select.shadow');\n        min-width: 12.5rem;\n    }\n\n    .p-datatable-filter-constraint-list {\n        margin: 0;\n        list-style: none;\n        display: flex;\n        flex-direction: column;\n        padding: dt('datatable.filter.constraint.list.padding');\n        gap: dt('datatable.filter.constraint.list.gap');\n    }\n\n    .p-datatable-filter-constraint {\n        padding: dt('datatable.filter.constraint.padding');\n        color: dt('datatable.filter.constraint.color');\n        border-radius: dt('datatable.filter.constraint.border.radius');\n        cursor: pointer;\n        transition:\n            background dt('datatable.transition.duration'),\n            color dt('datatable.transition.duration'),\n            border-color dt('datatable.transition.duration'),\n            box-shadow dt('datatable.transition.duration');\n    }\n\n    .p-datatable-filter-constraint-selected {\n        background: dt('datatable.filter.constraint.selected.background');\n        color: dt('datatable.filter.constraint.selected.color');\n    }\n\n    .p-datatable-filter-constraint:not(.p-datatable-filter-constraint-selected):not(.p-disabled):hover {\n        background: dt('datatable.filter.constraint.focus.background');\n        color: dt('datatable.filter.constraint.focus.color');\n    }\n\n    .p-datatable-filter-constraint:focus-visible {\n        outline: 0 none;\n        background: dt('datatable.filter.constraint.focus.background');\n        color: dt('datatable.filter.constraint.focus.color');\n    }\n\n    .p-datatable-filter-constraint-selected:focus-visible {\n        outline: 0 none;\n        background: dt('datatable.filter.constraint.selected.focus.background');\n        color: dt('datatable.filter.constraint.selected.focus.color');\n    }\n\n    .p-datatable-filter-constraint-separator {\n        border-block-start: 1px solid dt('datatable.filter.constraint.separator.border.color');\n    }\n\n    .p-datatable-popover-filter {\n        display: inline-flex;\n        margin-inline-start: auto;\n    }\n\n    .p-datatable-filter-overlay-popover {\n        background: dt('datatable.filter.overlay.popover.background');\n        color: dt('datatable.filter.overlay.popover.color');\n        border: 1px solid dt('datatable.filter.overlay.popover.border.color');\n        border-radius: dt('datatable.filter.overlay.popover.border.radius');\n        box-shadow: dt('datatable.filter.overlay.popover.shadow');\n        min-width: 12.5rem;\n        padding: dt('datatable.filter.overlay.popover.padding');\n        display: flex;\n        flex-direction: column;\n        gap: dt('datatable.filter.overlay.popover.gap');\n    }\n\n    .p-datatable-filter-operator-dropdown {\n        width: 100%;\n    }\n\n    .p-datatable-filter-rule-list,\n    .p-datatable-filter-rule {\n        display: flex;\n        flex-direction: column;\n        gap: dt('datatable.filter.overlay.popover.gap');\n    }\n\n    .p-datatable-filter-rule {\n        border-block-end: 1px solid dt('datatable.filter.rule.border.color');\n        padding-bottom: dt('datatable.filter.overlay.popover.gap');\n    }\n\n    .p-datatable-filter-rule:last-child {\n        border-block-end: 0 none;\n        padding-bottom: 0;\n    }\n\n    .p-datatable-filter-add-rule-button {\n        width: 100%;\n    }\n\n    .p-datatable-filter-remove-rule-button {\n        width: 100%;\n    }\n\n    .p-datatable-filter-buttonbar {\n        padding: 0;\n        display: flex;\n        align-items: center;\n        justify-content: space-between;\n    }\n\n    .p-datatable-virtualscroller-spacer {\n        display: flex;\n    }\n\n    .p-datatable .p-virtualscroller .p-virtualscroller-loading {\n        transform: none !important;\n        min-height: 0;\n        position: sticky;\n        inset-block-start: 0;\n        inset-inline-start: 0;\n    }\n\n    .p-datatable-paginator-top {\n        border-color: dt('datatable.paginator.top.border.color');\n        border-style: solid;\n        border-width: dt('datatable.paginator.top.border.width');\n    }\n\n    .p-datatable-paginator-bottom {\n        border-color: dt('datatable.paginator.bottom.border.color');\n        border-style: solid;\n        border-width: dt('datatable.paginator.bottom.border.width');\n    }\n\n    .p-datatable-header {\n        background: dt('datatable.header.background');\n        color: dt('datatable.header.color');\n        border-color: dt('datatable.header.border.color');\n        border-style: solid;\n        border-width: dt('datatable.header.border.width');\n        padding: dt('datatable.header.padding');\n    }\n\n    .p-datatable-footer {\n        background: dt('datatable.footer.background');\n        color: dt('datatable.footer.color');\n        border-color: dt('datatable.footer.border.color');\n        border-style: solid;\n        border-width: dt('datatable.footer.border.width');\n        padding: dt('datatable.footer.padding');\n    }\n\n    .p-datatable-header-cell {\n        padding: dt('datatable.header.cell.padding');\n        background: dt('datatable.header.cell.background');\n        border-color: dt('datatable.header.cell.border.color');\n        border-style: solid;\n        border-width: 0 0 1px 0;\n        color: dt('datatable.header.cell.color');\n        font-weight: normal;\n        text-align: start;\n        transition:\n            background dt('datatable.transition.duration'),\n            color dt('datatable.transition.duration'),\n            border-color dt('datatable.transition.duration'),\n            outline-color dt('datatable.transition.duration'),\n            box-shadow dt('datatable.transition.duration');\n    }\n\n    .p-datatable-column-title {\n        font-weight: dt('datatable.column.title.font.weight');\n    }\n\n    .p-datatable-tbody > tr {\n        outline-color: transparent;\n        background: dt('datatable.row.background');\n        color: dt('datatable.row.color');\n        transition:\n            background dt('datatable.transition.duration'),\n            color dt('datatable.transition.duration'),\n            border-color dt('datatable.transition.duration'),\n            outline-color dt('datatable.transition.duration'),\n            box-shadow dt('datatable.transition.duration');\n    }\n\n    .p-datatable-tbody > tr > td {\n        text-align: start;\n        border-color: dt('datatable.body.cell.border.color');\n        border-style: solid;\n        border-width: 0 0 1px 0;\n        padding: dt('datatable.body.cell.padding');\n    }\n\n    .p-datatable-hoverable .p-datatable-tbody > tr:not(.p-datatable-row-selected):hover {\n        background: dt('datatable.row.hover.background');\n        color: dt('datatable.row.hover.color');\n    }\n\n    .p-datatable-tbody > tr.p-datatable-row-selected {\n        background: dt('datatable.row.selected.background');\n        color: dt('datatable.row.selected.color');\n    }\n\n    .p-datatable-tbody > tr:has(+ .p-datatable-row-selected) > td {\n        border-block-end-color: dt('datatable.body.cell.selected.border.color');\n    }\n\n    .p-datatable-tbody > tr.p-datatable-row-selected > td {\n        border-block-end-color: dt('datatable.body.cell.selected.border.color');\n    }\n\n    .p-datatable-tbody > tr:focus-visible,\n    .p-datatable-tbody > tr.p-datatable-contextmenu-row-selected {\n        box-shadow: dt('datatable.row.focus.ring.shadow');\n        outline: dt('datatable.row.focus.ring.width') dt('datatable.row.focus.ring.style') dt('datatable.row.focus.ring.color');\n        outline-offset: dt('datatable.row.focus.ring.offset');\n    }\n\n    .p-datatable-tfoot > tr > td {\n        text-align: start;\n        padding: dt('datatable.footer.cell.padding');\n        border-color: dt('datatable.footer.cell.border.color');\n        border-style: solid;\n        border-width: 0 0 1px 0;\n        color: dt('datatable.footer.cell.color');\n        background: dt('datatable.footer.cell.background');\n    }\n\n    .p-datatable-column-footer {\n        font-weight: dt('datatable.column.footer.font.weight');\n    }\n\n    .p-datatable-sortable-column {\n        cursor: pointer;\n        user-select: none;\n        outline-color: transparent;\n    }\n\n    .p-datatable-column-title,\n    .p-datatable-sort-icon,\n    .p-datatable-sort-badge {\n        vertical-align: middle;\n    }\n\n    .p-datatable-sort-icon {\n        color: dt('datatable.sort.icon.color');\n        font-size: dt('datatable.sort.icon.size');\n        width: dt('datatable.sort.icon.size');\n        height: dt('datatable.sort.icon.size');\n        transition: color dt('datatable.transition.duration');\n    }\n\n    .p-datatable-sortable-column:not(.p-datatable-column-sorted):hover {\n        background: dt('datatable.header.cell.hover.background');\n        color: dt('datatable.header.cell.hover.color');\n    }\n\n    .p-datatable-sortable-column:not(.p-datatable-column-sorted):hover .p-datatable-sort-icon {\n        color: dt('datatable.sort.icon.hover.color');\n    }\n\n    .p-datatable-column-sorted {\n        background: dt('datatable.header.cell.selected.background');\n        color: dt('datatable.header.cell.selected.color');\n    }\n\n    .p-datatable-column-sorted .p-datatable-sort-icon {\n        color: dt('datatable.header.cell.selected.color');\n    }\n\n    .p-datatable-sortable-column:focus-visible {\n        box-shadow: dt('datatable.header.cell.focus.ring.shadow');\n        outline: dt('datatable.header.cell.focus.ring.width') dt('datatable.header.cell.focus.ring.style') dt('datatable.header.cell.focus.ring.color');\n        outline-offset: dt('datatable.header.cell.focus.ring.offset');\n    }\n\n    .p-datatable-hoverable .p-datatable-selectable-row {\n        cursor: pointer;\n    }\n\n    .p-datatable-tbody > tr.p-datatable-dragpoint-top > td {\n        box-shadow: inset 0 2px 0 0 dt('datatable.drop.point.color');\n    }\n\n    .p-datatable-tbody > tr.p-datatable-dragpoint-bottom > td {\n        box-shadow: inset 0 -2px 0 0 dt('datatable.drop.point.color');\n    }\n\n    .p-datatable-loading-icon {\n        font-size: dt('datatable.loading.icon.size');\n        width: dt('datatable.loading.icon.size');\n        height: dt('datatable.loading.icon.size');\n    }\n\n    .p-datatable-gridlines .p-datatable-header {\n        border-width: 1px 1px 0 1px;\n    }\n\n    .p-datatable-gridlines .p-datatable-footer {\n        border-width: 0 1px 1px 1px;\n    }\n\n    .p-datatable-gridlines .p-datatable-paginator-top {\n        border-width: 1px 1px 0 1px;\n    }\n\n    .p-datatable-gridlines .p-datatable-paginator-bottom {\n        border-width: 0 1px 1px 1px;\n    }\n\n    .p-datatable-gridlines .p-datatable-thead > tr > th {\n        border-width: 1px 0 1px 1px;\n    }\n\n    .p-datatable-gridlines .p-datatable-thead > tr > th:last-child {\n        border-width: 1px;\n    }\n\n    .p-datatable-gridlines .p-datatable-tbody > tr > td {\n        border-width: 1px 0 0 1px;\n    }\n\n    .p-datatable-gridlines .p-datatable-tbody > tr > td:last-child {\n        border-width: 1px 1px 0 1px;\n    }\n\n    .p-datatable-gridlines .p-datatable-tbody > tr:last-child > td {\n        border-width: 1px 0 1px 1px;\n    }\n\n    .p-datatable-gridlines .p-datatable-tbody > tr:last-child > td:last-child {\n        border-width: 1px;\n    }\n\n    .p-datatable-gridlines .p-datatable-tfoot > tr > td {\n        border-width: 1px 0 1px 1px;\n    }\n\n    .p-datatable-gridlines .p-datatable-tfoot > tr > td:last-child {\n        border-width: 1px 1px 1px 1px;\n    }\n\n    .p-datatable.p-datatable-gridlines .p-datatable-thead + .p-datatable-tfoot > tr > td {\n        border-width: 0 0 1px 1px;\n    }\n\n    .p-datatable.p-datatable-gridlines .p-datatable-thead + .p-datatable-tfoot > tr > td:last-child {\n        border-width: 0 1px 1px 1px;\n    }\n\n    .p-datatable.p-datatable-gridlines:has(.p-datatable-thead):has(.p-datatable-tbody) .p-datatable-tbody > tr > td {\n        border-width: 0 0 1px 1px;\n    }\n\n    .p-datatable.p-datatable-gridlines:has(.p-datatable-thead):has(.p-datatable-tbody) .p-datatable-tbody > tr > td:last-child {\n        border-width: 0 1px 1px 1px;\n    }\n\n    .p-datatable.p-datatable-gridlines:has(.p-datatable-tbody):has(.p-datatable-tfoot) .p-datatable-tbody > tr:last-child > td {\n        border-width: 0 0 0 1px;\n    }\n\n    .p-datatable.p-datatable-gridlines:has(.p-datatable-tbody):has(.p-datatable-tfoot) .p-datatable-tbody > tr:last-child > td:last-child {\n        border-width: 0 1px 0 1px;\n    }\n\n    .p-datatable.p-datatable-striped .p-datatable-tbody > tr.p-row-odd {\n        background: dt('datatable.row.striped.background');\n    }\n\n    .p-datatable.p-datatable-striped .p-datatable-tbody > tr.p-row-odd.p-datatable-row-selected {\n        background: dt('datatable.row.selected.background');\n        color: dt('datatable.row.selected.color');\n    }\n\n    .p-datatable-striped.p-datatable-hoverable .p-datatable-tbody > tr:not(.p-datatable-row-selected):hover {\n        background: dt('datatable.row.hover.background');\n        color: dt('datatable.row.hover.color');\n    }\n\n    .p-datatable.p-datatable-sm .p-datatable-header {\n        padding: dt('datatable.header.sm.padding');\n    }\n\n    .p-datatable.p-datatable-sm .p-datatable-thead > tr > th {\n        padding: dt('datatable.header.cell.sm.padding');\n    }\n\n    .p-datatable.p-datatable-sm .p-datatable-tbody > tr > td {\n        padding: dt('datatable.body.cell.sm.padding');\n    }\n\n    .p-datatable.p-datatable-sm .p-datatable-tfoot > tr > td {\n        padding: dt('datatable.footer.cell.sm.padding');\n    }\n\n    .p-datatable.p-datatable-sm .p-datatable-footer {\n        padding: dt('datatable.footer.sm.padding');\n    }\n\n    .p-datatable.p-datatable-lg .p-datatable-header {\n        padding: dt('datatable.header.lg.padding');\n    }\n\n    .p-datatable.p-datatable-lg .p-datatable-thead > tr > th {\n        padding: dt('datatable.header.cell.lg.padding');\n    }\n\n    .p-datatable.p-datatable-lg .p-datatable-tbody > tr > td {\n        padding: dt('datatable.body.cell.lg.padding');\n    }\n\n    .p-datatable.p-datatable-lg .p-datatable-tfoot > tr > td {\n        padding: dt('datatable.footer.cell.lg.padding');\n    }\n\n    .p-datatable.p-datatable-lg .p-datatable-footer {\n        padding: dt('datatable.footer.lg.padding');\n    }\n\n    .p-datatable-row-toggle-button {\n        display: inline-flex;\n        align-items: center;\n        justify-content: center;\n        overflow: hidden;\n        position: relative;\n        width: dt('datatable.row.toggle.button.size');\n        height: dt('datatable.row.toggle.button.size');\n        color: dt('datatable.row.toggle.button.color');\n        border: 0 none;\n        background: transparent;\n        cursor: pointer;\n        border-radius: dt('datatable.row.toggle.button.border.radius');\n        transition:\n            background dt('datatable.transition.duration'),\n            color dt('datatable.transition.duration'),\n            border-color dt('datatable.transition.duration'),\n            outline-color dt('datatable.transition.duration'),\n            box-shadow dt('datatable.transition.duration');\n        outline-color: transparent;\n        user-select: none;\n    }\n\n    .p-datatable-row-toggle-button:enabled:hover {\n        color: dt('datatable.row.toggle.button.hover.color');\n        background: dt('datatable.row.toggle.button.hover.background');\n    }\n\n    .p-datatable-tbody > tr.p-datatable-row-selected .p-datatable-row-toggle-button:hover {\n        background: dt('datatable.row.toggle.button.selected.hover.background');\n        color: dt('datatable.row.toggle.button.selected.hover.color');\n    }\n\n    .p-datatable-row-toggle-button:focus-visible {\n        box-shadow: dt('datatable.row.toggle.button.focus.ring.shadow');\n        outline: dt('datatable.row.toggle.button.focus.ring.width') dt('datatable.row.toggle.button.focus.ring.style') dt('datatable.row.toggle.button.focus.ring.color');\n        outline-offset: dt('datatable.row.toggle.button.focus.ring.offset');\n    }\n\n    .p-datatable-row-toggle-icon:dir(rtl) {\n        transform: rotate(180deg);\n    }\n";
 
 // node_modules/primeng/fesm2022/primeng-table.mjs
-var _c013 = ["header"];
-var _c117 = ["headergrouped"];
-var _c211 = ["body"];
-var _c36 = ["loadingbody"];
-var _c45 = ["caption"];
-var _c55 = ["footer"];
-var _c65 = ["footergrouped"];
-var _c74 = ["summary"];
-var _c83 = ["colgroup"];
-var _c93 = ["expandedrow"];
-var _c103 = ["groupheader"];
-var _c118 = ["groupfooter"];
-var _c124 = ["frozenexpandedrow"];
-var _c133 = ["frozenheader"];
-var _c143 = ["frozenbody"];
-var _c153 = ["frozenfooter"];
-var _c163 = ["frozencolgroup"];
-var _c173 = ["emptymessage"];
-var _c183 = ["paginatorleft"];
-var _c193 = ["paginatorright"];
-var _c203 = ["paginatordropdownitem"];
-var _c213 = ["loadingicon"];
-var _c224 = ["reorderindicatorupicon"];
-var _c233 = ["reorderindicatordownicon"];
-var _c243 = ["sorticon"];
-var _c253 = ["checkboxicon"];
-var _c263 = ["headercheckboxicon"];
+var _c09 = ["header"];
+var _c114 = ["headergrouped"];
+var _c27 = ["body"];
+var _c34 = ["loadingbody"];
+var _c43 = ["caption"];
+var _c53 = ["footer"];
+var _c63 = ["footergrouped"];
+var _c72 = ["summary"];
+var _c82 = ["colgroup"];
+var _c92 = ["expandedrow"];
+var _c102 = ["groupheader"];
+var _c115 = ["groupfooter"];
+var _c123 = ["frozenexpandedrow"];
+var _c132 = ["frozenheader"];
+var _c142 = ["frozenbody"];
+var _c152 = ["frozenfooter"];
+var _c162 = ["frozencolgroup"];
+var _c172 = ["emptymessage"];
+var _c182 = ["paginatorleft"];
+var _c192 = ["paginatorright"];
+var _c202 = ["paginatordropdownitem"];
+var _c212 = ["loadingicon"];
+var _c223 = ["reorderindicatorupicon"];
+var _c232 = ["reorderindicatordownicon"];
+var _c242 = ["sorticon"];
+var _c252 = ["checkboxicon"];
+var _c262 = ["headercheckboxicon"];
 var _c272 = ["paginatordropdownicon"];
-var _c282 = ["paginatorfirstpagelinkicon"];
-var _c292 = ["paginatorlastpagelinkicon"];
+var _c28 = ["paginatorfirstpagelinkicon"];
+var _c29 = ["paginatorlastpagelinkicon"];
 var _c30 = ["paginatorpreviouspagelinkicon"];
 var _c31 = ["paginatornextpagelinkicon"];
 var _c322 = ["resizeHelper"];
 var _c332 = ["reorderIndicatorUp"];
 var _c342 = ["reorderIndicatorDown"];
-var _c352 = ["wrapper"];
-var _c362 = ["table"];
+var _c35 = ["wrapper"];
+var _c36 = ["table"];
 var _c37 = ["thead"];
 var _c38 = ["tfoot"];
 var _c39 = ["scroller"];
@@ -16557,8 +11734,8 @@ function Table_span_13_Template(rf, ctx) {
     ɵɵproperty("ngTemplateOutlet", ctx_r0.reorderIndicatorDownIconTemplate || ctx_r0._reorderIndicatorDownIconTemplate);
   }
 }
-var _c442 = ["pTableBody", ""];
-var _c452 = (a0, a1, a2, a3, a4) => ({
+var _c44 = ["pTableBody", ""];
+var _c45 = (a0, a1, a2, a3, a4) => ({
   $implicit: a0,
   rowIndex: a1,
   columns: a2,
@@ -16609,7 +11786,7 @@ function TableBody_ng_container_0_ng_template_1_ng_container_0_Template(rf, ctx)
     const rowIndex_r3 = ctx_r0.index;
     const ctx_r3 = ɵɵnextContext(2);
     ɵɵadvance();
-    ɵɵproperty("ngTemplateOutlet", ctx_r3.dt.groupHeaderTemplate || ctx_r3.dt._groupHeaderTemplate)("ngTemplateOutletContext", ɵɵpureFunction5(2, _c452, rowData_r2, ctx_r3.getRowIndex(rowIndex_r3), ctx_r3.columns, ctx_r3.dt.editMode === "row" && ctx_r3.dt.isRowEditing(rowData_r2), ctx_r3.frozen));
+    ɵɵproperty("ngTemplateOutlet", ctx_r3.dt.groupHeaderTemplate || ctx_r3.dt._groupHeaderTemplate)("ngTemplateOutletContext", ɵɵpureFunction5(2, _c45, rowData_r2, ctx_r3.getRowIndex(rowIndex_r3), ctx_r3.columns, ctx_r3.dt.editMode === "row" && ctx_r3.dt.isRowEditing(rowData_r2), ctx_r3.frozen));
   }
 }
 function TableBody_ng_container_0_ng_template_1_ng_container_1_ng_container_1_Template(rf, ctx) {
@@ -16629,7 +11806,7 @@ function TableBody_ng_container_0_ng_template_1_ng_container_1_Template(rf, ctx)
     const rowIndex_r3 = ctx_r0.index;
     const ctx_r3 = ɵɵnextContext(2);
     ɵɵadvance();
-    ɵɵproperty("ngTemplateOutlet", rowData_r2 ? ctx_r3.template : ctx_r3.dt.loadingBodyTemplate || ctx_r3.dt._loadingBodyTemplate)("ngTemplateOutletContext", ɵɵpureFunction5(2, _c452, rowData_r2, ctx_r3.getRowIndex(rowIndex_r3), ctx_r3.columns, ctx_r3.dt.editMode === "row" && ctx_r3.dt.isRowEditing(rowData_r2), ctx_r3.frozen));
+    ɵɵproperty("ngTemplateOutlet", rowData_r2 ? ctx_r3.template : ctx_r3.dt.loadingBodyTemplate || ctx_r3.dt._loadingBodyTemplate)("ngTemplateOutletContext", ɵɵpureFunction5(2, _c45, rowData_r2, ctx_r3.getRowIndex(rowIndex_r3), ctx_r3.columns, ctx_r3.dt.editMode === "row" && ctx_r3.dt.isRowEditing(rowData_r2), ctx_r3.frozen));
   }
 }
 function TableBody_ng_container_0_ng_template_1_ng_container_2_ng_container_1_Template(rf, ctx) {
@@ -16669,7 +11846,7 @@ function TableBody_ng_container_0_ng_template_1_ng_container_3_Template(rf, ctx)
     const rowIndex_r3 = ctx_r0.index;
     const ctx_r3 = ɵɵnextContext(2);
     ɵɵadvance();
-    ɵɵproperty("ngTemplateOutlet", ctx_r3.dt.groupFooterTemplate || ctx_r3.dt._groupFooterTemplate)("ngTemplateOutletContext", ɵɵpureFunction5(2, _c452, rowData_r2, ctx_r3.getRowIndex(rowIndex_r3), ctx_r3.columns, ctx_r3.dt.editMode === "row" && ctx_r3.dt.isRowEditing(rowData_r2), ctx_r3.frozen));
+    ɵɵproperty("ngTemplateOutlet", ctx_r3.dt.groupFooterTemplate || ctx_r3.dt._groupFooterTemplate)("ngTemplateOutletContext", ɵɵpureFunction5(2, _c45, rowData_r2, ctx_r3.getRowIndex(rowIndex_r3), ctx_r3.columns, ctx_r3.dt.editMode === "row" && ctx_r3.dt.isRowEditing(rowData_r2), ctx_r3.frozen));
   }
 }
 function TableBody_ng_container_0_ng_template_1_Template(rf, ctx) {
@@ -17052,8 +12229,8 @@ function TableHeaderCheckbox_Conditional_1_Template(rf, ctx) {
   }
 }
 var _c532 = ["filter"];
-var _c542 = ["filtericon"];
-var _c552 = ["removeruleicon"];
+var _c54 = ["filtericon"];
+var _c55 = ["removeruleicon"];
 var _c56 = ["addruleicon"];
 var _c57 = ["clearfiltericon"];
 var _c58 = ["clearBtn"];
@@ -17584,10 +12761,10 @@ function ColumnFilterFormElement_ng_template_1_Template(rf, ctx) {
     ɵɵproperty("ngSwitchCase", "date");
   }
 }
-var theme9 = (
+var theme7 = (
   /*css*/
   `
-    ${style11}
+    ${style9}
 
     /* For PrimeNG */
     .p-datatable-scrollable-table > .p-datatable-thead {
@@ -17716,7 +12893,7 @@ var theme9 = (
     }
 `
 );
-var classes11 = {
+var classes8 = {
   root: ({
     instance
   }) => ["p-datatable p-component", {
@@ -17847,8 +13024,8 @@ var inlineStyles2 = {
 };
 var TableStyle = class _TableStyle extends BaseStyle {
   name = "datatable";
-  theme = theme9;
-  classes = classes11;
+  theme = theme7;
+  classes = classes8;
   inlineStyles = inlineStyles2;
   static ɵfac = /* @__PURE__ */ (() => {
     let ɵTableStyle_BaseFactory;
@@ -19591,8 +14768,8 @@ var Table = class _Table extends BaseComponent {
             }
           }
           if (this.filters["global"] && !globalMatch && globalFilterFieldsArray) {
-            for (let j3 = 0; j3 < globalFilterFieldsArray.length; j3++) {
-              let globalFilterField = globalFilterFieldsArray[j3].field || globalFilterFieldsArray[j3];
+            for (let j = 0; j < globalFilterFieldsArray.length; j++) {
+              let globalFilterField = globalFilterFieldsArray[j].field || globalFilterFieldsArray[j];
               globalMatch = this.filterService.filters[this.filters["global"].matchMode](ObjectUtils.resolveFieldData(this.value[i], globalFilterField), this.filters["global"].value, this.filterLocale);
               if (globalMatch) {
                 break;
@@ -20035,12 +15212,12 @@ var Table = class _Table extends BaseComponent {
     let innerHTML = "";
     width.forEach((width2, index) => {
       let colWidth = index === colIndex ? newColumnWidth : nextColumnWidth && index === colIndex + 1 ? nextColumnWidth : width2;
-      let style12 = `width: ${colWidth}px !important; max-width: ${colWidth}px !important;`;
+      let style10 = `width: ${colWidth}px !important; max-width: ${colWidth}px !important;`;
       innerHTML += `
                 #${this.id}-table > .p-datatable-thead > tr > th:nth-child(${index + 1}),
                 #${this.id}-table > .p-datatable-tbody > tr > td:nth-child(${index + 1}),
                 #${this.id}-table > .p-datatable-tfoot > tr > td:nth-child(${index + 1}) {
-                    ${style12}
+                    ${style10}
                 }
             `;
     });
@@ -20236,12 +15413,12 @@ var Table = class _Table extends BaseComponent {
         this.createStyleElement();
         let innerHTML = "";
         widths.forEach((width, index) => {
-          let style12 = `width: ${width}px !important; max-width: ${width}px !important`;
+          let style10 = `width: ${width}px !important; max-width: ${width}px !important`;
           innerHTML += `
                         #${this.id}-table > .p-datatable-thead > tr > th:nth-child(${index + 1}),
                         #${this.id}-table > .p-datatable-tbody > tr > td:nth-child(${index + 1}),
                         #${this.id}-table > .p-datatable-tfoot > tr > td:nth-child(${index + 1}) {
-                            ${style12}
+                            ${style10}
                         }
                     `;
         });
@@ -20370,36 +15547,36 @@ var Table = class _Table extends BaseComponent {
     selectors: [["p-table"]],
     contentQueries: function Table_ContentQueries(rf, ctx, dirIndex) {
       if (rf & 1) {
-        ɵɵcontentQuery(dirIndex, _c013, 4);
-        ɵɵcontentQuery(dirIndex, _c117, 4);
-        ɵɵcontentQuery(dirIndex, _c211, 4);
-        ɵɵcontentQuery(dirIndex, _c36, 4);
-        ɵɵcontentQuery(dirIndex, _c45, 4);
-        ɵɵcontentQuery(dirIndex, _c55, 4);
-        ɵɵcontentQuery(dirIndex, _c65, 4);
-        ɵɵcontentQuery(dirIndex, _c74, 4);
-        ɵɵcontentQuery(dirIndex, _c83, 4);
-        ɵɵcontentQuery(dirIndex, _c93, 4);
-        ɵɵcontentQuery(dirIndex, _c103, 4);
-        ɵɵcontentQuery(dirIndex, _c118, 4);
-        ɵɵcontentQuery(dirIndex, _c124, 4);
-        ɵɵcontentQuery(dirIndex, _c133, 4);
-        ɵɵcontentQuery(dirIndex, _c143, 4);
-        ɵɵcontentQuery(dirIndex, _c153, 4);
-        ɵɵcontentQuery(dirIndex, _c163, 4);
-        ɵɵcontentQuery(dirIndex, _c173, 4);
-        ɵɵcontentQuery(dirIndex, _c183, 4);
-        ɵɵcontentQuery(dirIndex, _c193, 4);
-        ɵɵcontentQuery(dirIndex, _c203, 4);
-        ɵɵcontentQuery(dirIndex, _c213, 4);
-        ɵɵcontentQuery(dirIndex, _c224, 4);
-        ɵɵcontentQuery(dirIndex, _c233, 4);
-        ɵɵcontentQuery(dirIndex, _c243, 4);
-        ɵɵcontentQuery(dirIndex, _c253, 4);
-        ɵɵcontentQuery(dirIndex, _c263, 4);
+        ɵɵcontentQuery(dirIndex, _c09, 4);
+        ɵɵcontentQuery(dirIndex, _c114, 4);
+        ɵɵcontentQuery(dirIndex, _c27, 4);
+        ɵɵcontentQuery(dirIndex, _c34, 4);
+        ɵɵcontentQuery(dirIndex, _c43, 4);
+        ɵɵcontentQuery(dirIndex, _c53, 4);
+        ɵɵcontentQuery(dirIndex, _c63, 4);
+        ɵɵcontentQuery(dirIndex, _c72, 4);
+        ɵɵcontentQuery(dirIndex, _c82, 4);
+        ɵɵcontentQuery(dirIndex, _c92, 4);
+        ɵɵcontentQuery(dirIndex, _c102, 4);
+        ɵɵcontentQuery(dirIndex, _c115, 4);
+        ɵɵcontentQuery(dirIndex, _c123, 4);
+        ɵɵcontentQuery(dirIndex, _c132, 4);
+        ɵɵcontentQuery(dirIndex, _c142, 4);
+        ɵɵcontentQuery(dirIndex, _c152, 4);
+        ɵɵcontentQuery(dirIndex, _c162, 4);
+        ɵɵcontentQuery(dirIndex, _c172, 4);
+        ɵɵcontentQuery(dirIndex, _c182, 4);
+        ɵɵcontentQuery(dirIndex, _c192, 4);
+        ɵɵcontentQuery(dirIndex, _c202, 4);
+        ɵɵcontentQuery(dirIndex, _c212, 4);
+        ɵɵcontentQuery(dirIndex, _c223, 4);
+        ɵɵcontentQuery(dirIndex, _c232, 4);
+        ɵɵcontentQuery(dirIndex, _c242, 4);
+        ɵɵcontentQuery(dirIndex, _c252, 4);
+        ɵɵcontentQuery(dirIndex, _c262, 4);
         ɵɵcontentQuery(dirIndex, _c272, 4);
-        ɵɵcontentQuery(dirIndex, _c282, 4);
-        ɵɵcontentQuery(dirIndex, _c292, 4);
+        ɵɵcontentQuery(dirIndex, _c28, 4);
+        ɵɵcontentQuery(dirIndex, _c29, 4);
         ɵɵcontentQuery(dirIndex, _c30, 4);
         ɵɵcontentQuery(dirIndex, _c31, 4);
         ɵɵcontentQuery(dirIndex, PrimeTemplate, 4);
@@ -20446,8 +15623,8 @@ var Table = class _Table extends BaseComponent {
         ɵɵviewQuery(_c322, 5);
         ɵɵviewQuery(_c332, 5);
         ɵɵviewQuery(_c342, 5);
-        ɵɵviewQuery(_c352, 5);
-        ɵɵviewQuery(_c362, 5);
+        ɵɵviewQuery(_c35, 5);
+        ɵɵviewQuery(_c36, 5);
         ɵɵviewQuery(_c37, 5);
         ɵɵviewQuery(_c38, 5);
         ɵɵviewQuery(_c39, 5);
@@ -21617,7 +16794,7 @@ var TableBody = class _TableBody {
       scrollerOptions: "scrollerOptions"
     },
     standalone: false,
-    attrs: _c442,
+    attrs: _c44,
     decls: 5,
     vars: 5,
     consts: [[4, "ngIf"], ["ngFor", "", 3, "ngForOf", "ngForTrackBy"], ["role", "row", 4, "ngIf"], ["role", "row"], [4, "ngTemplateOutlet", "ngTemplateOutletContext"]],
@@ -25028,11 +20205,11 @@ var ColumnFilter = class _ColumnFilter extends BaseComponent {
     selectors: [["p-columnFilter"], ["p-column-filter"], ["p-columnfilter"]],
     contentQueries: function ColumnFilter_ContentQueries(rf, ctx, dirIndex) {
       if (rf & 1) {
-        ɵɵcontentQuery(dirIndex, _c013, 4);
+        ɵɵcontentQuery(dirIndex, _c09, 4);
         ɵɵcontentQuery(dirIndex, _c532, 4);
+        ɵɵcontentQuery(dirIndex, _c53, 4);
+        ɵɵcontentQuery(dirIndex, _c54, 4);
         ɵɵcontentQuery(dirIndex, _c55, 4);
-        ɵɵcontentQuery(dirIndex, _c542, 4);
-        ɵɵcontentQuery(dirIndex, _c552, 4);
         ɵɵcontentQuery(dirIndex, _c56, 4);
         ɵɵcontentQuery(dirIndex, _c57, 4);
         ɵɵcontentQuery(dirIndex, PrimeTemplate, 4);
@@ -25760,14 +20937,4 @@ export {
   TableService,
   TableStyle
 };
-/*! Bundled license information:
-
-@angular/animations/fesm2022/private_export.mjs:
-@angular/animations/fesm2022/animations.mjs:
-  (**
-   * @license Angular v20.1.6
-   * (c) 2010-2025 Google LLC. https://angular.io/
-   * License: MIT
-   *)
-*/
 //# sourceMappingURL=primeng_table.js.map

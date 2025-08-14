@@ -1,199 +1,379 @@
-import { Component, OnInit, AfterViewInit } from '@angular/core';
+import { Component, OnInit, AfterViewInit, OnDestroy } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
+import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 import { AuthService } from '../../services/auth.service';
+import { DeliveryService, DeliveryUser, NewPackage, Package } from '../../services/delivery.service';
 import { ButtonModule } from 'primeng/button';
 import { CardModule } from 'primeng/card';
 import { TableModule } from 'primeng/table';
 import { TagModule } from 'primeng/tag';
+import { DialogModule } from 'primeng/dialog';
+import { InputTextModule } from 'primeng/inputtext';
+import { SelectModule } from 'primeng/select';
+import { MessageService } from 'primeng/api';
+import { ToastModule } from 'primeng/toast';
+import { io, Socket } from 'socket.io-client';
 
 // Declarar Leaflet para TypeScript cuando se usa CDN
 declare var L: any;
 
+interface DeliveryLocation {
+  userId: string;
+  username: string;
+  latitude: number;
+  longitude: number;
+  timestamp: string;
+}
+
 @Component({
   selector: 'app-admin-dashboard',
   standalone: true,
-  imports: [CommonModule, ButtonModule, CardModule, TableModule, TagModule],
+  imports: [
+    CommonModule, 
+    ReactiveFormsModule,
+    HttpClientModule,
+    ButtonModule, 
+    CardModule, 
+    TableModule, 
+    TagModule,
+    DialogModule,
+    InputTextModule,
+    SelectModule,
+    ToastModule
+  ],
   templateUrl: './admin-dashboard.html',
-  styleUrl: './admin-dashboard.css'
+  styleUrl: './admin-dashboard.css',
+  providers: [MessageService, DeliveryService]
 })
-export class AdminDashboardComponent implements OnInit, AfterViewInit {
+export class AdminDashboardComponent implements OnInit, AfterViewInit, OnDestroy {
   map: any;
-  packages: any[] = [];
+  packages: Package[] = [];
+  deliveryUsers: DeliveryUser[] = [];
+  showNewShipmentModal = false;
+  newShipmentForm!: FormGroup;
+  creatingShipment = false;
+  private socket: Socket;
+  private deliveryMarkers: Map<string, any> = new Map(); // Para rastrear marcadores de delivery
+  
+  // Agregar las opciones de prioridad
+  priorityOptions = [
+    { label: 'Baja', value: 'low' },
+    { label: 'Media', value: 'medium' },
+    { label: 'Alta', value: 'high' }
+  ];
   
   constructor(
     private authService: AuthService,
-    private router: Router
-  ) {}
+    private router: Router,
+    private deliveryService: DeliveryService,
+    private messageService: MessageService,
+    private fb: FormBuilder
+  ) {
+    this.initializeForm();
+    
+    // Inicializar Socket.IO para recibir ubicaciones
+    this.socket = io('http://localhost:3000', {
+      transports: ['websocket', 'polling'],
+      timeout: 20000
+    });
+    
+    this.socket.on('connect', () => {
+      console.log('🔌 Admin conectado al servidor Socket.IO:', this.socket.id);
+      // Unirse a la sala de administradores
+      this.socket.emit('join-room', { userId: 'admin', userType: 'admin' });
+    });
+    
+    this.socket.on('location-received', (locationData) => {
+      console.log('📍 Ubicación de repartidor recibida:', locationData);
+      this.updateDeliveryLocationOnMap(locationData);
+      this.updateDeliveryStatus(locationData.userId, 'working');
+      
+      // NUEVO: Log adicional para debugging
+      console.log('📊 Estado actual de deliveries:', this.deliveryUsers.map(d => ({
+        id: d.id,
+        username: d.username,
+        status: d.status
+      })));
+      
+      console.log('📦 Estado de paquetes con delivery asignado:', this.packages
+        .filter(p => p.assigned_user)
+        .map(p => ({
+          packageId: p.id,
+          deliveryId: p.assigned_user?.id,
+          deliveryUsername: p.assigned_user?.username,
+          deliveryStatus: p.assigned_user?.status
+        })));
+    });
+    
+    this.socket.on('disconnect', () => {
+      console.log('❌ Admin desconectado del servidor Socket.IO');
+    });
+  }
+
+  private updateDeliveryLocationOnMap(locationData: any) {
+    const { userId, username, latitude, longitude, timestamp } = locationData;
+    
+    // Remover marcador anterior si existe
+    if (this.deliveryMarkers.has(userId)) {
+      this.map.removeLayer(this.deliveryMarkers.get(userId));
+    }
+    
+    // Crear nuevo marcador para el delivery
+    const deliveryIcon = L.divIcon({
+      html: `
+        <div class="delivery-location-marker">
+          <i class="pi pi-user" style="color: #4CAF50; font-size: 16px;"></i>
+          <div class="delivery-info">
+            <strong>${username}</strong><br>
+            <small>${this.formatTimestamp(timestamp)}</small>
+          </div>
+        </div>
+      `,
+      className: 'custom-delivery-icon',
+      iconSize: [40, 40],
+      iconAnchor: [20, 40]
+    });
+    
+    const marker = L.marker([latitude, longitude], { icon: deliveryIcon })
+      .addTo(this.map)
+      .bindPopup(`
+        <div class="delivery-popup">
+          <h4>🚚 ${username}</h4>
+          <p><strong>Coordenadas:</strong><br>
+          Lat: ${latitude.toFixed(6)}<br>
+          Lng: ${longitude.toFixed(6)}</p>
+          <p><strong>Última actualización:</strong><br>
+          ${this.formatTimestamp(timestamp)}</p>
+        </div>
+      `);
+    
+    // Guardar referencia del marcador
+    this.deliveryMarkers.set(userId, marker);
+    
+    // NUEVO: Ajustar la vista del mapa para mostrar la ubicación del delivery
+    // Si es el primer delivery o si está muy lejos, centrar el mapa
+    const currentCenter = this.map.getCenter();
+    const distance = this.map.distance([currentCenter.lat, currentCenter.lng], [latitude, longitude]);
+    
+    // Si la distancia es mayor a 100km o es el primer marcador, ajustar la vista
+    if (distance > 100000 || this.deliveryMarkers.size === 1) {
+      this.map.setView([latitude, longitude], 12);
+      console.log(`🗺️ Mapa centrado en la ubicación de ${username}`);
+    }
+    
+    // Mostrar notificación ocasional
+    if (Math.random() < 0.2) { // 20% de las veces
+      this.messageService.add({
+        severity: 'info',
+        summary: 'Ubicación actualizada',
+        detail: `${username} está en movimiento`,
+        life: 3000
+      });
+    }
+  }
+  
+  private updateDeliveryStatus(userId: string, status: 'working' | 'off') {
+    // Actualizar el estado del delivery en la lista local
+    const delivery = this.deliveryUsers.find(d => d.id === userId);
+    if (delivery) {
+      delivery.status = status;
+    }
+    
+    // NUEVO: También actualizar el estado en los paquetes asignados
+    this.packages.forEach(pkg => {
+      if (pkg.assigned_user && pkg.assigned_user.id === userId) {
+        pkg.assigned_user.status = status;
+      }
+    });
+    
+    console.log(`✅ Estado del delivery ${userId} actualizado a: ${status}`);
+  }
+  
+  private formatTimestamp(timestamp: string): string {
+    const date = new Date(timestamp);
+    const now = new Date();
+    const diffInSeconds = Math.floor((now.getTime() - date.getTime()) / 1000);
+    
+    if (diffInSeconds < 60) {
+      return `hace ${diffInSeconds} segundos`;
+    } else if (diffInSeconds < 3600) {
+      const minutes = Math.floor(diffInSeconds / 60);
+      return `hace ${minutes} minuto${minutes > 1 ? 's' : ''}`;
+    } else {
+      const hours = Math.floor(diffInSeconds / 3600);
+      return `hace ${hours} hora${hours > 1 ? 's' : ''}`;
+    }
+  }
+
+  private initializeForm() {
+    this.newShipmentForm = this.fb.group({
+      deliveryAddress: ['', [Validators.required, Validators.minLength(10)]],
+      phone: [''],  // Nuevo campo
+      priority: ['medium'],  // Nuevo campo con valor por defecto
+      assignedTo: ['']
+    });
+  }
+
+  onSubmitNewShipment() {
+    if (this.newShipmentForm.valid) {
+      this.creatingShipment = true;
+      
+      const packageData: NewPackage = {
+        delivery_address: this.newShipmentForm.value.deliveryAddress,
+        phone: this.newShipmentForm.value.phone || null,  // Nuevo campo
+        priority: this.newShipmentForm.value.priority,  // Nuevo campo
+        assigned_to: this.newShipmentForm.value.assignedTo || null,
+        status: 'En transito'
+      };
+
+      this.deliveryService.createPackage(packageData).subscribe({
+        next: (response) => {
+          this.messageService.add({
+            severity: 'success',
+            summary: 'Éxito',
+            detail: 'Envío creado exitosamente'
+          });
+          this.closeNewShipmentModal();
+          this.loadPackages();
+          this.creatingShipment = false;
+        },
+        error: (error) => {
+          console.error('Error creating package:', error);
+          this.messageService.add({
+            severity: 'error',
+            summary: 'Error',
+            detail: 'No se pudo crear el envío'
+          });
+          this.creatingShipment = false;
+        }
+      });
+    }
+  }
 
   ngOnInit() {
-    // Datos de ejemplo de paquetes individuales
-    this.packages = [
-      { 
-        id: 'PKG001', 
-        deliveryPerson: 'Carlos Rodríguez',
-        deliveryId: 'DEL001',
-        customerName: 'Ana García',
-        address: 'Calle 123 #45-67, Bogotá',
-        status: 'pending',
-        priority: 'high',
-        assignedTime: '08:30 AM',
-        estimatedDelivery: '10:00 AM',
-        phone: '+57 300 111 2222'
-      },
-      { 
-        id: 'PKG002', 
-        deliveryPerson: 'Carlos Rodríguez',
-        deliveryId: 'DEL001',
-        customerName: 'Pedro López',
-        address: 'Carrera 45 #12-34, Bogotá',
-        status: 'in_transit',
-        priority: 'medium',
-        assignedTime: '09:00 AM',
-        estimatedDelivery: '11:30 AM',
-        phone: '+57 301 222 3333'
-      },
-      { 
-        id: 'PKG003', 
-        deliveryPerson: 'Carlos Rodríguez',
-        deliveryId: 'DEL001',
-        customerName: 'Laura Martín',
-        address: 'Avenida 68 #23-45, Bogotá',
-        status: 'delivered',
-        priority: 'low',
-        assignedTime: '07:45 AM',
-        estimatedDelivery: '09:15 AM',
-        phone: '+57 302 333 4444'
-      },
-      { 
-        id: 'PKG004', 
-        deliveryPerson: 'María González',
-        deliveryId: 'DEL002',
-        customerName: 'Roberto Silva',
-        address: 'Calle 85 #34-56, Bogotá',
-        status: 'pending',
-        priority: 'high',
-        assignedTime: '08:45 AM',
-        estimatedDelivery: '10:15 AM',
-        phone: '+57 303 444 5555'
-      },
-      { 
-        id: 'PKG005', 
-        deliveryPerson: 'María González',
-        deliveryId: 'DEL002',
-        customerName: 'Carmen Ruiz',
-        address: 'Carrera 15 #67-89, Bogotá',
-        status: 'in_transit',
-        priority: 'medium',
-        assignedTime: '09:15 AM',
-        estimatedDelivery: '11:00 AM',
-        phone: '+57 304 555 6666'
-      },
-      { 
-        id: 'PKG006', 
-        deliveryPerson: 'Juan Pérez',
-        deliveryId: 'DEL003',
-        customerName: 'Diego Morales',
-        address: 'Calle 50 #78-90, Bogotá',
-        status: 'delivered',
-        priority: 'low',
-        assignedTime: '07:30 AM',
-        estimatedDelivery: '09:00 AM',
-        phone: '+57 305 666 7777'
-      },
-      { 
-        id: 'PKG007', 
-        deliveryPerson: 'Ana Martínez',
-        deliveryId: 'DEL004',
-        customerName: 'Sofia Herrera',
-        address: 'Avenida 30 #12-34, Bogotá',
-        status: 'pending',
-        priority: 'high',
-        assignedTime: '08:00 AM',
-        estimatedDelivery: '09:30 AM',
-        phone: '+57 306 777 8888'
-      },
-      { 
-        id: 'PKG008', 
-        deliveryPerson: 'Ana Martínez',
-        deliveryId: 'DEL004',
-        customerName: 'Miguel Torres',
-        address: 'Calle 72 #45-67, Bogotá',
-        status: 'failed',
-        priority: 'medium',
-        assignedTime: '10:00 AM',
-        estimatedDelivery: '11:30 AM',
-        phone: '+57 307 888 9999'
-      },
-      { 
-        id: 'PKG009', 
-        deliveryPerson: 'Luis Torres',
-        deliveryId: 'DEL005',
-        customerName: 'Elena Vargas',
-        address: 'Carrera 80 #56-78, Bogotá',
-        status: 'in_transit',
-        priority: 'high',
-        assignedTime: '09:30 AM',
-        estimatedDelivery: '11:00 AM',
-        phone: '+57 308 999 0000'
-      },
-      { 
-        id: 'PKG010', 
-        deliveryPerson: 'Luis Torres',
-        deliveryId: 'DEL005',
-        customerName: 'Fernando Castro',
-        address: 'Avenida 19 #89-01, Bogotá',
-        status: 'delivered',
-        priority: 'low',
-        assignedTime: '08:15 AM',
-        estimatedDelivery: '09:45 AM',
-        phone: '+57 309 000 1111'
-      }
-    ];
+    this.loadDeliveryUsers();
+    this.loadPackages();
   }
 
   ngAfterViewInit() {
-    this.initMap();
+    // Initialize map after view is ready
+    setTimeout(() => {
+      this.initMap();
+    }, 100);
+  }
+
+  ngOnDestroy() {
+    if (this.socket) {
+      this.socket.disconnect();
+    }
+  }
+
+  loadDeliveryUsers() {
+    this.deliveryService.getDeliveryUsers().subscribe({
+      next: (users) => {
+        this.deliveryUsers = users;
+      },
+      error: (error) => {
+        console.error('Error loading delivery users:', error);
+        this.messageService.add({
+          severity: 'error',
+          summary: 'Error',
+          detail: 'No se pudieron cargar los usuarios delivery'
+        });
+      }
+    });
+  }
+
+  createNewShipment() {
+    console.log('Opening modal...'); // Para debug
+    this.showNewShipmentModal = true;
+  }
+
+  closeNewShipmentModal() {
+    this.showNewShipmentModal = false;
+    this.newShipmentForm.reset();
+  }
+
+  private loadPackages() {
+    this.deliveryService.getPackages().subscribe({
+      next: (packages) => {
+        this.packages = packages;
+      },
+      error: (error) => {
+        console.error('Error loading packages:', error);
+        this.messageService.add({
+          severity: 'error',
+          summary: 'Error',
+          detail: 'No se pudieron cargar los paquetes'
+        });
+      }
+    });
   }
 
   initMap() {
-    // Inicializar mapa centrado en una ubicación por defecto
-    this.map = L.map('map').setView([4.6097, -74.0817], 11);
-
-    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-      attribution: '© OpenStreetMap contributors'
+    this.map = L.map('adminMap').setView([4.7110, -74.0721], 6);
+  
+    // Mismo cambio: solo el proveedor de tiles, Leaflet sigue siendo la librería
+    L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
+      attribution: '© OpenStreetMap contributors © CARTO',
+      subdomains: 'abcd',
+      maxZoom: 19,
+      timeout: 15000
     }).addTo(this.map);
-
+  
+    // MODIFICADO: Hacer los marcadores de almacén más discretos
     const deliveryPoints = [
       { lat: 4.6097, lng: -74.0817, title: 'Centro de Distribución Principal' },
       { lat: 4.6351, lng: -74.0703, title: 'Punto de Entrega Norte' },
       { lat: 4.5981, lng: -74.0758, title: 'Punto de Entrega Sur' },
       { lat: 4.6244, lng: -74.0647, title: 'Punto de Entrega Este' }
     ];
-
+  
     deliveryPoints.forEach(point => {
-      L.marker([point.lat, point.lng])
+      const warehouseIcon = L.divIcon({
+        html: `
+          <div class="warehouse-marker">
+            <i class="pi pi-building" style="color: #2196F3; font-size: 12px; opacity: 0.7;"></i>
+          </div>
+        `,
+        className: 'custom-warehouse-icon',
+        iconSize: [20, 20],
+        iconAnchor: [10, 10]
+      });
+  
+      L.marker([point.lat, point.lng], { icon: warehouseIcon })
         .addTo(this.map)
-        .bindPopup(point.title);
+        .bindPopup(`<strong>${point.title}</strong>`);
     });
+  
+    console.log('🗺️ Mapa inicializado - Esperando ubicaciones de repartidores...');
   }
 
   getStatusLabel(status: string) {
     switch (status) {
-      case 'pending': return 'Pendiente';
-      case 'in_transit': return 'En Tránsito';
-      case 'delivered': return 'Entregado';
-      case 'failed': return 'Fallido';
+      case 'En transito': return 'En Tránsito';
+      case 'Entregado': return 'Entregado';
+      case 'Regresado': return 'Regresado';
       default: return status;
     }
   }
 
   getStatusIcon(status: string) {
     switch (status) {
-      case 'pending': return 'pi-clock';
-      case 'in_transit': return 'pi-truck';
-      case 'delivered': return 'pi-check-circle';
-      case 'failed': return 'pi-times-circle';
+      case 'En transito': return 'pi-truck';
+      case 'Entregado': return 'pi-check-circle';
+      case 'Regresado': return 'pi-times-circle';
+      default: return 'pi-circle';
+    }
+  }
+
+  getPriorityIcon(priority: string) {
+    switch (priority) {
+      case 'high': return 'pi-exclamation-triangle';
+      case 'medium': return 'pi-minus';
+      case 'low': return 'pi-arrow-down';
       default: return 'pi-circle';
     }
   }
@@ -207,22 +387,10 @@ export class AdminDashboardComponent implements OnInit, AfterViewInit {
     }
   }
 
-  getPriorityIcon(priority: string) {
-    switch (priority) {
-      case 'high': return 'pi-exclamation-triangle';
-      case 'medium': return 'pi-minus';
-      case 'low': return 'pi-arrow-down';
-      default: return 'pi-circle';
-    }
-  }
-
-  createNewShipment() {
-    // Lógica para crear nuevo envío
-    console.log('Crear nuevo envío');
-    // lógica para abrir un modal 
-  }
-
   logout() {
+    if (this.socket) {
+      this.socket.disconnect();
+    }
     this.authService.logout();
     this.router.navigate(['/login']);
   }

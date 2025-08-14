@@ -2,57 +2,43 @@ import {
   BaseComponent,
   BaseStyle,
   rr
-} from "./chunk-MKYWZWVQ.js";
+} from "./chunk-6PGTOORR.js";
 import {
   C,
   K,
   O,
   Qt,
-  R,
   Rt,
-  SharedModule,
   Tt,
   W,
-  a,
   dt,
-  s2 as s,
-  s3 as s2,
   st,
   v,
   x
-} from "./chunk-D4IGDOBM.js";
+} from "./chunk-ZS6XTMWU.js";
 import {
-  CommonModule,
   isPlatformBrowser
-} from "./chunk-4XHXVNBQ.js";
+} from "./chunk-M7ANLDTA.js";
 import {
-  ChangeDetectionStrategy,
-  Component,
+  DOCUMENT,
   Directive,
+  ElementRef,
   Injectable,
   Input,
   NgModule,
   NgZone,
-  ViewEncapsulation,
-  booleanAttribute,
+  PLATFORM_ID,
   effect,
   inject,
-  input,
   setClassMetadata,
   ɵɵInheritDefinitionFeature,
-  ɵɵNgOnChangesFeature,
   ɵɵProvidersFeature,
-  ɵɵclassMap,
-  ɵɵdefineComponent,
   ɵɵdefineDirective,
   ɵɵdefineInjectable,
   ɵɵdefineInjector,
   ɵɵdefineNgModule,
-  ɵɵgetInheritedFactory,
-  ɵɵstyleProp,
-  ɵɵtext,
-  ɵɵtextInterpolate
-} from "./chunk-2AA5DO45.js";
+  ɵɵgetInheritedFactory
+} from "./chunk-4U5U4IAX.js";
 
 // node_modules/primeng/fesm2022/primeng-dom.mjs
 var DomHandler = class _DomHandler {
@@ -337,63 +323,63 @@ var DomHandler = class _DomHandler {
   }
   static matches(element, selector) {
     var p = Element.prototype;
-    var f = p["matches"] || p.webkitMatchesSelector || p["mozMatchesSelector"] || p["msMatchesSelector"] || function(s3) {
-      return [].indexOf.call(document.querySelectorAll(s3), this) !== -1;
+    var f = p["matches"] || p.webkitMatchesSelector || p["mozMatchesSelector"] || p["msMatchesSelector"] || function(s) {
+      return [].indexOf.call(document.querySelectorAll(s), this) !== -1;
     };
     return f.call(element, selector);
   }
   static getOuterWidth(el, margin) {
     let width = el.offsetWidth;
     if (margin) {
-      let style3 = getComputedStyle(el);
-      width += parseFloat(style3.marginLeft) + parseFloat(style3.marginRight);
+      let style2 = getComputedStyle(el);
+      width += parseFloat(style2.marginLeft) + parseFloat(style2.marginRight);
     }
     return width;
   }
   static getHorizontalPadding(el) {
-    let style3 = getComputedStyle(el);
-    return parseFloat(style3.paddingLeft) + parseFloat(style3.paddingRight);
+    let style2 = getComputedStyle(el);
+    return parseFloat(style2.paddingLeft) + parseFloat(style2.paddingRight);
   }
   static getHorizontalMargin(el) {
-    let style3 = getComputedStyle(el);
-    return parseFloat(style3.marginLeft) + parseFloat(style3.marginRight);
+    let style2 = getComputedStyle(el);
+    return parseFloat(style2.marginLeft) + parseFloat(style2.marginRight);
   }
   static innerWidth(el) {
     let width = el.offsetWidth;
-    let style3 = getComputedStyle(el);
-    width += parseFloat(style3.paddingLeft) + parseFloat(style3.paddingRight);
+    let style2 = getComputedStyle(el);
+    width += parseFloat(style2.paddingLeft) + parseFloat(style2.paddingRight);
     return width;
   }
   static width(el) {
     let width = el.offsetWidth;
-    let style3 = getComputedStyle(el);
-    width -= parseFloat(style3.paddingLeft) + parseFloat(style3.paddingRight);
+    let style2 = getComputedStyle(el);
+    width -= parseFloat(style2.paddingLeft) + parseFloat(style2.paddingRight);
     return width;
   }
   static getInnerHeight(el) {
     let height = el.offsetHeight;
-    let style3 = getComputedStyle(el);
-    height += parseFloat(style3.paddingTop) + parseFloat(style3.paddingBottom);
+    let style2 = getComputedStyle(el);
+    height += parseFloat(style2.paddingTop) + parseFloat(style2.paddingBottom);
     return height;
   }
   static getOuterHeight(el, margin) {
     let height = el.offsetHeight;
     if (margin) {
-      let style3 = getComputedStyle(el);
-      height += parseFloat(style3.marginTop) + parseFloat(style3.marginBottom);
+      let style2 = getComputedStyle(el);
+      height += parseFloat(style2.marginTop) + parseFloat(style2.marginBottom);
     }
     return height;
   }
   static getHeight(el) {
     let height = el.offsetHeight;
-    let style3 = getComputedStyle(el);
-    height -= parseFloat(style3.paddingTop) + parseFloat(style3.paddingBottom) + parseFloat(style3.borderTopWidth) + parseFloat(style3.borderBottomWidth);
+    let style2 = getComputedStyle(el);
+    height -= parseFloat(style2.paddingTop) + parseFloat(style2.paddingBottom) + parseFloat(style2.borderTopWidth) + parseFloat(style2.borderBottomWidth);
     return height;
   }
   static getWidth(el) {
     let width = el.offsetWidth;
-    let style3 = getComputedStyle(el);
-    width -= parseFloat(style3.paddingLeft) + parseFloat(style3.paddingRight) + parseFloat(style3.borderLeftWidth) + parseFloat(style3.borderRightWidth);
+    let style2 = getComputedStyle(el);
+    width -= parseFloat(style2.paddingLeft) + parseFloat(style2.paddingRight) + parseFloat(style2.borderLeftWidth) + parseFloat(style2.borderRightWidth);
     return width;
   }
   static getViewport() {
@@ -471,8 +457,8 @@ var DomHandler = class _DomHandler {
   }
   static calculateScrollbarWidth(el) {
     if (el) {
-      let style3 = getComputedStyle(el);
-      return el.offsetWidth - el.clientWidth - parseFloat(style3.borderLeftWidth) - parseFloat(style3.borderRightWidth);
+      let style2 = getComputedStyle(el);
+      return el.offsetWidth - el.clientWidth - parseFloat(style2.borderLeftWidth) - parseFloat(style2.borderRightWidth);
     } else {
       if (this.calculatedScrollbarWidth !== null)
         return this.calculatedScrollbarWidth;
@@ -772,456 +758,104 @@ var ConnectedOverlayScrollHandler = class {
   }
 };
 
-// node_modules/@primeuix/styles/dist/badge/index.mjs
-var style = "\n    .p-badge {\n        display: inline-flex;\n        border-radius: dt('badge.border.radius');\n        align-items: center;\n        justify-content: center;\n        padding: dt('badge.padding');\n        background: dt('badge.primary.background');\n        color: dt('badge.primary.color');\n        font-size: dt('badge.font.size');\n        font-weight: dt('badge.font.weight');\n        min-width: dt('badge.min.width');\n        height: dt('badge.height');\n    }\n\n    .p-badge-dot {\n        width: dt('badge.dot.size');\n        min-width: dt('badge.dot.size');\n        height: dt('badge.dot.size');\n        border-radius: 50%;\n        padding: 0;\n    }\n\n    .p-badge-circle {\n        padding: 0;\n        border-radius: 50%;\n    }\n\n    .p-badge-secondary {\n        background: dt('badge.secondary.background');\n        color: dt('badge.secondary.color');\n    }\n\n    .p-badge-success {\n        background: dt('badge.success.background');\n        color: dt('badge.success.color');\n    }\n\n    .p-badge-info {\n        background: dt('badge.info.background');\n        color: dt('badge.info.color');\n    }\n\n    .p-badge-warn {\n        background: dt('badge.warn.background');\n        color: dt('badge.warn.color');\n    }\n\n    .p-badge-danger {\n        background: dt('badge.danger.background');\n        color: dt('badge.danger.color');\n    }\n\n    .p-badge-contrast {\n        background: dt('badge.contrast.background');\n        color: dt('badge.contrast.color');\n    }\n\n    .p-badge-sm {\n        font-size: dt('badge.sm.font.size');\n        min-width: dt('badge.sm.min.width');\n        height: dt('badge.sm.height');\n    }\n\n    .p-badge-lg {\n        font-size: dt('badge.lg.font.size');\n        min-width: dt('badge.lg.min.width');\n        height: dt('badge.lg.height');\n    }\n\n    .p-badge-xl {\n        font-size: dt('badge.xl.font.size');\n        min-width: dt('badge.xl.min.width');\n        height: dt('badge.xl.height');\n    }\n";
-
-// node_modules/primeng/fesm2022/primeng-badge.mjs
-var theme = (
-  /*css*/
-  `
-    ${style}
-
-    /* For PrimeNG (directive)*/
-    .p-overlay-badge {
-        position: relative;
+// node_modules/primeng/fesm2022/primeng-autofocus.mjs
+var AutoFocus = class _AutoFocus extends BaseComponent {
+  /**
+   * When present, it specifies that the component should automatically get focus on load.
+   * @group Props
+   */
+  autofocus = false;
+  focused = false;
+  platformId = inject(PLATFORM_ID);
+  document = inject(DOCUMENT);
+  host = inject(ElementRef);
+  ngAfterContentChecked() {
+    if (this.autofocus === false) {
+      this.host.nativeElement.removeAttribute("autofocus");
+    } else {
+      this.host.nativeElement.setAttribute("autofocus", true);
     }
-
-    .p-overlay-badge > .p-badge {
-        position: absolute;
-        top: 0;
-        inset-inline-end: 0;
-        transform: translate(50%, -50%);
-        transform-origin: 100% 0;
-        margin: 0;
+    if (!this.focused) {
+      this.autoFocus();
     }
-`
-);
-var classes = {
-  root: ({
-    instance
-  }) => ["p-badge p-component", {
-    "p-badge-circle": s(instance.value()) && String(instance.value()).length === 1,
-    "p-badge-dot": a(instance.value()),
-    "p-badge-sm": instance.size() === "small" || instance.badgeSize() === "small",
-    "p-badge-lg": instance.size() === "large" || instance.badgeSize() === "large",
-    "p-badge-xl": instance.size() === "xlarge" || instance.badgeSize() === "xlarge",
-    "p-badge-info": instance.severity() === "info",
-    "p-badge-success": instance.severity() === "success",
-    "p-badge-warn": instance.severity() === "warn",
-    "p-badge-danger": instance.severity() === "danger",
-    "p-badge-secondary": instance.severity() === "secondary",
-    "p-badge-contrast": instance.severity() === "contrast"
-  }]
-};
-var BadgeStyle = class _BadgeStyle extends BaseStyle {
-  name = "badge";
-  theme = theme;
-  classes = classes;
+  }
+  ngAfterViewChecked() {
+    if (!this.focused) {
+      this.autoFocus();
+    }
+  }
+  autoFocus() {
+    if (isPlatformBrowser(this.platformId) && this.autofocus) {
+      setTimeout(() => {
+        const focusableElements = DomHandler.getFocusableElements(this.host?.nativeElement);
+        if (focusableElements.length === 0) {
+          this.host.nativeElement.focus();
+        }
+        if (focusableElements.length > 0) {
+          focusableElements[0].focus();
+        }
+        this.focused = true;
+      });
+    }
+  }
   static ɵfac = /* @__PURE__ */ (() => {
-    let ɵBadgeStyle_BaseFactory;
-    return function BadgeStyle_Factory(__ngFactoryType__) {
-      return (ɵBadgeStyle_BaseFactory || (ɵBadgeStyle_BaseFactory = ɵɵgetInheritedFactory(_BadgeStyle)))(__ngFactoryType__ || _BadgeStyle);
+    let ɵAutoFocus_BaseFactory;
+    return function AutoFocus_Factory(__ngFactoryType__) {
+      return (ɵAutoFocus_BaseFactory || (ɵAutoFocus_BaseFactory = ɵɵgetInheritedFactory(_AutoFocus)))(__ngFactoryType__ || _AutoFocus);
     };
   })();
-  static ɵprov = ɵɵdefineInjectable({
-    token: _BadgeStyle,
-    factory: _BadgeStyle.ɵfac
-  });
-};
-(() => {
-  (typeof ngDevMode === "undefined" || ngDevMode) && setClassMetadata(BadgeStyle, [{
-    type: Injectable
-  }], null, null);
-})();
-var BadgeClasses;
-(function(BadgeClasses2) {
-  BadgeClasses2["root"] = "p-badge";
-})(BadgeClasses || (BadgeClasses = {}));
-var BadgeDirective = class _BadgeDirective extends BaseComponent {
-  /**
-   * When specified, disables the component.
-   * @group Props
-   */
-  disabled;
-  /**
-   * Size of the badge, valid options are "large" and "xlarge".
-   * @group Props
-   */
-  badgeSize;
-  /**
-   * Size of the badge, valid options are "large" and "xlarge".
-   * @group Props
-   * @deprecated use badgeSize instead.
-   */
-  set size(value) {
-    this._size = value;
-    console.log("size property is deprecated and will removed in v18, use badgeSize instead.");
-  }
-  get size() {
-    return this._size;
-  }
-  _size;
-  /**
-   * Severity type of the badge.
-   * @group Props
-   */
-  severity;
-  /**
-   * Value to display inside the badge.
-   * @group Props
-   */
-  value;
-  /**
-   * Inline style of the element.
-   * @group Props
-   */
-  badgeStyle;
-  /**
-   * Class of the element.
-   * @group Props
-   */
-  badgeStyleClass;
-  id;
-  badgeEl;
-  _componentStyle = inject(BadgeStyle);
-  get activeElement() {
-    return this.el.nativeElement.nodeName.indexOf("-") != -1 ? this.el.nativeElement.firstChild : this.el.nativeElement;
-  }
-  get canUpdateBadge() {
-    return this.id && !this.disabled;
-  }
-  constructor() {
-    super();
-  }
-  ngOnChanges({
-    value,
-    size,
-    severity,
-    disabled,
-    badgeStyle,
-    badgeStyleClass
-  }) {
-    super.ngOnChanges({
-      value,
-      size,
-      severity,
-      disabled
-    });
-    if (disabled) {
-      this.toggleDisableState();
-    }
-    if (!this.canUpdateBadge) {
-      return;
-    }
-    if (severity) {
-      this.setSeverity(severity.previousValue);
-    }
-    if (size) {
-      this.setSizeClasses();
-    }
-    if (value) {
-      this.setValue();
-    }
-    if (badgeStyle || badgeStyleClass) {
-      this.applyStyles();
-    }
-  }
-  ngAfterViewInit() {
-    super.ngAfterViewInit();
-    this.id = s2("pn_id_") + "_badge";
-    this.renderBadgeContent();
-  }
-  setValue(element) {
-    const badge = element ?? this.document.getElementById(this.id);
-    if (!badge) {
-      return;
-    }
-    if (this.value != null) {
-      if (R(badge, "p-badge-dot")) {
-        O(badge, "p-badge-dot");
-      }
-      if (this.value && String(this.value).length === 1) {
-        W(badge, "p-badge-circle");
-      } else {
-        O(badge, "p-badge-circle");
-      }
-    } else {
-      if (!R(badge, "p-badge-dot")) {
-        W(badge, "p-badge-dot");
-      }
-      O(badge, "p-badge-circle");
-    }
-    badge.innerHTML = "";
-    const badgeValue = this.value != null ? String(this.value) : "";
-    this.renderer.appendChild(badge, this.document.createTextNode(badgeValue));
-  }
-  setSizeClasses(element) {
-    const badge = element ?? this.document.getElementById(this.id);
-    if (!badge) {
-      return;
-    }
-    if (this.badgeSize) {
-      if (this.badgeSize === "large") {
-        W(badge, "p-badge-lg");
-        O(badge, "p-badge-xl");
-      }
-      if (this.badgeSize === "xlarge") {
-        W(badge, "p-badge-xl");
-        O(badge, "p-badge-lg");
-      }
-    } else if (this.size && !this.badgeSize) {
-      if (this.size === "large") {
-        W(badge, "p-badge-lg");
-        O(badge, "p-badge-xl");
-      }
-      if (this.size === "xlarge") {
-        W(badge, "p-badge-xl");
-        O(badge, "p-badge-lg");
-      }
-    } else {
-      O(badge, "p-badge-lg");
-      O(badge, "p-badge-xl");
-    }
-  }
-  renderBadgeContent() {
-    if (this.disabled) {
-      return null;
-    }
-    const el = this.activeElement;
-    const badge = this.document.createElement("span");
-    badge.id = this.id;
-    badge.className = "p-badge p-component";
-    this.setSeverity(null, badge);
-    this.setSizeClasses(badge);
-    this.setValue(badge);
-    W(el, "p-overlay-badge");
-    this.renderer.appendChild(el, badge);
-    this.badgeEl = badge;
-    this.applyStyles();
-  }
-  applyStyles() {
-    if (this.badgeEl && this.badgeStyle && typeof this.badgeStyle === "object") {
-      for (const [key, value] of Object.entries(this.badgeStyle)) {
-        this.renderer.setStyle(this.badgeEl, key, value);
-      }
-    }
-    if (this.badgeEl && this.badgeStyleClass) {
-      this.badgeEl.classList.add(...this.badgeStyleClass.split(" "));
-    }
-  }
-  setSeverity(oldSeverity, element) {
-    const badge = element ?? this.document.getElementById(this.id);
-    if (!badge) {
-      return;
-    }
-    if (this.severity) {
-      W(badge, `p-badge-${this.severity}`);
-    }
-    if (oldSeverity) {
-      O(badge, `p-badge-${oldSeverity}`);
-    }
-  }
-  toggleDisableState() {
-    if (!this.id) {
-      return;
-    }
-    if (this.disabled) {
-      const badge = this.activeElement?.querySelector(`#${this.id}`);
-      if (badge) {
-        this.renderer.removeChild(this.activeElement, badge);
-      }
-    } else {
-      this.renderBadgeContent();
-    }
-  }
-  static ɵfac = function BadgeDirective_Factory(__ngFactoryType__) {
-    return new (__ngFactoryType__ || _BadgeDirective)();
-  };
   static ɵdir = ɵɵdefineDirective({
-    type: _BadgeDirective,
-    selectors: [["", "pBadge", ""]],
+    type: _AutoFocus,
+    selectors: [["", "pAutoFocus", ""]],
     inputs: {
-      disabled: [0, "badgeDisabled", "disabled"],
-      badgeSize: "badgeSize",
-      size: "size",
-      severity: "severity",
-      value: "value",
-      badgeStyle: "badgeStyle",
-      badgeStyleClass: "badgeStyleClass"
+      autofocus: [0, "pAutoFocus", "autofocus"]
     },
-    features: [ɵɵProvidersFeature([BadgeStyle]), ɵɵInheritDefinitionFeature, ɵɵNgOnChangesFeature]
+    features: [ɵɵInheritDefinitionFeature]
   });
 };
 (() => {
-  (typeof ngDevMode === "undefined" || ngDevMode) && setClassMetadata(BadgeDirective, [{
+  (typeof ngDevMode === "undefined" || ngDevMode) && setClassMetadata(AutoFocus, [{
     type: Directive,
     args: [{
-      selector: "[pBadge]",
-      providers: [BadgeStyle],
+      selector: "[pAutoFocus]",
       standalone: true
     }]
-  }], () => [], {
-    disabled: [{
+  }], null, {
+    autofocus: [{
       type: Input,
-      args: ["badgeDisabled"]
-    }],
-    badgeSize: [{
-      type: Input
-    }],
-    size: [{
-      type: Input
-    }],
-    severity: [{
-      type: Input
-    }],
-    value: [{
-      type: Input
-    }],
-    badgeStyle: [{
-      type: Input
-    }],
-    badgeStyleClass: [{
-      type: Input
+      args: ["pAutoFocus"]
     }]
   });
 })();
-var Badge = class _Badge extends BaseComponent {
-  /**
-   * Class of the element.
-   * @deprecated since v20.0.0, use `class` instead.
-   * @group Props
-   */
-  styleClass = input(...ngDevMode ? [void 0, {
-    debugName: "styleClass"
-  }] : []);
-  /**
-   * Size of the badge, valid options are "large" and "xlarge".
-   * @group Props
-   */
-  badgeSize = input(...ngDevMode ? [void 0, {
-    debugName: "badgeSize"
-  }] : []);
-  /**
-   * Size of the badge, valid options are "large" and "xlarge".
-   * @group Props
-   */
-  size = input(...ngDevMode ? [void 0, {
-    debugName: "size"
-  }] : []);
-  /**
-   * Severity type of the badge.
-   * @group Props
-   */
-  severity = input(...ngDevMode ? [void 0, {
-    debugName: "severity"
-  }] : []);
-  /**
-   * Value to display inside the badge.
-   * @group Props
-   */
-  value = input(...ngDevMode ? [void 0, {
-    debugName: "value"
-  }] : []);
-  /**
-   * When specified, disables the component.
-   * @group Props
-   */
-  badgeDisabled = input(false, ...ngDevMode ? [{
-    debugName: "badgeDisabled",
-    transform: booleanAttribute
-  }] : [{
-    transform: booleanAttribute
-  }]);
-  _componentStyle = inject(BadgeStyle);
-  static ɵfac = /* @__PURE__ */ (() => {
-    let ɵBadge_BaseFactory;
-    return function Badge_Factory(__ngFactoryType__) {
-      return (ɵBadge_BaseFactory || (ɵBadge_BaseFactory = ɵɵgetInheritedFactory(_Badge)))(__ngFactoryType__ || _Badge);
-    };
-  })();
-  static ɵcmp = ɵɵdefineComponent({
-    type: _Badge,
-    selectors: [["p-badge"]],
-    hostVars: 4,
-    hostBindings: function Badge_HostBindings(rf, ctx) {
-      if (rf & 2) {
-        ɵɵclassMap(ctx.cn(ctx.cx("root"), ctx.styleClass()));
-        ɵɵstyleProp("display", ctx.badgeDisabled() ? "none" : null);
-      }
-    },
-    inputs: {
-      styleClass: [1, "styleClass"],
-      badgeSize: [1, "badgeSize"],
-      size: [1, "size"],
-      severity: [1, "severity"],
-      value: [1, "value"],
-      badgeDisabled: [1, "badgeDisabled"]
-    },
-    features: [ɵɵProvidersFeature([BadgeStyle]), ɵɵInheritDefinitionFeature],
-    decls: 1,
-    vars: 1,
-    template: function Badge_Template(rf, ctx) {
-      if (rf & 1) {
-        ɵɵtext(0);
-      }
-      if (rf & 2) {
-        ɵɵtextInterpolate(ctx.value());
-      }
-    },
-    dependencies: [CommonModule, SharedModule],
-    encapsulation: 2,
-    changeDetection: 0
-  });
-};
-(() => {
-  (typeof ngDevMode === "undefined" || ngDevMode) && setClassMetadata(Badge, [{
-    type: Component,
-    args: [{
-      selector: "p-badge",
-      template: `{{ value() }}`,
-      standalone: true,
-      imports: [CommonModule, SharedModule],
-      changeDetection: ChangeDetectionStrategy.OnPush,
-      encapsulation: ViewEncapsulation.None,
-      providers: [BadgeStyle],
-      host: {
-        "[class]": "cn(cx('root'), styleClass())",
-        "[style.display]": 'badgeDisabled() ? "none" : null'
-      }
-    }]
-  }], null, null);
-})();
-var BadgeModule = class _BadgeModule {
-  static ɵfac = function BadgeModule_Factory(__ngFactoryType__) {
-    return new (__ngFactoryType__ || _BadgeModule)();
+var AutoFocusModule = class _AutoFocusModule {
+  static ɵfac = function AutoFocusModule_Factory(__ngFactoryType__) {
+    return new (__ngFactoryType__ || _AutoFocusModule)();
   };
   static ɵmod = ɵɵdefineNgModule({
-    type: _BadgeModule,
-    imports: [Badge, BadgeDirective, SharedModule],
-    exports: [Badge, BadgeDirective, SharedModule]
+    type: _AutoFocusModule,
+    imports: [AutoFocus],
+    exports: [AutoFocus]
   });
-  static ɵinj = ɵɵdefineInjector({
-    imports: [Badge, SharedModule, SharedModule]
-  });
+  static ɵinj = ɵɵdefineInjector({});
 };
 (() => {
-  (typeof ngDevMode === "undefined" || ngDevMode) && setClassMetadata(BadgeModule, [{
+  (typeof ngDevMode === "undefined" || ngDevMode) && setClassMetadata(AutoFocusModule, [{
     type: NgModule,
     args: [{
-      imports: [Badge, BadgeDirective, SharedModule],
-      exports: [Badge, BadgeDirective, SharedModule]
+      imports: [AutoFocus],
+      exports: [AutoFocus]
     }]
   }], null, null);
 })();
 
 // node_modules/@primeuix/styles/dist/ripple/index.mjs
-var style2 = "\n    .p-ink {\n        display: block;\n        position: absolute;\n        background: dt('ripple.background');\n        border-radius: 100%;\n        transform: scale(0);\n        pointer-events: none;\n    }\n\n    .p-ink-active {\n        animation: ripple 0.4s linear;\n    }\n\n    @keyframes ripple {\n        100% {\n            opacity: 0;\n            transform: scale(2.5);\n        }\n    }\n";
+var style = "\n    .p-ink {\n        display: block;\n        position: absolute;\n        background: dt('ripple.background');\n        border-radius: 100%;\n        transform: scale(0);\n        pointer-events: none;\n    }\n\n    .p-ink-active {\n        animation: ripple 0.4s linear;\n    }\n\n    @keyframes ripple {\n        100% {\n            opacity: 0;\n            transform: scale(2.5);\n        }\n    }\n";
 
 // node_modules/primeng/fesm2022/primeng-ripple.mjs
-var theme2 = (
+var theme = (
   /*css*/
   `
-    ${style2}
+    ${style}
     /* For PrimeNG */
     .p-ripple {
         overflow: hidden;
@@ -1240,13 +874,13 @@ var theme2 = (
     }
 `
 );
-var classes2 = {
+var classes = {
   root: "p-ink"
 };
 var RippleStyle = class _RippleStyle extends BaseStyle {
   name = "ripple";
-  theme = theme2;
-  classes = classes2;
+  theme = theme;
+  classes = classes;
   static ɵfac = /* @__PURE__ */ (() => {
     let ɵRippleStyle_BaseFactory;
     return function RippleStyle_Factory(__ngFactoryType__) {
@@ -1411,8 +1045,7 @@ export {
   blockBodyScroll,
   unblockBodyScroll,
   ConnectedOverlayScrollHandler,
-  Badge,
-  BadgeModule,
+  AutoFocus,
   Ripple
 };
-//# sourceMappingURL=chunk-CDYHAYYD.js.map
+//# sourceMappingURL=chunk-ISSEBOBL.js.map

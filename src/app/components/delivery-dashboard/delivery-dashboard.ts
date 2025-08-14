@@ -2,10 +2,16 @@ import { Component, OnInit, AfterViewInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
 import { AuthService } from '../../services/auth.service';
+import { DeliveryService, Package } from '../../services/delivery.service';
 import { ButtonModule } from 'primeng/button';
 import { CardModule } from 'primeng/card';
 import { TableModule } from 'primeng/table';
 import { TagModule } from 'primeng/tag';
+import { DialogModule } from 'primeng/dialog';
+import { SelectModule } from 'primeng/select';
+import { MessageService } from 'primeng/api';
+import { ToastModule } from 'primeng/toast';
+import { io, Socket } from 'socket.io-client';
 
 // Declarar Leaflet para TypeScript cuando se usa CDN
 declare var L: any;
@@ -13,89 +19,304 @@ declare var L: any;
 @Component({
   selector: 'app-delivery-dashboard',
   standalone: true,
-  imports: [CommonModule, ButtonModule, CardModule, TableModule, TagModule],
+  imports: [CommonModule, ButtonModule, CardModule, TableModule, TagModule, DialogModule, SelectModule, ToastModule],
   templateUrl: './delivery-dashboard.html',
-  styleUrl: './delivery-dashboard.css'
+  styleUrl: './delivery-dashboard.css',
+  providers: [MessageService, DeliveryService]
 })
 export class DeliveryDashboardComponent implements OnInit, AfterViewInit {
   map: any;
-  packages: any[] = [];
+  packages: Package[] = [];
+  showStatusModal = false;
+  selectedPackage: Package | null = null;
+  private socket: Socket;
+  private isSocketConnected = false;
+  private currentLocationMarker: any; // Nuevo: para rastrear el marcador de ubicación actual
+  statusOptions = [
+    { label: 'En Tránsito', value: 'En transito' },
+    { label: 'Entregado', value: 'Entregado' },
+    { label: 'Regresado', value: 'Regresado' }
+  ];
   
   constructor(
     private authService: AuthService,
-    private router: Router
-  ) {}
+    private router: Router,
+    private deliveryService: DeliveryService,
+    private messageService: MessageService
+  ) {
+    this.socket = io('http://localhost:3000', {
+      transports: ['websocket', 'polling'],
+      timeout: 20000,
+      forceNew: true
+    });
+    
+    // Agregar eventos de conexión para debugging
+    this.socket.on('connect', () => {
+      console.log('🔌 Conectado al servidor Socket.IO:', this.socket.id);
+      this.isSocketConnected = true;
+      
+      // Unirse a la sala de delivery
+      const currentUser = this.authService.getCurrentUser();
+      if (currentUser) {
+        this.socket.emit('join-room', { userId: currentUser.id, userType: 'delivery' });
+        console.log('🏠 Unido a la sala de delivery');
+      }
+    });
+    
+    this.socket.on('disconnect', () => {
+      console.log('❌ Desconectado del servidor Socket.IO');
+      this.isSocketConnected = false;
+    });
+    
+    this.socket.on('connect_error', (error) => {
+      console.error('❌ Error de conexión Socket.IO:', error);
+      this.isSocketConnected = false;
+    });
+  }
 
   ngOnInit() {
-    // Datos de ejemplo con más información
-    this.packages = [
-      { 
-        id: 'PKG001', 
-        customer: 'María González',
-        address: 'Calle 123 #45-67, Bogotá', 
-        status: 'pending', 
-        priority: 'high',
-        assignedTime: '08:30',
-        estimatedTime: '10:00',
-        phone: '+57 300 123 4567'
-      },
-      { 
-        id: 'PKG002', 
-        customer: 'Carlos Rodríguez',
-        address: 'Carrera 45 #12-34, Medellín', 
-        status: 'in_transit', 
-        priority: 'medium',
-        assignedTime: '09:15',
-        estimatedTime: '11:30',
-        phone: '+57 301 234 5678'
-      },
-      { 
-        id: 'PKG003', 
-        customer: 'Ana Martínez',
-        address: 'Avenida 68 #23-45, Cali', 
-        status: 'delivered', 
-        priority: 'low',
-        assignedTime: '07:45',
-        estimatedTime: '09:30',
-        phone: '+57 302 345 6789'
-      },
-      { 
-        id: 'PKG004', 
-        customer: 'Luis Pérez',
-        address: 'Calle 85 #34-56, Barranquilla', 
-        status: 'pending', 
-        priority: 'high',
-        assignedTime: '10:00',
-        estimatedTime: '12:00',
-        phone: '+57 303 456 7890'
-      },
-      { 
-        id: 'PKG005', 
-        customer: 'Sofia López',
-        address: 'Carrera 15 #67-89, Cartagena', 
-        status: 'in_transit', 
-        priority: 'medium',
-        assignedTime: '08:00',
-        estimatedTime: '10:30',
-        phone: '+57 304 567 8901'
-      }
-    ];
+    this.loadMyPackages();
+    
+    // Esperar un poco antes de iniciar el tracking para que el socket se conecte
+    setTimeout(() => {
+      this.startLocationTracking();
+    }, 2000);
   }
 
   ngAfterViewInit() {
     this.initMap();
   }
 
+  loadMyPackages() {
+    const currentUser = this.authService.getCurrentUser();
+    if (currentUser) {
+      this.deliveryService.getDeliveryPackages(currentUser.id).subscribe({
+        next: (packages) => {
+          this.packages = packages;
+        },
+        error: (error) => {
+          console.error('Error loading packages:', error);
+          this.messageService.add({
+            severity: 'error',
+            summary: 'Error',
+            detail: 'No se pudieron cargar los paquetes asignados'
+          });
+        }
+      });
+    }
+  }
+
+  editPackageStatus(packageItem: Package) {
+    this.selectedPackage = packageItem;
+    this.showStatusModal = true;
+  }
+
+  updateStatus(newStatus: string) {
+    if (this.selectedPackage) {
+      this.deliveryService.updatePackageStatus(this.selectedPackage.id, newStatus).subscribe({
+        next: (updatedPackage) => {
+          this.messageService.add({
+            severity: 'success',
+            summary: 'Éxito',
+            detail: 'Estado actualizado correctamente'
+          });
+          this.loadMyPackages();
+          this.closeStatusModal();
+        },
+        error: (error) => {
+          console.error('Error updating status:', error);
+          this.messageService.add({
+            severity: 'error',
+            summary: 'Error',
+            detail: 'No se pudo actualizar el estado'
+          });
+        }
+      });
+    }
+  }
+  
+
+
+  closeStatusModal() {
+    this.showStatusModal = false;
+    this.selectedPackage = null;
+  }
+
+  private startLocationTracking() {
+    console.log('🎯 Iniciando seguimiento de ubicación...');
+    
+    if (navigator.geolocation) {
+      console.log('✅ Geolocalización disponible');
+      
+      // Hacer una primera solicitud inmediata
+      this.requestLocation();
+      
+      // Luego cada 10 segundos
+      setInterval(() => {
+        this.requestLocation();
+      }, 10000);
+    } else {
+      console.error('❌ Geolocalización no disponible en este navegador');
+      this.messageService.add({
+        severity: 'warn',
+        summary: 'Geolocalización no disponible',
+        detail: 'Tu navegador no soporta geolocalización'
+      });
+    }
+  }
+
+  private requestLocation() {
+    console.log('📍 Solicitando ubicación...');
+    
+    navigator.geolocation.getCurrentPosition(
+      (position) => {
+        console.log('✅ Ubicación obtenida:', {
+          lat: position.coords.latitude,
+          lng: position.coords.longitude,
+          accuracy: position.coords.accuracy
+        });
+        
+        const location = {
+          latitude: position.coords.latitude,
+          longitude: position.coords.longitude,
+          timestamp: new Date().toISOString()
+        };
+        this.sendLocationUpdate(location);
+      },
+      (error) => {
+        console.error('❌ Error obteniendo ubicación:', {
+          code: error.code,
+          message: error.message
+        });
+        
+        let errorMessage = 'Error desconocido';
+        switch(error.code) {
+          case error.PERMISSION_DENIED:
+            errorMessage = 'Permisos de ubicación denegados';
+            break;
+          case error.POSITION_UNAVAILABLE:
+            errorMessage = 'Ubicación no disponible';
+            break;
+          case error.TIMEOUT:
+            errorMessage = 'Tiempo de espera agotado';
+            break;
+        }
+        
+        this.messageService.add({
+          severity: 'error',
+          summary: 'Error de ubicación',
+          detail: errorMessage
+        });
+      },
+      {
+        enableHighAccuracy: true,
+        timeout: 10000,
+        maximumAge: 60000
+      }
+    );
+  }
+
+  private sendLocationUpdate(location: { latitude: number; longitude: number; timestamp: string }) {
+    const currentUser = this.authService.getCurrentUser();
+    
+    console.log('👤 Usuario actual:', currentUser?.username);
+    console.log('🔌 Socket conectado:', this.socket?.connected);
+    console.log('🔌 Estado interno conectado:', this.isSocketConnected);
+    
+    if (currentUser && this.socket && this.socket.connected && this.isSocketConnected) {
+      const locationData = {
+        userId: currentUser.id,
+        username: currentUser.username,
+        latitude: location.latitude,
+        longitude: location.longitude,
+        timestamp: location.timestamp
+      };
+      
+      console.log('📤 Enviando ubicación:', locationData);
+      this.socket.emit('location-update', locationData);
+      
+      // Actualizar el marcador en el mapa con la ubicación actual
+      this.updateCurrentLocationOnMap(location.latitude, location.longitude);
+      
+      // Mostrar notificación de éxito ocasionalmente
+      if (Math.random() < 0.1) { // 10% de las veces
+        this.messageService.add({
+          severity: 'info',
+          summary: 'Ubicación enviada',
+          detail: `Lat: ${location.latitude.toFixed(6)}, Lng: ${location.longitude.toFixed(6)}`,
+          life: 2000
+        });
+      }
+    } else {
+      console.error('❌ No se puede enviar ubicación:', {
+        hasUser: !!currentUser,
+        hasSocket: !!this.socket,
+        socketConnected: this.socket?.connected,
+        internalConnected: this.isSocketConnected
+      });
+      
+      // Intentar reconectar si no está conectado
+      if (!this.socket.connected) {
+        console.log('🔄 Intentando reconectar...');
+        this.socket.connect();
+      }
+    }
+  }
+  
+  private updateCurrentLocationOnMap(latitude: number, longitude: number) {
+    // Remover marcador anterior si existe
+    if (this.currentLocationMarker) {
+      this.map.removeLayer(this.currentLocationMarker);
+    }
+    
+    // Crear icono personalizado para la ubicación actual
+    const currentLocationIcon = L.divIcon({
+      html: `
+        <div class="current-location-marker">
+          <i class="pi pi-user" style="color: #4CAF50; font-size: 18px;"></i>
+          <div class="location-pulse"></div>
+        </div>
+      `,
+      className: 'custom-current-location-icon',
+      iconSize: [30, 30],
+      iconAnchor: [15, 15]
+    });
+    
+    // Crear nuevo marcador para la ubicación actual
+    this.currentLocationMarker = L.marker([latitude, longitude], { icon: currentLocationIcon })
+      .addTo(this.map)
+      .bindPopup(`
+        <div class="current-location-popup">
+          <h4>📍 Mi Ubicación Actual</h4>
+          <p><strong>Coordenadas:</strong><br>
+          Lat: ${latitude.toFixed(6)}<br>
+          Lng: ${longitude.toFixed(6)}</p>
+          <p><strong>Última actualización:</strong><br>
+          ${new Date().toLocaleTimeString()}</p>
+        </div>
+      `);
+    
+    // Centrar el mapa en la ubicación actual
+    this.map.setView([latitude, longitude], 15);
+  }
+
   initMap() {
     // Inicializar el mapa centrado en Colombia
     this.map = L.map('deliveryMap').setView([4.7110, -74.0721], 6);
-
-    // Agregar capa de mapa
-    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-      attribution: '© OpenStreetMap contributors'
+    
+    // Cambiar solo el proveedor de tiles, Leaflet sigue igual
+    L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
+      attribution: '© OpenStreetMap contributors © CARTO',
+      subdomains: 'abcd',
+      maxZoom: 19,
+      timeout: 15000
     }).addTo(this.map);
 
-    // Agregar marcadores para las entregas
+    // Remover los marcadores estáticos - el mapa solo mostrará la ubicación actual del delivery
+    console.log('🗺️ Mapa del delivery inicializado - Esperando ubicación actual...');
+  }
+
+  agregarMarcadores() {
     const deliveryLocations = [
       { lat: 4.7110, lng: -74.0721, city: 'Bogotá', packages: 2 },
       { lat: 6.2442, lng: -75.5812, city: 'Medellín', packages: 1 },
@@ -123,30 +344,36 @@ export class DeliveryDashboardComponent implements OnInit, AfterViewInit {
 
   getStatusSeverity(status: string) {
     switch (status) {
-      case 'pending': return 'warning';
-      case 'in_transit': return 'info';
-      case 'delivered': return 'success';
-      case 'failed': return 'danger';
+      case 'En transito': return 'info';
+      case 'Entregado': return 'success';
+      case 'Regresado': return 'danger';
       default: return 'secondary';
     }
   }
 
   getStatusLabel(status: string) {
     switch (status) {
-      case 'pending': return 'Pendiente';
-      case 'in_transit': return 'En Tránsito';
-      case 'delivered': return 'Entregado';
-      case 'failed': return 'Fallido';
+      case 'En transito': return 'En Tránsito';
+      case 'Entregado': return 'Entregado';
+      case 'Regresado': return 'Regresado';
       default: return status;
     }
   }
 
   getStatusIcon(status: string) {
     switch (status) {
-      case 'pending': return 'pi-clock';
-      case 'in_transit': return 'pi-truck';
-      case 'delivered': return 'pi-check-circle';
-      case 'failed': return 'pi-times-circle';
+      case 'En transito': return 'pi-truck';
+      case 'Entregado': return 'pi-check-circle';
+      case 'Regresado': return 'pi-times-circle';
+      default: return 'pi-circle';
+    }
+  }
+
+  getPriorityIcon(priority: string) {
+    switch (priority) {
+      case 'high': return 'pi-exclamation-triangle';
+      case 'medium': return 'pi-minus';
+      case 'low': return 'pi-arrow-down';
       default: return 'pi-circle';
     }
   }
@@ -160,22 +387,10 @@ export class DeliveryDashboardComponent implements OnInit, AfterViewInit {
     }
   }
 
-  getPriorityIcon(priority: string) {
-    switch (priority) {
-      case 'high': return 'pi-exclamation-triangle';
-      case 'medium': return 'pi-minus';
-      case 'low': return 'pi-arrow-down';
-      default: return 'pi-circle';
-    }
-  }
-
-  editPackageStatus(packageItem: any) {
-    // Lógica para editar el estatus del paquete
-    console.log('Editar estatus del paquete:', packageItem);
-    // Aquí puedes agregar la lógica para abrir un modal de edición de estatus
-  }
-
   logout() {
+    if (this.socket) {
+      this.socket.disconnect();
+    }
     this.authService.logout();
     this.router.navigate(['/login']);
   }

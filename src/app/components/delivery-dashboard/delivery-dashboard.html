@@ -68,8 +68,6 @@
               <th>Dirección</th>
               <th>Estado</th>
               <th>Prioridad</th>
-              <th>Hora Asignada</th>
-              <th>Hora Estimada</th>
               <th>Teléfono</th>
               <th>Acciones</th>
             </tr>
@@ -85,7 +83,7 @@
                 </div>
               </td>
               <td>
-                <span class="address">{{ package.address }}</span>
+                <span class="address">{{ package.delivery_address }}</span>
               </td>
               <td>
                 <span class="status-badge" [ngClass]="'status-' + package.status">
@@ -98,12 +96,6 @@
                   <i class="pi" [ngClass]="getPriorityIcon(package.priority)"></i>
                   {{ getPriorityLabel(package.priority) }}
                 </span>
-              </td>
-              <td>
-                <span class="time">{{ package.assignedTime }}</span>
-              </td>
-              <td>
-                <span class="time estimated">{{ package.estimatedTime }}</span>
               </td>
               <td>
                 <span class="phone">{{ package.phone }}</span>
@@ -124,5 +116,59 @@
       </p-card>
     </div>
   </div>
+  
+  <!-- Modal para editar estado del paquete -->
+  <p-dialog 
+    header="Actualizar Estado del Paquete" 
+    [(visible)]="showStatusModal" 
+    [modal]="true" 
+    [draggable]="false" 
+    [resizable]="false"
+    [style]="{width: '450px'}"
+    (onHide)="closeStatusModal()">
+    <div class="status-modal-content" *ngIf="selectedPackage">
+      <div class="package-info">
+        <div class="info-row">
+          <span class="info-label">ID Paquete:</span>
+          <span class="package-id">{{ selectedPackage.id }}</span>
+        </div>
+        <div class="info-row">
+          <span class="info-label">Dirección:</span>
+          <span class="address">{{ selectedPackage.delivery_address }}</span>
+        </div>
+        <div class="info-row">
+          <span class="info-label">Estado Actual:</span>
+          <span class="status-badge" [ngClass]="'status-' + selectedPackage.status">
+            <i class="pi" [ngClass]="getStatusIcon(selectedPackage.status)"></i>
+            {{ getStatusLabel(selectedPackage.status) }}
+          </span>
+        </div>
+      </div>
+      
+      <div class="status-selection">
+        <h3>Seleccionar Nuevo Estado:</h3>
+        <div class="status-options">
+          <div *ngFor="let option of statusOptions" class="status-option">
+            <p-button 
+              [label]="option.label" 
+              [severity]="getStatusSeverity(option.value)" 
+              [outlined]="selectedPackage.status !== option.value"
+              [raised]="selectedPackage.status === option.value"
+              (onClick)="updateStatus(option.value)">
+            </p-button>
+          </div>
+          
+          <div class="status-option cancel-option">
+            <p-button 
+              icon="pi pi-times" 
+              label="Cancelar" 
+              severity="secondary" 
+              outlined
+              (click)="closeStatusModal()">
+            </p-button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </p-dialog>
 </div>
-<p>delivery-dashboard works!</p>

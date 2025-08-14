@@ -49,7 +49,7 @@
     <!-- Mapa arriba -->
     <div class="map-section">
       <p-card header="Mapa de Entregas" class="map-card">
-        <div id="map" class="delivery-map"></div>
+        <div id="adminMap" class="delivery-map"></div>
       </p-card>
     </div>
 
@@ -67,17 +67,15 @@
         </p-button>
       </div>
       <p-card class="packages-card">
-        <p-table [value]="packages" [tableStyle]="{'min-width': '70rem'}" [scrollable]="true" scrollHeight="500px">
+        <p-table [value]="packages" [tableStyle]="{'min-width': '50rem'}" [scrollable]="true" scrollHeight="500px">
           <ng-template pTemplate="header">
             <tr>
               <th>ID Paquete</th>
               <th>Delivery</th>
-              <th>Cliente</th>
+              <th>Estado Delivery</th>
               <th>Dirección</th>
               <th>Estado</th>
               <th>Prioridad</th>
-              <th>Hora Asignada</th>
-              <th>Entrega Estimada</th>
               <th>Teléfono</th>
             </tr>
           </ng-template>
@@ -87,17 +85,32 @@
                 <span class="package-id">{{ package.id }}</span>
               </td>
               <td>
-                <div class="delivery-info">
-                  <strong>{{ package.deliveryPerson }}</strong>
+                <div class="delivery-info" *ngIf="package.assigned_user; else noDelivery">
+                  <strong>{{ package.assigned_user.username }}</strong>
                   <br>
-                  <small class="delivery-id">{{ package.deliveryId }}</small>
+                  <small class="delivery-id">ID: {{ package.assigned_user.id }}</small>
                 </div>
+                <ng-template #noDelivery>
+                  <span class="no-assignment">Sin asignar</span>
+                </ng-template>
               </td>
               <td>
-                <strong>{{ package.customerName }}</strong>
+                <span class="delivery-status" *ngIf="package.assigned_user">
+                  <span class="status-badge" [ngClass]="{
+                    'status-working': package.assigned_user.status === 'working',
+                    'status-off': package.assigned_user.status === 'off'
+                  }">
+                    <i class="pi" [ngClass]="{
+                      'pi-check-circle': package.assigned_user.status === 'working',
+                      'pi-times-circle': package.assigned_user.status === 'off'
+                    }"></i>
+                    {{ package.assigned_user.status === 'working' ? 'Activo' : 'Inactivo' }}
+                  </span>
+                </span>
+                <span *ngIf="!package.assigned_user" class="no-status">-</span>
               </td>
               <td>
-                <span class="address">{{ package.address }}</span>
+                <span class="address">{{ package.delivery_address }}</span>
               </td>
               <td>
                 <span class="status-badge status-{{ package.status }}">
@@ -112,13 +125,7 @@
                 </span>
               </td>
               <td>
-                <span class="time">{{ package.assignedTime }}</span>
-              </td>
-              <td>
-                <span class="time estimated">{{ package.estimatedDelivery }}</span>
-              </td>
-              <td>
-                <span class="phone">{{ package.phone }}</span>
+                <span class="phone">{{ package.phone || 'N/A' }}</span>
               </td>
             </tr>
           </ng-template>
@@ -127,3 +134,117 @@
     </div>
   </div>
 </div>
+
+<!-- Modal para Nuevo Envío -->
+<!-- En la sección del modal, reemplaza el formulario con: -->
+<p-dialog header="Nuevo Envío" [(visible)]="showNewShipmentModal" [modal]="true" [style]="{width: '50vw', 'background-color': 'white'}" [closable]="true" [draggable]="false" [resizable]="false">
+  <form [formGroup]="newShipmentForm" (ngSubmit)="onSubmitNewShipment()">
+    <div class="field-group">
+      <label for="deliveryAddress" class="field-label">
+        <i class="pi pi-map-marker"></i>
+        Dirección de Entrega *
+      </label>
+      <input 
+        pInputText 
+        id="deliveryAddress"
+        formControlName="deliveryAddress"
+        placeholder="Ingresa la dirección completa de entrega"
+        class="custom-input" />
+      <small class="error-message" *ngIf="newShipmentForm.get('deliveryAddress')?.invalid && newShipmentForm.get('deliveryAddress')?.touched">
+        La dirección de entrega es requerida (mínimo 10 caracteres)
+      </small>
+    </div>
+
+    <div class="field-group">
+      <label for="phone" class="field-label">
+        <i class="pi pi-phone"></i>
+        Teléfono
+      </label>
+      <input 
+        pInputText 
+        id="phone"
+        formControlName="phone"
+        placeholder="Ingresa el número de teléfono"
+        class="custom-input" />
+    </div>
+
+    <div class="field-group">
+      <label for="priority" class="field-label">
+        <i class="pi pi-flag"></i>
+        Prioridad
+      </label>
+      <p-select 
+        id="priority"
+        formControlName="priority"
+        [options]="priorityOptions"
+        placeholder="Selecciona la prioridad"
+        optionLabel="label"
+        optionValue="value"
+        class="custom-dropdown">
+        <ng-template pTemplate="selectedItem" let-selectedOption>
+          <div class="priority-option" *ngIf="selectedOption">
+            <i class="pi {{ getPriorityIcon(selectedOption.value) }}"></i>
+            <span>{{ selectedOption.label }}</span>
+          </div>
+        </ng-template>
+        <ng-template pTemplate="item" let-option>
+          <div class="priority-option">
+            <i class="pi {{ getPriorityIcon(option.value) }}"></i>
+            <span>{{ option.label }}</span>
+          </div>
+        </ng-template>
+      </p-select>
+    </div>
+
+    <div class="field-group">
+      <label for="assignedTo" class="field-label">
+        <i class="pi pi-user"></i>
+        Selecciona un delivery
+      </label>
+      <p-select 
+        id="assignedTo"
+        formControlName="assignedTo"
+        [options]="deliveryUsers"
+        placeholder="Selecciona un delivery"
+        optionLabel="username"
+        optionValue="id"
+        class="custom-dropdown"
+        [showClear]="true">
+        <ng-template pTemplate="selectedItem" let-selectedOption>
+          <div class="delivery-option" *ngIf="selectedOption">
+            <i class="pi pi-user"></i>
+            <span>{{ selectedOption.username }}</span>
+          </div>
+        </ng-template>
+        <ng-template pTemplate="item" let-option>
+          <div class="delivery-option">
+            <i class="pi pi-user"></i>
+            <span>{{ option.username }}</span>
+            <span class="status-indicator" [ngClass]="option.status">
+              {{ option.status === 'working' ? 'Trabajando' : 'Libre' }}
+            </span>
+          </div>
+        </ng-template>
+      </p-select>
+    </div>
+
+    <div class="form-actions">
+      <button 
+        type="button" 
+        pButton 
+        label="Cancelar" 
+        class="p-button-secondary" 
+        (click)="closeNewShipmentModal()"
+        [disabled]="creatingShipment">
+      </button>
+      <button 
+        type="submit" 
+        pButton 
+        [label]="creatingShipment ? 'Creando...' : 'Crear Envío'" 
+        class="p-button-primary" 
+        [disabled]="newShipmentForm.invalid || creatingShipment"
+        [loading]="creatingShipment">
+      </button>
+    </div>
+  </form>
+</p-dialog>

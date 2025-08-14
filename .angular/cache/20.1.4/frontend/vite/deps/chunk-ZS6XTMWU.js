@@ -1,6 +1,6 @@
 import {
   CommonModule
-} from "./chunk-4XHXVNBQ.js";
+} from "./chunk-M7ANLDTA.js";
 import {
   Component,
   Directive,
@@ -17,7 +17,7 @@ import {
   ɵɵdirectiveInject,
   ɵɵprojection,
   ɵɵprojectionDef
-} from "./chunk-2AA5DO45.js";
+} from "./chunk-4U5U4IAX.js";
 import {
   Subject
 } from "./chunk-RTGP7ALM.js";
@@ -211,6 +211,12 @@ function A(t2, e = {}) {
         i2 ? t2.addEventListener(i2[1].toLowerCase(), r) : n === "p-bind" || n === "pBind" ? A(t2, r) : (r = n === "class" ? [...new Set(o("class", r))].join(" ").trim() : n === "style" ? o("style", r).join(";").trim() : r, (t2.$attrs = t2.$attrs || {}) && (t2.$attrs[n] = r), t2.setAttribute(n, r));
       }
     });
+  }
+}
+function U(t2, e = {}, ...o) {
+  if (t2) {
+    let n = document.createElement(t2);
+    return A(n, e), n.append(...o), n;
   }
 }
 function ht(t2, e) {
@@ -1406,6 +1412,7 @@ export {
   j,
   ut,
   A,
+  U,
   ht,
   Y,
   z,
@@ -1460,4 +1467,4 @@ export {
   TranslationKeys,
   TreeDragDropService
 };
-//# sourceMappingURL=chunk-D4IGDOBM.js.map
+//# sourceMappingURL=chunk-ZS6XTMWU.js.map
